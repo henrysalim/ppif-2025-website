@@ -39,17 +39,48 @@ export default function WebLayout() {
     const [introDone, setIntroDone] = useState(false);
     const [contentVisible, setContentVisible] = useState(false);
 
+    useEffect(() => {
+        const introSeen = localStorage.getItem("intro_seen");
+        if (introSeen === "true") {
+            setIntroDone(true);
+            setContentVisible(true);
+        }
+    }, []);
+
     const handleIntroFinish = () => {
+        localStorage.setItem("intro_seen", "true");
         setIntroDone(true);
         setTimeout(() => setContentVisible(true), 100);
     };
 
-    // Navigation
     const handleNavigate = (id) => {
         setCurrentSection(id);
         const section = document.getElementById(id);
         if (section) section.scrollIntoView({ behavior: "smooth" });
     };
+
+    useEffect(() => {
+        if (isMobile) return;
+
+        const handleKeyDown = (e) => {
+            if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+
+            let index = sectionList.findIndex((s) => s.id === currentSection);
+
+            if (e.key === "ArrowDown" || e.key === "PageDown") {
+                if (index < sectionList.length - 1) {
+                    setCurrentSection(sectionList[index + 1].id);
+                }
+            } else if (e.key === "ArrowUp" || e.key === "PageUp") {
+                if (index > 0) {
+                    setCurrentSection(sectionList[index - 1].id);
+                }
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [isMobile, currentSection]);
 
     // Desktop: intercept wheel
     useEffect(() => {
@@ -131,7 +162,7 @@ export default function WebLayout() {
                         transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
                         style={{ minHeight: "100vh" }}
                     >
-                        <header className="p-4 bg-transparent fixed w-full text-white z-40">
+                        <header className="p-4 bg-transparent fixed w-full text-white z-50">
                             <Navigation currentSection={currentSection} onNavigate={handleNavigate} isMobile={isMobile} />
                         </header>
                         <main
@@ -141,23 +172,42 @@ export default function WebLayout() {
                         >
                             {isMobile
                                 ? sectionList.map(({ id, component: SectionComp }) => (
-                                    <SectionWrapper key={id} id={id} active={true}>
-                                        <SectionComp />
-                                    </SectionWrapper>
+                                        <div
+                                            key={id}
+                                            id={id}
+                                            className="snap-start min-h-screen w-full flex-shrink-0"
+                                        >
+                                            <SectionWrapper id={id} active={true}>
+                                                <SectionComp />
+                                            </SectionWrapper>
+                                        </div>
                                 ))
-                                : (() => {
-                                    const { id, component: SectionComp } = sectionList.find(s => s.id === currentSection);
-                                    return (
-                                        <SectionWrapper id={id} active={true}>
-                                            <SectionComp />
-                                        </SectionWrapper>
-                                    );
-                                })()
+                                : (
+                                    <AnimatePresence mode="wait">
+                                        {(() => {
+                                            const { id, component: SectionComp } = sectionList.find(s => s.id === currentSection);
+                                            return (
+                                                <motion.div
+                                                    key={id}
+                                                    initial={{ opacity: 0, scale: 1.2 }}
+                                                    animate={{ opacity: 1, scale: 1 }}
+                                                    exit={{ opacity: 0, scale: 1.5 }}
+                                                    transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+                                                    style={{ height: "100vh" }}
+                                                >
+                                                    <SectionWrapper id={id} active={true}>
+                                                        <SectionComp />
+                                                    </SectionWrapper>
+                                                </motion.div>
+                                            );
+                                        })()}
+                                    </AnimatePresence>
+                                )
                             }
                         </main>
                     </motion.div>
                 )}
             </AnimatePresence>
         </>
-            );
+    );
 }

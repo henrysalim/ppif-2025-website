@@ -83,7 +83,7 @@ export default function IntroScreen({ onFinish }) {
                 {stage === "transition" && (
                     <motion.div
                         key="slide"
-                        className="absolute inset-0 flex"
+                        className="absolute inset-0 w-full h-full bg-black"
                         initial="hidden"
                         animate={
                             slideStage === "in"
@@ -96,9 +96,24 @@ export default function IntroScreen({ onFinish }) {
                         variants={slideVariants}
                         onAnimationComplete={handleSlideAnimationComplete}
                     >
-                        <div className="w-1/3 h-full bg-[#1c1c1c]" />
-                        <div className="w-1/3 h-full bg-[#F06D39]" />
-                        <div className="w-1/3 h-full bg-[#9a4220]" />
+                        <div
+                            className="absolute bottom-8 right-8 z-10 h-[260px] w-[360px] bg-white"
+                            style={{
+                                WebkitMaskImage: `url('/Images/loading.webp')`,
+                                maskImage: `url('/Images/loading.webp')`,
+                                WebkitMaskSize: 'contain',
+                                maskSize: 'contain',
+                                WebkitMaskRepeat: 'no-repeat',
+                                maskRepeat: 'no-repeat',
+                                WebkitMaskPosition: 'center',
+                                maskPosition: 'center',
+                                filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.35))',
+                            }}
+                        />
+                        {/* <h1 className="absolute bottom-8 right-8 z-10 animate-bounce text-white text-3xl" style={{ fontFamily: 'HongMengTi' }}>
+                            Now Loading
+                        </h1> */}
+
                     </motion.div>
                 )}
             </AnimatePresence>

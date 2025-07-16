@@ -1,28 +1,35 @@
-import React from 'react'
-import Image from "next/image";
-import Marquee from "react-fast-marquee";
+'use client';
+import React, { useState, useEffect } from 'react';
+import Marquee from 'react-fast-marquee';
 
 export default function Background({ children }) {
-    const images = Array(5).fill("/Images/Background/ImgBG12.jpg");
-    const ribbon = Array(5).fill("Images/PPIF/13.png")
+    const [isMobile, setIsMobile] = useState(false);
 
-    return (
-        <div className="relative w-full -z-10 h-screen overflow-hidden">
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth <= 768);
+        check();
+        window.addEventListener("resize", check);
+        return () => window.removeEventListener("resize", check);
+    }, []);
+
+    const images = Array(5).fill("/Images/Background/ImgBG12.jpg");
+    const ribbon = Array(5).fill("Images/PPIF/13.png");
+
+    const BackgroundContent = (
+        <div className="relative w-full h-screen overflow-hidden">
+            {/* BG Images */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
-                <Marquee gradient={false} speed={40} pauseOnHover={false} direction="right">
+                <Marquee gradient={false} speed={40} direction="right">
                     {images.map((src, idx) => (
-                        <div key={idx} className="relative h-screen w- -ml-14">
-                            <img
-                                src={src}
-                                alt="Background image"
-                                className="h-full w-auto"
-                            />
+                        <div key={idx} className="relative h-screen -ml-14">
+                            <img src={src} alt="Background" className="h-full w-auto" />
                         </div>
                     ))}
                 </Marquee>
             </div>
 
-            <div className='w-full h-full z-10 relative rotate-12 scale-125'>
+            {/* Decorative Ribbon/Text */}
+            <div className="w-full h-full z-10 relative rotate-12 scale-125">
                 <div className="absolute top-0 left-0 w-full z-10">
                     <Marquee gradient={false} speed={60} direction="left" pauseOnHover={false}>
                         {ribbon.map((src, idx) => (
@@ -30,7 +37,7 @@ export default function Background({ children }) {
                                 <img
                                     src={src}
                                     alt="Background image"
-                                    className="md:h-auto w-auto h-[120px] opacity-40"
+                                    className="md:h-[420px] h-[220px] opacity-40"
                                 />
                             </div>
                         ))}
@@ -58,7 +65,7 @@ export default function Background({ children }) {
                                 <img
                                     src={src}
                                     alt="Background image"
-                                    className="md:h-auto h-[120px] w-auto opacity-40"
+                                    className="md:h-[420px] h-[220px] w-auto opacity-40"
                                 />
                             </div>
                         ))}
@@ -80,10 +87,26 @@ export default function Background({ children }) {
                     </Marquee>
                 </div>
             </div>
-            {/* Konten utama, center screen */}
-            <div className="absolute top-0 bottom-0 z-40 flex justify-center items-center w-full h-full">
-                {children}
-            </div>
+            {/* CHILDREN: render di dalam hanya jika mobile */}
+            {isMobile && (
+                <div className="absolute inset-0 z-30 flex justify-center items-center w-full h-full">
+                    {children}
+                </div>
+            )}
         </div>
-    )
+    );
+
+    return (
+        <>
+            {/* Render children di luar BG saat desktop */}
+            {!isMobile && (
+                <div className="absolute inset-0 z-30 flex justify-center items-center w-full h-full">
+                    {children}
+                </div>
+            )}
+
+            {/* BG structure */}
+            {BackgroundContent}
+        </>
+    );
 }
