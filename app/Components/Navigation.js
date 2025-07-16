@@ -9,8 +9,9 @@ import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 
 const sections = [
     { id: "home", label: "HOME" },
-    { id: "about-if", label: "ABOUT IF" },
-    { id: "about-ppif", label: "ABOUT PPIF" },
+    { id: "about-all", label: "ABOUT"},
+    // { id: "about-if", label: "ABOUT IF" },
+    // { id: "about-ppif", label: "ABOUT PPIF" },
     { id: "timeline", label: "TIMELINE" },
     { id: "contact", label: "CONTACT" },
 ];

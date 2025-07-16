@@ -1,7 +1,7 @@
 import React from 'react'
 import Background from '../Background'
 
-export default function Timeline() {
+export default function AboutAll() {
     return (
         <Background>
             <div className='relative w-full h-screen flex justify-center items-center'>
@@ -11,7 +11,7 @@ export default function Timeline() {
                         className='font-black text-white lg:text-5xl text-xl text-center italic'
                         style={{ fontFamily: 'HongMengTi' }}
                     >
-                        Timeline
+                        About Page
                     </h1>
                 </div>
             </div>

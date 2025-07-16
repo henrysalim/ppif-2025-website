@@ -4,17 +4,18 @@ import React, { useRef, useState, useEffect } from "react";
 import Navigation from "./Navigation";
 import SectionWrapper from "./SectionWrapper";
 import HomePage from "./Pages/HomePage";
-import AboutIF from "./Pages/AboutIF";
-import AboutPPIF from "./Pages/AboutPPIF";
 import Contact from "./Pages/Contact";
 import Timeline from "./Pages/Timeline";
+import AboutAll from "./Pages/AboutAll";
+import IntroScreen from "./IntroScreen";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const SCROLL_THRESHOLD = 20;
 
 const sectionList = [
     { id: "home", component: HomePage },
-    { id: "about-if", component: AboutIF },
-    { id: "about-ppif", component: AboutPPIF },
+    { id: "about-all", component: AboutAll },
     { id: "timeline", component: Timeline },
     { id: "contact", component: Contact },
 ];
@@ -34,6 +35,14 @@ export default function WebLayout() {
     const containerRef = useRef(null);
     const isMobile = useIsMobile();
     const [currentSection, setCurrentSection] = useState(sectionList[0].id);
+
+    const [introDone, setIntroDone] = useState(false);
+    const [contentVisible, setContentVisible] = useState(false);
+
+    const handleIntroFinish = () => {
+        setIntroDone(true);
+        setTimeout(() => setContentVisible(true), 100);
+    };
 
     // Navigation
     const handleNavigate = (id) => {
@@ -109,31 +118,46 @@ export default function WebLayout() {
     }, [isMobile, currentSection, containerRef]);
 
     return (
-        <div>
-            <header className="p-4 bg-transparent fixed w-full text-white z-10">
-                <Navigation currentSection={currentSection} onNavigate={handleNavigate} isMobile={isMobile} />
-            </header>
-            <main
-                ref={containerRef}
-                className={`${isMobile ? "snap-y snap-mandatory overflow-y-auto" : "overflow-hidden"} flex flex-col w-full`}
-                style={{ height: "100vh" }}
-            >
-                {isMobile
-                    ? sectionList.map(({ id, component: SectionComp }) => (
-                        <SectionWrapper key={id} id={id} active={true}>
-                            <SectionComp />
-                        </SectionWrapper>
-                    ))
-                    : (() => {
-                        const { id, component: SectionComp } = sectionList.find(s => s.id === currentSection);
-                        return (
-                            <SectionWrapper id={id} active={true}>
-                                <SectionComp />
-                            </SectionWrapper>
-                        );
-                    })()
-                }
-            </main>
-        </div>
-    );
+        <>
+            {!introDone && <IntroScreen onFinish={handleIntroFinish} />}
+
+            <AnimatePresence>
+                {contentVisible && (
+                    <motion.div
+                        key="maincontent"
+                        initial={{ opacity: 0, y: 32 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
+                        style={{ minHeight: "100vh" }}
+                    >
+                        <header className="p-4 bg-transparent fixed w-full text-white z-40">
+                            <Navigation currentSection={currentSection} onNavigate={handleNavigate} isMobile={isMobile} />
+                        </header>
+                        <main
+                            ref={containerRef}
+                            className={`${isMobile ? "snap-y snap-mandatory overflow-y-auto" : "overflow-hidden"} flex flex-col w-full`}
+                            style={{ height: "100vh" }}
+                        >
+                            {isMobile
+                                ? sectionList.map(({ id, component: SectionComp }) => (
+                                    <SectionWrapper key={id} id={id} active={true}>
+                                        <SectionComp />
+                                    </SectionWrapper>
+                                ))
+                                : (() => {
+                                    const { id, component: SectionComp } = sectionList.find(s => s.id === currentSection);
+                                    return (
+                                        <SectionWrapper id={id} active={true}>
+                                            <SectionComp />
+                                        </SectionWrapper>
+                                    );
+                                })()
+                            }
+                        </main>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+            );
 }
