@@ -110,9 +110,6 @@ export default function IntroScreen({ onFinish }) {
                                 filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.35))',
                             }}
                         />
-                        {/* <h1 className="absolute bottom-8 right-8 z-10 animate-bounce text-white text-3xl" style={{ fontFamily: 'HongMengTi' }}>
-                            Now Loading
-                        </h1> */}
 
                     </motion.div>
                 )}

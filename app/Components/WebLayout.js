@@ -38,6 +38,9 @@ export default function WebLayout() {
 
     const [introDone, setIntroDone] = useState(false);
     const [contentVisible, setContentVisible] = useState(false);
+    const [showGlitch, setShowGlitch] = useState(false);
+    const [glitchType, setGlitchType] = useState(null); // null | "in" | "out"
+
 
     useEffect(() => {
         const introSeen = localStorage.getItem("intro_seen");
@@ -53,8 +56,16 @@ export default function WebLayout() {
         setTimeout(() => setContentVisible(true), 100);
     };
 
+    const triggerSectionChange = (id) => {
+        setShowGlitch(true);
+        setTimeout(() => {
+            setCurrentSection(id);
+            setTimeout(() => setShowGlitch(false), 350);
+        }, 90);
+    };
+
     const handleNavigate = (id) => {
-        setCurrentSection(id);
+        triggerSectionChange(id);
         const section = document.getElementById(id);
         if (section) section.scrollIntoView({ behavior: "smooth" });
     };
@@ -69,11 +80,11 @@ export default function WebLayout() {
 
             if (e.key === "ArrowDown" || e.key === "PageDown") {
                 if (index < sectionList.length - 1) {
-                    setCurrentSection(sectionList[index + 1].id);
+                    triggerSectionChange(sectionList[index + 1].id);
                 }
             } else if (e.key === "ArrowUp" || e.key === "PageUp") {
                 if (index > 0) {
-                    setCurrentSection(sectionList[index - 1].id);
+                    triggerSectionChange(sectionList[index - 1].id);
                 }
             }
         };
@@ -99,15 +110,13 @@ export default function WebLayout() {
             // Scroll ke bawah
             if (wheelDelta > SCROLL_THRESHOLD && index < sectionList.length - 1) {
                 index++;
-                setCurrentSection(sectionList[index].id);
+                triggerSectionChange(sectionList[index].id);
                 wheelDelta = 0;
                 ticking = true;
                 setTimeout(() => (ticking = false), 600);
-            }
-            // Scroll ke atas
-            else if (wheelDelta < -SCROLL_THRESHOLD && index > 0) {
+            } else if (wheelDelta < -SCROLL_THRESHOLD && index > 0) {
                 index--;
-                setCurrentSection(sectionList[index].id);
+                triggerSectionChange(sectionList[index].id);
                 wheelDelta = 0;
                 ticking = true;
                 setTimeout(() => (ticking = false), 600);
@@ -165,6 +174,20 @@ export default function WebLayout() {
                         <header className="p-4 bg-transparent fixed w-full text-white z-50">
                             <Navigation currentSection={currentSection} onNavigate={handleNavigate} isMobile={isMobile} />
                         </header>
+
+                        {showGlitch && (
+                            <div className="absolute inset-0 z-[9999] pointer-events-none mix-blend-screen opacity-80 transition-opacity duration-700">
+                                <video
+                                    className="w-full h-full object-cover"
+                                    autoPlay
+                                    muted
+                                    playsInline
+                                >
+                                    <source src="/Images/glitch_transition.mp4" type="video/mp4" />
+                                </video>
+                            </div>
+                        )}
+
                         <main
                             ref={containerRef}
                             className={`${isMobile ? "snap-y snap-mandatory overflow-y-auto" : "overflow-hidden"} flex flex-col w-full`}
@@ -172,15 +195,15 @@ export default function WebLayout() {
                         >
                             {isMobile
                                 ? sectionList.map(({ id, component: SectionComp }) => (
-                                        <div
-                                            key={id}
-                                            id={id}
-                                            className="snap-start min-h-screen w-full flex-shrink-0"
-                                        >
-                                            <SectionWrapper id={id} active={true}>
-                                                <SectionComp />
-                                            </SectionWrapper>
-                                        </div>
+                                    <div
+                                        key={id}
+                                        id={id}
+                                        className="snap-start min-h-screen w-full flex-shrink-0"
+                                    >
+                                        <SectionWrapper id={id} active={true}>
+                                            <SectionComp />
+                                        </SectionWrapper>
+                                    </div>
                                 ))
                                 : (
                                     <AnimatePresence mode="wait">

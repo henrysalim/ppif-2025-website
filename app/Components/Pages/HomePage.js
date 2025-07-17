@@ -31,7 +31,6 @@ export default function HomePage() {
                         marginTop: '-2.5vh',
                     }}
                 >
-
                     <div
                         className="absolute top-0 left-0 w-full h-full"
                         style={{ transform: 'translateZ(10px)' }}
@@ -47,14 +46,12 @@ export default function HomePage() {
                             Your browser does not support the video tag.
                         </video>
                     </div>
-
-
                     <div
                         className="relative z-10 flex justify-center translate-y-1/2 -bottom-1/4 h-full"
                         style={{ transform: 'translateZ(60px)' }}
                     >
                         <h1
-                            className="font-black text-gray-300 lg:text-xl text-3xl text-center italic drop-shadow-xl"
+                            className="font-black text-gray-300 lg:text-xl text-md text-center italic drop-shadow-xl"
                             style={{ fontFamily: 'HongMengTi' }}
                         >
                             Tap To Continue{dots}
