@@ -12,7 +12,7 @@ export default function Background({ children }) {
         return () => window.removeEventListener("resize", check);
     }, []);
 
-    const images = Array(5).fill("/Images/Background/ImgBG12.jpg");
+    const images = Array(5).fill("/Images/Background/ImgBG12_revised.png");
     const ribbon = Array(5).fill("Images/PPIF/13.png");
 
     const BackgroundContent = (
@@ -21,7 +21,7 @@ export default function Background({ children }) {
             <div className="absolute inset-0 -z-10 overflow-hidden">
                 <Marquee gradient={false} speed={40} direction="right">
                     {images.map((src, idx) => (
-                        <div key={idx} className="relative h-screen -ml-14">
+                        <div key={idx} className="relative h-screen -ml-10">
                             <img src={src} alt="Background" className="h-full w-auto" />
                         </div>
                     ))}

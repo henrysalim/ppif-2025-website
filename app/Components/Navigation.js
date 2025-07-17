@@ -56,23 +56,23 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                                 {section.label}
                             </button>
                         ))}
-                        <div className="flex flex-row gap-5 w-auto">
+                        <div className="flex flex-row gap-2 w-auto">
                             <button
                                 onClick={onToggleMusic}
                                 title="Toggle Music"
-                                className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700"
+                                className="w-full h-full flex items-center rounded-full justify-center"
                             >
                                 {isMusicPlaying ? (
-                                    <MusicNoteIcon sx={{ fontSize: 30 }} />
+                                    <img src="/Assets/musicOn.png" className="w-[60px] h-full rounded-full" />
                                 ) : (
-                                    <MusicOffIcon sx={{ fontSize: 30 }} />
+                                    <img src="/Assets/musicOff.png" className="w-[60px] h-full rounded-full" />
                                 )}
                             </button>
-                            <button className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700">
-                                <VideogameAssetIcon sx={{ fontSize: 30 }} />
+                            <button className="w-full h-full flex items-center rounded-full justify-center">
+                                <img src="/Assets/GamesIcon.png" className="w-[60px] h-full rounded-full" />
                             </button>
-                            <button className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700">
-                                <ArchiveIcon sx={{ fontSize: 30 }} />
+                            <button className="w-full h-full flex items-center rounded-full justify-center">
+                                <img src="/Assets/Button.png" className="w-[60px] h-full rounded-full" />
                             </button>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
         <div className="flex flex-row items-center justify-between">
             <Image src="/Images/ppif_logo.png" alt="PPIF logo" width={90} height={30} priority />
 
-            <ul className="flex flex-row gap-6 items-center">
+            <ul className="flex flex-row gap-6 -mr-24 items-center">
                 {sections.map((section) => (
                     <li key={section.id}>
                         <button
@@ -102,23 +102,23 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                 ))}
 
             </ul>
-            <div className="flex flex-row gap-5 w-auto">
+            <div className="flex flex-row gap-2 w-auto">
                 <button
                     onClick={onToggleMusic}
                     title="Toggle Music"
-                    className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700"
+                    className="w-full h-full flex items-center rounded-full justify-center "
                 >
                     {isMusicPlaying ? (
-                        <MusicNoteIcon sx={{ fontSize: 30 }} />
+                        <img src="/Assets/musicOn.png" className="w-[60px] h-full rounded-full" />
                     ) : (
-                        <MusicOffIcon sx={{ fontSize: 30 }} />
+                        <img src="/Assets/musicOff.png" className="w-[60px] h-full rounded-full" />
                     )}
                 </button>
-                <button className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700">
-                    <VideogameAssetIcon sx={{ fontSize: 30 }} />
+                <button className="w-full h-full flex items-center rounded-full justify-center">
+                    <img src="/Assets/GamesIcon.png" className="w-[60px] h-full rounded-full" />
                 </button>
-                <button className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700">
-                    <ArchiveIcon sx={{ fontSize: 30 }} />
+                <button className="w-full h-full flex items-center rounded-full justify-center">
+                    <img src="/Assets/Button.png" className="w-[60px] h-full rounded-full" />
                 </button>
             </div>
         </div>
