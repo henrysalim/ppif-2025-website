@@ -2,9 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import Tilt from 'react-parallax-tilt';
 import Background from '../Background';
+import { initClickSound, playClickSound } from "../SoundPlayer";
+
 
 export default function HomePage() {
     const [dots, setDots] = useState('');
+
+    useEffect(() => {
+        initClickSound("/Audio/clicking.mp3", 0.6);
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -46,8 +52,10 @@ export default function HomePage() {
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div
-                        className="relative z-10 flex justify-center translate-y-1/2 -bottom-1/4 h-full"
+                    <button onClick={() => {
+                        playClickSound();
+                    }}
+                        className="relative z-10 flex justify-center translate-y-1/2 -bottom-1/4 h-full w-full"
                         style={{ transform: 'translateZ(60px)' }}
                     >
                         <h1
@@ -56,7 +64,7 @@ export default function HomePage() {
                         >
                             Tap To Continue{dots}
                         </h1>
-                    </div>
+                    </button>
                 </Tilt>
             </div>
         </Background>

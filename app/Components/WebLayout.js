@@ -10,7 +10,6 @@ import AboutAll from "./Pages/AboutAll";
 import IntroScreen from "./IntroScreen";
 import { motion, AnimatePresence } from "framer-motion";
 
-
 const SCROLL_THRESHOLD = 20;
 
 const sectionList = [
@@ -42,7 +41,6 @@ export default function WebLayout() {
 
     const musicAudioRef = useRef(null);       
     const glitchAudioRef = useRef(null);       
-
 
     const [isMusicPlaying, setIsMusicPlaying] = useState(false);
 
