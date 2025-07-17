@@ -3,7 +3,7 @@ import Background from '../Background'
 
 export default function AboutAll() {
     return (
-        <Background>
+        <Background textChild="ABOUT INFORMATICS & PPIF">
             <div className='relative w-full h-screen flex justify-center items-center'>
                 {/* Konten center yang benar */}
                 <div className=''>

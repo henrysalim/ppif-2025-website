@@ -3,7 +3,7 @@ import Background from '../Background'
 
 export default function Timeline() {
     return (
-        <Background>
+        <Background textChild="TIMELINE">
             <div className='relative w-full h-screen flex justify-center items-center'>
                 {/* Konten center yang benar */}
                 <div className=''>

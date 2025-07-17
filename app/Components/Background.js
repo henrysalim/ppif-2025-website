@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
 
-export default function Background({ children }) {
+export default function Background({ children, textChild }) {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -52,7 +52,7 @@ export default function Background({ children }) {
                                 className="font-black text-[#6c6c6c] lg:text-8xl text-xl text-center mx-4"
                                 style={{ fontFamily: 'HongMengTi' }}
                             >
-                                INFORMATICS
+                                {textChild}
                             </h1>
                         ))}
                     </Marquee>
@@ -81,7 +81,7 @@ export default function Background({ children }) {
                                 className="font-black text-[#6c6c6c] lg:text-8xl text-xl text-center mx-4"
                                 style={{ fontFamily: 'HongMengTi' }}
                             >
-                                INFORMATICS
+                                {textChild}
                             </h1>
                         ))}
                     </Marquee>
