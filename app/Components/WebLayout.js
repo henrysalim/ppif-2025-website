@@ -39,7 +39,33 @@ export default function WebLayout() {
     const [introDone, setIntroDone] = useState(false);
     const [contentVisible, setContentVisible] = useState(false);
     const [showGlitch, setShowGlitch] = useState(false);
-    const [glitchType, setGlitchType] = useState(null); // null | "in" | "out"
+
+    const musicAudioRef = useRef(null);       
+    const glitchAudioRef = useRef(null);       
+
+
+    const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+
+    useEffect(() => {
+        if (musicAudioRef.current) {
+            musicAudioRef.current.volume = 0.4;
+        }
+
+        if (glitchAudioRef.current) {
+            glitchAudioRef.current.volume = 1;
+        }
+    }, []);
+
+    const toggleMusic = () => {
+        if (musicAudioRef.current) {
+            if (isMusicPlaying) {
+                musicAudioRef.current.pause();
+            } else {
+                musicAudioRef.current.play().catch(() => { });
+            }
+            setIsMusicPlaying(!isMusicPlaying);
+        }
+    };
 
 
     useEffect(() => {
@@ -57,12 +83,18 @@ export default function WebLayout() {
     };
 
     const triggerSectionChange = (id) => {
+        if (glitchAudioRef.current) {
+            glitchAudioRef.current.currentTime = 0;
+            glitchAudioRef.current.play().catch(() => { });
+        }
+
         setShowGlitch(true);
         setTimeout(() => {
             setCurrentSection(id);
             setTimeout(() => setShowGlitch(false), 350);
         }, 90);
     };
+
 
     const handleNavigate = (id) => {
         triggerSectionChange(id);
@@ -162,74 +194,90 @@ export default function WebLayout() {
             {!introDone && <IntroScreen onFinish={handleIntroFinish} />}
 
             <AnimatePresence>
-                {contentVisible && (
-                    <motion.div
-                        key="maincontent"
-                        initial={{ opacity: 0, y: 32 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
-                        style={{ minHeight: "100vh" }}
-                    >
-                        <header className="p-4 bg-transparent fixed w-full text-white z-50">
-                            <Navigation currentSection={currentSection} onNavigate={handleNavigate} isMobile={isMobile} />
-                        </header>
-
-                        {showGlitch && (
-                            <div className="absolute inset-0 z-[9999] pointer-events-none mix-blend-screen opacity-80 transition-opacity duration-700">
-                                <video
-                                    className="w-full h-full object-cover"
-                                    autoPlay
-                                    muted
-                                    playsInline
-                                >
-                                    <source src="/Images/glitch_transition.mp4" type="video/mp4" />
-                                </video>
-                            </div>
-                        )}
-
-                        <main
-                            ref={containerRef}
-                            className={`${isMobile ? "snap-y snap-mandatory overflow-y-auto" : "overflow-hidden"} flex flex-col w-full`}
-                            style={{ height: "100vh" }}
+                <>
+                    <audio ref={musicAudioRef} loop preload="auto">
+                        <source src="/Audio/bg-music.mp3" type="audio/mp3" />
+                    </audio>
+                    {contentVisible && (
+                        <motion.div
+                            key="maincontent"
+                            initial={{ opacity: 0, y: 32 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
+                            style={{ minHeight: "100vh" }}
                         >
-                            {isMobile
-                                ? sectionList.map(({ id, component: SectionComp }) => (
-                                    <div
-                                        key={id}
-                                        id={id}
-                                        className="snap-start min-h-screen w-full flex-shrink-0"
+                            <header className="p-4 bg-transparent fixed w-full text-white z-50">
+                                <Navigation
+                                    currentSection={currentSection}
+                                    onNavigate={handleNavigate}
+                                    isMobile={isMobile}
+                                    isMusicPlaying={isMusicPlaying}
+                                    onToggleMusic={toggleMusic}
+                                />
+
+                            </header>
+
+                            {showGlitch && (
+                                <div className="absolute inset-0 z-[9999] pointer-events-none mix-blend-screen opacity-80 transition-opacity duration-700">
+                                    <video
+                                        className="w-full h-full object-cover"
+                                        autoPlay
+                                        muted
+                                        playsInline
                                     >
-                                        <SectionWrapper id={id} active={true}>
-                                            <SectionComp />
-                                        </SectionWrapper>
-                                    </div>
-                                ))
-                                : (
-                                    <AnimatePresence mode="wait">
-                                        {(() => {
-                                            const { id, component: SectionComp } = sectionList.find(s => s.id === currentSection);
-                                            return (
-                                                <motion.div
-                                                    key={id}
-                                                    initial={{ opacity: 0, scale: 1.2 }}
-                                                    animate={{ opacity: 1, scale: 1 }}
-                                                    exit={{ opacity: 0, scale: 1.5 }}
-                                                    transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
-                                                    style={{ height: "100vh" }}
-                                                >
-                                                    <SectionWrapper id={id} active={true}>
-                                                        <SectionComp />
-                                                    </SectionWrapper>
-                                                </motion.div>
-                                            );
-                                        })()}
-                                    </AnimatePresence>
-                                )
-                            }
-                        </main>
-                    </motion.div>
-                )}
+                                        <source src="/Images/glitch_transition.mp4" type="video/mp4" />
+                                    </video>
+                                </div>
+                            )}
+
+                            <audio ref={glitchAudioRef} preload="auto">
+                                <source src="/Audio/glitch_transition.mp3" type="audio/mp3" />
+                            </audio>
+
+                            <main
+                                ref={containerRef}
+                                className={`${isMobile ? "snap-y snap-mandatory overflow-y-auto" : "overflow-hidden"} flex flex-col w-full`}
+                                style={{ height: "100vh" }}
+                            >
+                                {isMobile
+                                    ? sectionList.map(({ id, component: SectionComp }) => (
+                                        <div
+                                            key={id}
+                                            id={id}
+                                            className="snap-start min-h-screen w-full flex-shrink-0"
+                                        >
+                                            <SectionWrapper id={id} active={true}>
+                                                <SectionComp />
+                                            </SectionWrapper>
+                                        </div>
+                                    ))
+                                    : (
+                                        <AnimatePresence mode="wait">
+                                            {(() => {
+                                                const { id, component: SectionComp } = sectionList.find(s => s.id === currentSection);
+                                                return (
+                                                    <motion.div
+                                                        key={id}
+                                                        initial={{ opacity: 0, scale: 1.2 }}
+                                                        animate={{ opacity: 1, scale: 1 }}
+                                                        exit={{ opacity: 0, scale: 1.5 }}
+                                                        transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+                                                        style={{ height: "100vh" }}
+                                                    >
+                                                        <SectionWrapper id={id} active={true}>
+                                                            <SectionComp />
+                                                        </SectionWrapper>
+                                                    </motion.div>
+                                                );
+                                            })()}
+                                        </AnimatePresence>
+                                    )
+                                }
+                            </main>
+                        </motion.div>
+                    )}
+                </>
             </AnimatePresence>
         </>
     );

@@ -6,15 +6,17 @@ import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import ArchiveIcon from '@mui/icons-material/Archive';
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import MusicOffIcon from '@mui/icons-material/MusicOff';
 
 const sections = [
     { id: "home", label: "HOME" },
-    { id: "about-all", label: "ABOUT"},
+    { id: "about-all", label: "ABOUT" },
     { id: "timeline", label: "TIMELINE" },
     { id: "contact", label: "CONTACT" },
 ];
 
-export default function Navigation({ currentSection, onNavigate, isMobile }) {
+export default function Navigation({ currentSection, onNavigate, isMobile, isMusicPlaying, onToggleMusic }) {
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const handleMenuClick = (id) => {
@@ -56,13 +58,20 @@ export default function Navigation({ currentSection, onNavigate, isMobile }) {
                         ))}
                         <div className="flex flex-row gap-5 w-auto">
                             <button
+                                onClick={onToggleMusic}
+                                title="Toggle Music"
                                 className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700"
                             >
+                                {isMusicPlaying ? (
+                                    <MusicNoteIcon sx={{ fontSize: 30 }} />
+                                ) : (
+                                    <MusicOffIcon sx={{ fontSize: 30 }} />
+                                )}
+                            </button>
+                            <button className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700">
                                 <VideogameAssetIcon sx={{ fontSize: 30 }} />
                             </button>
-                            <button
-                                className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700"
-                            >
+                            <button className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700">
                                 <ArchiveIcon sx={{ fontSize: 30 }} />
                             </button>
                         </div>
@@ -95,13 +104,20 @@ export default function Navigation({ currentSection, onNavigate, isMobile }) {
             </ul>
             <div className="flex flex-row gap-5 w-auto">
                 <button
+                    onClick={onToggleMusic}
+                    title="Toggle Music"
                     className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700"
                 >
+                    {isMusicPlaying ? (
+                        <MusicNoteIcon sx={{ fontSize: 30 }} />
+                    ) : (
+                        <MusicOffIcon sx={{ fontSize: 30 }} />
+                    )}
+                </button>
+                <button className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700">
                     <VideogameAssetIcon sx={{ fontSize: 30 }} />
                 </button>
-                <button
-                    className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700"
-                >
+                <button className="w-full h-full p-2 flex items-center rounded-full ring-4 ring-[#F06D39] justify-center bg-gray-600 hover:bg-gray-700">
                     <ArchiveIcon sx={{ fontSize: 30 }} />
                 </button>
             </div>
