@@ -261,7 +261,7 @@ export default function WebLayout() {
     return (
         <div className="locked-desktop-wrapper">
             <div className="locked-desktop-content">
-                {/* <RotateOverlay /> */}
+                <RotateOverlay />
                 {!introDone && <IntroScreen onFinish={handleIntroFinish} />}
                 <AnimatePresence>
                     <>
@@ -277,7 +277,7 @@ export default function WebLayout() {
                                 transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
                                 style={{ minHeight: "100vh" }}
                             >
-                                <header className="lg:p-4 p-2 lg:pr-0 pr-3 bg-transparent fixed w-full text-white z-50">
+                                <header className="lg:p-4 p-2 lg:pr-6 pr-5 bg-transparent fixed w-full text-white z-50">
                                     <Navigation
                                         currentSection={currentSection}
                                         onNavigate={handleNavigate}

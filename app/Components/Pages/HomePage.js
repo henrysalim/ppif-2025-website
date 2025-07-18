@@ -44,6 +44,7 @@ export default function HomePage() {
     return (
         <Background>
             <div className="relative w-full h-screen overflow-hidden">
+                <WelcomeFlicker />
                 {/* Tilt container */}
                 <Tilt
                     className="w-full h-full"
