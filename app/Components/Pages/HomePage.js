@@ -1,12 +1,25 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Tilt from 'react-parallax-tilt';
 import Background from '../Background';
 import { initClickSound, playClickSound } from "../SoundPlayer";
+import { WelcomeFlicker } from '../WelcomeFlicker';
+import { motion } from 'framer-motion';
 
 
 export default function HomePage() {
     const [dots, setDots] = useState('');
+
+    const requestFullscreen = () => {
+        const el = document.documentElement;
+        if (el.requestFullscreen) {
+            el.requestFullscreen();
+        } else if (el.webkitRequestFullscreen) {
+            el.webkitRequestFullscreen();
+        } else if (el.msRequestFullscreen) {
+            el.msRequestFullscreen();
+        }
+    };
 
     useEffect(() => {
         initClickSound("/Audio/clicking.mp3", 0.6);
@@ -18,6 +31,16 @@ export default function HomePage() {
         }, 1000);
         return () => clearInterval(interval);
     }, []);
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     return (
         <Background>
             <div className="relative w-full h-screen overflow-hidden">
@@ -31,9 +54,9 @@ export default function HomePage() {
                     scale={1.02}
                     gyroscope={true}
                     style={{
-                        width: '106vw',
+                        width: isMobile ? '126vw' : '106vw',
                         height: '106vh',
-                        marginLeft: '-2.5vw',
+                        marginLeft: isMobile ? '0vw' : '-2.5vw',
                         marginTop: '-2.5vh',
                     }}
                 >
@@ -51,15 +74,18 @@ export default function HomePage() {
                             <source src="Models/vid_idle.mp4" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
+
                     </div>
+
                     <button onClick={() => {
+                        requestFullscreen();
                         playClickSound();
                     }}
-                        className="relative z-10 flex justify-center translate-y-1/2 -bottom-1/4 h-full w-full"
+                        className={`relative z-10 flex lg:left-0 -left-2 justify-center translate-y-1/2 -bottom-1/4 h-full w-full`}
                         style={{ transform: 'translateZ(60px)' }}
                     >
                         <h1
-                            className="font-black text-gray-300 lg:text-xl text-md text-center italic drop-shadow-xl"
+                            className="font-black text-gray-300 lg:text-xl text-sm text-center italic drop-shadow-xl"
                             style={{ fontFamily: 'HongMengTi' }}
                         >
                             Tap To Continue{dots}

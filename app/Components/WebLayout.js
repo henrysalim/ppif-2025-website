@@ -9,11 +9,17 @@ import Timeline from "./Pages/Timeline";
 import AboutAll from "./Pages/AboutAll";
 import IntroScreen from "./IntroScreen";
 import { motion, AnimatePresence } from "framer-motion";
+import { initClickSound, playClickSound } from "./SoundPlayer";
 
 const SCROLL_THRESHOLD = 20;
 
 function RotateOverlay() {
     const [show, setShow] = useState(false);
+
+    useEffect(() => {
+        initClickSound("/Audio/clicking.mp3", 0.6);
+    }, []);
+
 
     useEffect(() => {
         const check = () => {
@@ -48,14 +54,29 @@ function RotateOverlay() {
             }}
         >
             <div style={{ marginBottom: 16 }}>
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2v2m0 16v2m8-10h2M2 12H4m13.66 6.34l1.42 1.42M4.93 4.93l1.42 1.42m12.02 0l-1.42 1.42M4.93 19.07l1.42-1.42" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-                </svg>
+                <Image src="/Images/ppif_logo.png" alt="PPIF logo"
+                    onClick={() => {
+                        playClickSound();
+                    }}
+                    width={80}
+                    height={75}
+                    priority
+                    className="animate-bounce"
+                />                
+                <Image src="/Images/rotate_device.gif" alt="PPIF logo"
+                    onClick={() => {
+                        playClickSound();
+                    }}
+                    width={80}
+                    height={75}
+                    priority
+                />
             </div>
-            <div>
-                <b>Rotate your device</b>
+            <div className="text-center text-[20px]">
+                <b>Rotate your device</b><br />
+                <b>or change your device to larger</b>
             </div>
-            <div style={{ fontSize: 18, marginTop: 8, textAlign: "center" }}>
+            <div style={{ fontSize: 16, marginTop: 8, textAlign: "center" }}>
                 Please use landscape mode<br />for the best experience.
             </div>
         </div>
@@ -240,7 +261,7 @@ export default function WebLayout() {
     return (
         <div className="locked-desktop-wrapper">
             <div className="locked-desktop-content">
-                <RotateOverlay />
+                {/* <RotateOverlay /> */}
                 {!introDone && <IntroScreen onFinish={handleIntroFinish} />}
                 <AnimatePresence>
                     <>
@@ -256,7 +277,7 @@ export default function WebLayout() {
                                 transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
                                 style={{ minHeight: "100vh" }}
                             >
-                                <header className="p-4 bg-transparent fixed w-full text-white z-50">
+                                <header className="lg:p-4 p-2 lg:pr-0 pr-3 bg-transparent fixed w-full text-white z-50">
                                     <Navigation
                                         currentSection={currentSection}
                                         onNavigate={handleNavigate}
