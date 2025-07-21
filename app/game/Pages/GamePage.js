@@ -2,14 +2,19 @@
 import React, { useState } from 'react';
 import Background from '../../Components/Background';
 import Link from 'next/link';
+import Envelope from '@/app/Components/Envelope';
 
 export default function GamePage() {
-  const [started, setStarted] = useState(false);
+    const [started, setStarted] = useState(false);
 
-  return (
-    <Background textChild="GAME ZONE">
-      <div className="w-full h-screen flex flex-col items-center justify-center">
-        <Link href="/">
+    return (
+        <Background textChild="GAME ZONE">
+            <div className="w-full h-screen flex flex-col items-center justify-center">
+                <div className='w-full flex h-screen justify-center items-center'>
+                    <h1 className='font-black text-white lg:text-5xl text-xl text-center' style={{ fontFamily: 'HongMengTi' }}></h1>
+                    <Envelope />
+                </div>
+                {/* <Link href="/">
             <button className=''>
                 kembali
             </button>
@@ -37,8 +42,8 @@ export default function GamePage() {
               </button>
             </div>
           </div>
-        )}
-      </div>
-    </Background>
-  );
+        )} */}
+            </div>
+        </Background>
+    );
 }
