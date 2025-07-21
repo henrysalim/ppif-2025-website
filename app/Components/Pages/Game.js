@@ -1,6 +1,8 @@
 import React from 'react'
 import Background from '../Background'
 import Envelope from '../Envelope'
+import Groups from "../../Components/Groups/Groups.json"
+import UniqueCodes from "../../Components/Groups/UniqueCodes.json"
 
 export default function Game() {
     return (
