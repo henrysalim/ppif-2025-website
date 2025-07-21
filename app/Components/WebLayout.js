@@ -7,6 +7,7 @@ import HomePage from "./Pages/HomePage";
 import Contact from "./Pages/Contact";
 import Timeline from "./Pages/Timeline";
 import AboutAll from "./Pages/AboutAll";
+import Game from "./Pages/Game";
 import IntroScreen from "./IntroScreen";
 import { motion, AnimatePresence } from "framer-motion";
 import { initClickSound, playClickSound } from "./SoundPlayer";
@@ -88,6 +89,7 @@ const sectionList = [
     { id: "about-all", component: AboutAll },
     { id: "timeline", component: Timeline },
     { id: "contact", component: Contact },
+    { id: "game", component: Game }
 ];
 
 const useIsMobile = () => {

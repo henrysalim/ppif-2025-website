@@ -83,11 +83,15 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                                     <img src="/Assets/musicOff.png" className="w-[45px] h-full rounded-full" />
                                 )}
                             </button>
-                            <Link href="/game" className="w-full">
-                                <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
-                                    <img src="/Assets/GamesIcon.png" className="w-[45px] h-full rounded-full" />
-                                </button>
-                            </Link>
+                            <button 
+                                onClick={() => {
+                                    playClickSound();
+                                    onNavigate("game");
+                                }} 
+                                className="w-full h-full flex items-center rounded-full justify-center"
+                            >
+                                <img src="/Assets/GamesIcon.png" className="w-[45px] h-full rounded-full" />
+                            </button>
                             <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
                                 <img src="/Assets/Button.png" className="w-[45px] h-full rounded-full" />
                             </button>
@@ -145,11 +149,14 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                         <img src="/Assets/musicOff.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                     )}
                 </button>
-                <Link href="/game" className="w-full">
-                    <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
-                        <img src="/Assets/GamesIcon.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
-                    </button>
-                </Link>
+                <button 
+                    onClick={() => {
+                        playClickSound();
+                        onNavigate("game");}} 
+                    className="w-full h-full flex items-center rounded-full justify-center"
+                >
+                    <img src="/Assets/GamesIcon.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
+                </button>
                 <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
                     <img src="/Assets/Button.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                 </button>
