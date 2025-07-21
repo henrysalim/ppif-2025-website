@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import { initClickSound, playClickSound } from "./SoundPlayer";
+import Link from "next/link";
 
 const sections = [
     { id: "home", label: "HOME" },
@@ -82,9 +83,11 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                                     <img src="/Assets/musicOff.png" className="w-[45px] h-full rounded-full" />
                                 )}
                             </button>
-                            <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
-                                <img src="/Assets/GamesIcon.png" className="w-[45px] h-full rounded-full" />
-                            </button>
+                            <Link href="/game" className="w-full">
+                                <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
+                                    <img src="/Assets/GamesIcon.png" className="w-[45px] h-full rounded-full" />
+                                </button>
+                            </Link>
                             <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
                                 <img src="/Assets/Button.png" className="w-[45px] h-full rounded-full" />
                             </button>
@@ -142,9 +145,11 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                         <img src="/Assets/musicOff.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                     )}
                 </button>
-                <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
-                    <img src="/Assets/GamesIcon.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
-                </button>
+                <Link href="/game" className="w-full">
+                    <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
+                        <img src="/Assets/GamesIcon.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
+                    </button>
+                </Link>
                 <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
                     <img src="/Assets/Button.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                 </button>
