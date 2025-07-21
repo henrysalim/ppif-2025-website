@@ -37,7 +37,7 @@ export default function Background({ children, textChild }) {
                                 <img
                                     src={src}
                                     alt="Background image"
-                                    className="md:h-[420px] h-[220px] opacity-40"
+                                    className="lg:h-[420px] h-[200px] opacity-40"
                                 />
                             </div>
                         ))}
@@ -65,7 +65,7 @@ export default function Background({ children, textChild }) {
                                 <img
                                     src={src}
                                     alt="Background image"
-                                    className="md:h-[420px] h-[220px] w-auto opacity-40"
+                                    className="lg:h-[420px] h-[200px] w-auto opacity-40"
                                 />
                             </div>
                         ))}

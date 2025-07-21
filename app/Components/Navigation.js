@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import { initClickSound, playClickSound } from "./SoundPlayer";
+import Link from "next/link";
 
 const sections = [
     { id: "home", label: "HOME" },
@@ -32,8 +33,8 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                     onClick={() => {
                         playClickSound();
                     }}
-                    width={90}
-                    height={30}
+                    width={60}
+                    height={75}
                     priority
                 />
                 <IconButton
@@ -46,7 +47,7 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                     }}
                     sx={{ mr: 1.5 }}
                 >
-                    <MenuIcon style={{ color: 'white' }} sx={{ fontSize: 40 }} />
+                    <MenuIcon style={{ color: 'white' }} sx={{ fontSize: 30 }} />
                 </IconButton>
                 <Drawer
                     anchor="left"
@@ -77,16 +78,22 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                                 className="w-full h-full flex items-center rounded-full justify-center "
                             >
                                 {isMusicPlaying ? (
-                                    <img src="/Assets/musicOn.png" className="w-[60px] h-full rounded-full" />
+                                    <img src="/Assets/musicOn.png" className="w-[45px] h-full rounded-full" />
                                 ) : (
-                                    <img src="/Assets/musicOff.png" className="w-[60px] h-full rounded-full" />
+                                    <img src="/Assets/musicOff.png" className="w-[45px] h-full rounded-full" />
                                 )}
                             </button>
-                            <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
-                                <img src="/Assets/GamesIcon.png" className="w-[60px] h-full rounded-full" />
+                            <button 
+                                onClick={() => {
+                                    playClickSound();
+                                    onNavigate("game");
+                                }} 
+                                className="w-full h-full flex items-center rounded-full justify-center"
+                            >
+                                <img src="/Assets/GamesIcon.png" className="w-[45px] h-full rounded-full" />
                             </button>
                             <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
-                                <img src="/Assets/Button.png" className="w-[60px] h-full rounded-full" />
+                                <img src="/Assets/Button.png" className="w-[45px] h-full rounded-full" />
                             </button>
                         </div>
                     </div>
@@ -98,20 +105,22 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
     // Desktop
     return (
         <div className="flex flex-row items-center justify-between">
-            <Image src="/Images/ppif_logo.png" alt="PPIF logo"
-                onClick={() => {
-                    playClickSound();
-                }}
+            <Image
+                src="/Images/ppif_logo.png"
+                alt="PPIF logo"
+                onClick={playClickSound}
                 width={90}
-                height={30}
+                height={75}
+                className="w-[60px] h-auto lg:w-[90px]"
                 priority
             />
-            <ul className="flex flex-row gap-6 -mr-24 items-center">
+
+            <ul className="flex flex-row gap-6 lg:-mr-24 -mr-12 items-center">
                 {sections.map((section) => (
                     <li key={section.id}>
                         <button
                             style={{ fontFamily: 'HongMengTi' }}
-                            className={`text-md font-extrabold whitespace-nowrap flex-shrink-0 cursor-pointer hover:text-[#5AE93A] transition-all
+                            className={`text-md font-extrabold whitespace-nowrap flex-shrink-0 lg:text-lg text-[12px] cursor-pointer hover:text-[#5AE93A] transition-all
               ${currentSection === section.id ? "text-[#F06D39]" : "text-gray-100"}
             `}
                             onClick={() => {
@@ -135,16 +144,21 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                     className="w-full h-full flex items-center rounded-full justify-center "
                 >
                     {isMusicPlaying ? (
-                        <img src="/Assets/musicOn.png" className="w-[60px] h-full rounded-full animate-bounce" />
+                        <img src="/Assets/musicOn.png" className="lg:w-[60px] w-[38px] h-full rounded-full animate-bounce" />
                     ) : (
-                        <img src="/Assets/musicOff.png" className="w-[60px] h-full rounded-full" />
+                        <img src="/Assets/musicOff.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                     )}
                 </button>
-                <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
-                    <img src="/Assets/GamesIcon.png" className="w-[60px] h-full rounded-full" />
+                <button 
+                    onClick={() => {
+                        playClickSound();
+                        onNavigate("game");}} 
+                    className="w-full h-full flex items-center rounded-full justify-center"
+                >
+                    <img src="/Assets/GamesIcon.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                 </button>
                 <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
-                    <img src="/Assets/Button.png" className="w-[60px] h-full rounded-full" />
+                    <img src="/Assets/Button.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                 </button>
             </div>
         </div>
