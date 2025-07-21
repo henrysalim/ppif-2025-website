@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import { initClickSound, playClickSound } from "./SoundPlayer";
+import Link from "next/link";
 
 const sections = [
     { id: "home", label: "HOME" },

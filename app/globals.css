@@ -85,6 +85,41 @@ body {
   flex-direction: column;
 }
 
+/* Custom Scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #1f2937; 
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #f97316; 
+  border-radius: 9999px;
+  border: 1px solid #1f2937;
+}
+
+@keyframes pulseRingColor {
+  0%, 100% {
+    box-shadow: 0 0 0 4px #5AE93A;
+  }
+  50% {
+    box-shadow: 0 0 10px 6px #FBCE2A;
+  }
+}
+
+.pulse-ring {
+  animation: pulseRingColor 1s infinite ease-in-out;
+}
+
+
 /* @media (max-aspect-ratio: 16/9) {
   .locked-desktop-content {
     width: 100vw;
