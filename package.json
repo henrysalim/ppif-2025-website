@@ -16,6 +16,8 @@
     "@mui/material": "^7.1.2",
     "@react-three/drei": "^10.5.1",
     "@react-three/fiber": "^9.2.0",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^1.10.33",
     "animejs": "^4.0.2",
     "chart.js": "^4.5.0",
     "framer-motion": "^12.19.1",
