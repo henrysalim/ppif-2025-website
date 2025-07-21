@@ -9,7 +9,7 @@ export default function Game() {
         <Background textChild="GAME">
             <div className='w-full flex h-screen justify-center items-center'>
                 <h1 className='font-black text-white lg:text-5xl text-xl text-center' style={{ fontFamily: 'HongMengTi' }}></h1>
-                <Envelope/>
+                <Envelope groups={Groups} unique_codes={UniqueCodes} />
             </div>
         </Background>
     )
