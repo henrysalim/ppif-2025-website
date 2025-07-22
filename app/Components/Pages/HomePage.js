@@ -42,7 +42,7 @@ export default function HomePage() {
     }, []);
 
     return (
-        <Background>
+        // <Background>
             <div className="relative w-full h-screen overflow-hidden">
                 <WelcomeFlicker />
                 {/* Tilt container */}
@@ -72,7 +72,7 @@ export default function HomePage() {
                             muted
                             playsInline
                         >
-                            <source src="Models/vid_idle.mp4" type="video/mp4" />
+                            <source src="Models/vid_idle.webm" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
 
@@ -94,6 +94,6 @@ export default function HomePage() {
                     </button>
                 </Tilt>
             </div>
-        </Background>
+        // </Background>
     );
 }

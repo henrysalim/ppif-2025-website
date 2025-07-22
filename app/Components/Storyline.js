@@ -25,7 +25,7 @@ const stories = [
     }
 ];
 
-export default function Storyline({onNext}) {
+export default function Storyline({ onNext }) {
     const [current, setCurrent] = useState(0);
 
     const nextStory = () => setCurrent((prev) => (prev + 1) % stories.length);
@@ -56,40 +56,34 @@ export default function Storyline({onNext}) {
                         ></div>
                     </div>
 
-                    <div className="flex flex-col w-auto h-full">
+                    <div className="flex flex-col w-auto h-full relative">
                         {/* Mascot */}
-                        <div className="z-50">
+                        <div className="z-50 mb-4">
                             <img src="/Images/mascotHead_ppif.png" alt="Codie" className="w-16 h-16" />
                         </div>
+
                         {/* Label */}
-                        <div className="flex flex-col gap-[-2px]">
-                            <div className="relative w-36 h-12">
-                                <p
+                        <div className="relative w-36 h-12 -mt-4"> {/* Shift upward with -mt-4 */}
+                            <img src="/Images/label.png" alt="Label" className="w-full h-full" />
+                            <p
                                 className="absolute top-1 left-1/4 -translate-x-1/2 text-[#2e2e2e] text-sm font-semibold"
                                 style={{ fontFamily: 'HongMengTi' }}
-                                >
-                                    CODIE
-                                </p>
+                            >
+                                CODIE
+                            </p>
+                        </div>
 
-                                {/* Label image */}
-                                <img src="/Images/label.png" alt="Label" className="w-full h-full" />
-                            </div>
-                            {/* Text Area */}
-                            <div
-                                className="flex flex-col items-start max-w-md max-h-[160px] relative p-3 overflow-y-auto custom-scrollbar bg-[#2e2e2e] rounded-xl"
+                        {/* Text Area */}
+                        <div
+                            className="flex flex-col items-start max-w-md max-h-[160px] relative p-3 overflow-y-auto custom-scrollbar bg-[#2e2e2e] rounded-xl -mt-5"
+                            style={{ fontFamily: 'HongMengTi' }}
+                        >
+                            <p
+                                className="text-white text-xs leading-normal font-light text-justify"
                                 style={{ fontFamily: 'HongMengTi' }}
                             >
-                                {/* Content */}
-                                <div className="flex-1 z-55">
-                                    {/* Main Text */}
-                                    <p
-                                        className="text-white text-xs leading-normal font-light text-justify"
-                                        style={{ fontFamily: 'HongMengTi' }}
-                                    >
-                                        {stories[current].text}
-                                    </p>
-                                </div>
-                            </div>
+                                {stories[current].text}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -102,7 +96,7 @@ export default function Storyline({onNext}) {
                             onClick={prevStory}
                             className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
                         >
-                            &larr;
+                            <img src="/Images/storyPrev.png" alt="Previous" className="w-5 h-6" />
                         </button>
 
                         {/* Indicators */}
@@ -124,7 +118,7 @@ export default function Storyline({onNext}) {
                             onClick={nextStory}
                             className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
                         >
-                            &rarr;
+                            <img src="/Images/storyNext.png" alt="Next" className="w-5 h-6" />
                         </button>
                     </div>
                 </div>
@@ -133,6 +127,7 @@ export default function Storyline({onNext}) {
                         <button
                             onClick={onNext}
                             className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-md"
+                            style={{ fontFamily: 'HongMengTi' }}
                         >
                             Next
                         </button>

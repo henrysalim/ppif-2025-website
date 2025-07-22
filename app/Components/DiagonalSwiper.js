@@ -179,7 +179,7 @@ export default function DiagonalSwiper() {
                                     playClickSound();
                                 }}
                             >
-                                <h1 className='lg:text-[20px] text-[12px]' style={{ fontFamily: 'HongMengTi' }}>{tab}</h1>
+                                <h1 className='lg:text-[20px] text-[12px] text-white' style={{ fontFamily: 'HongMengTi' }}>{tab}</h1>
                             </button>
                         ))}
                     </div>

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Background from '../Background'
 import Storyline from '../Storyline'
 import Envelope from '../Envelope'
+import Groups from "../../Components/Groups/Groups.json"
+import UniqueCodes from "../../Components/Groups/UniqueCodes.json"
 
 export default function Game() {
     const [phase, setPhase] = useState('storyline');
