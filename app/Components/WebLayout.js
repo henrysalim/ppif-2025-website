@@ -63,7 +63,7 @@ function RotateOverlay() {
                     height={75}
                     priority
                     className="animate-bounce"
-                />                
+                />
                 <Image src="/Images/rotate_device.gif" alt="PPIF logo"
                     onClick={() => {
                         playClickSound();
@@ -106,8 +106,15 @@ const useIsMobile = () => {
 export default function WebLayout() {
     const containerRef = useRef(null);
     const isMobile = useIsMobile();
-    const [currentSection, setCurrentSection] = useState(sectionList[0].id);
 
+    function getSectionFromHash() {
+        if (typeof window === "undefined") return sectionList[0].id;
+        const hash = window.location.hash.replace("#", "");
+        const section = sectionList.find(s => s.id === hash);
+        return section ? section.id : sectionList[0].id;
+    }
+
+    const [currentSection, setCurrentSection] = useState(getSectionFromHash());
     const [introDone, setIntroDone] = useState(false);
     const [contentVisible, setContentVisible] = useState(false);
     const [showGlitch, setShowGlitch] = useState(false);
@@ -152,6 +159,24 @@ export default function WebLayout() {
         setIntroDone(true);
         setTimeout(() => setContentVisible(true), 100);
     };
+
+        useEffect(() => {
+        if (typeof window === "undefined") return;
+        if (window.location.hash !== "#" + currentSection) {
+            window.location.hash = "#" + currentSection;
+        }
+    }, [currentSection]);
+
+    useEffect(() => {
+        function onHashChange() {
+            const hash = window.location.hash.replace("#", "");
+            if (sectionList.some(s => s.id === hash)) {
+                setCurrentSection(hash);
+            }
+        }
+        window.addEventListener("hashchange", onHashChange);
+        return () => window.removeEventListener("hashchange", onHashChange);
+    }, []);
 
     const triggerSectionChange = (id) => {
         if (glitchAudioRef.current) {
@@ -298,7 +323,7 @@ export default function WebLayout() {
                                             muted
                                             playsInline
                                         >
-                                            <source src="/Images/glitch_transition.mp4" type="video/mp4" />
+                                            <source src="/Images/glitch_transition.webm" type="video/mp4" />
                                         </video>
                                     </div>
                                 )}

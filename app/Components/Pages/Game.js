@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Background from '../Background'
+import Storyline from '../Storyline'
 import Envelope from '../Envelope'
 
 export default function Game() {
+    const [phase, setPhase] = useState('storyline');
     return (
         <Background textChild="GAME">
             <div className='w-full flex h-screen justify-center items-center'>
-                <h1 className='font-black text-white lg:text-5xl text-xl text-center' style={{ fontFamily: 'HongMengTi' }}></h1>
-                <Envelope/>
+                {phase === 'storyline' && <Storyline onNext={() => setPhase('envelope')} />}
+                {phase === 'envelope' && <Envelope />}
             </div>
         </Background>
     )

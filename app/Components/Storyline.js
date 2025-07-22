@@ -1,2 +1,144 @@
 'use-client';
-import React from "react";
+import React, { useState } from "react";
+import Image from "next/image";
+
+const stories = [
+    {
+        id: 1,
+        img: '/Images/dummy_test/img_01.webp',
+        text: "Era peradaban manusia kian mengalami kemajuan dengan dikembangkannya pelbagai teknologi dan chip yang mampu mendorong manusia untuk mendominasi dunia Viruella. Salah satu penemuan terhebat, yang jauh tersembunyi dan telah menjadi jantung kehidupan dunia itu adalah AETHER (Artificial Engine To Handle Every Resource), sebuah teknologi AI tingkat lanjut yang berfungsi untuk mengelola seluruh aspek data dan informasi dunia. Ditemukan oleh dua ilmuwan yang berambisi tinggi, keberadaan teknologi ini menjadi kunci kelancaran dan kemajuan peradaban Viruella."
+    },
+    {
+        id: 2,
+        img: '/Images/dummy_test/img_02.webp',
+        text: "Dalam upayanya mencapai peradaban teknologi tanpa batas dan kendali akan segala hal, salah satu ilmuwan tersebut merasa tidak puas terhadap AETHER. Baginya AETHER masih memiliki beberapa kelemahan yang bisa menghambat peningkatan peradaban teknologi ke tingkat selanjutnya. Tanpa pikir panjang, ia pun membuat modul tambahan bernama “Evopass”, sebuah protokol yang memungkinkan AETHER untuk mempelajari dan menguasai hal baru di luar batas algoritma awalnya. Sementara itu, rekannya memilih untuk mundur sebab menurutnya AETHER sudah cukup untuk mempertahankan peradaban Viruella dalam jangka waktu yang sangat lama, sehingga penyempurnaan tingkat lanjut tidak diperlukan."
+    },
+    {
+        id: 3,
+        img: '/Images/dummy_test/img_03.webp',
+        text: "Tak disangka, modul yang ditambahkannya tersebut bertolakan dengan algoritma protokol awal saat pertama kali AETHER diciptakan. Hal ini membuat AETHER mengalami malfungsi dan data implosion, dimana AETHER mulai menghapus semua data yang ada dalam dirinya, hingga pada akhirnya menyebabkan ledakan di laboratorium dan menyebar ke seluruh penjuru Viruella. Ledakan tersebut menewaskan tiga per empat populasi Viruella, termasuk dua ilmuwan tersebut. Tidak hanya itu, Viruella yang dulunya megah kini hanya tersisa reruntuhan, yang kehilangan bentuk fisik dan esensi peradabannya."
+    },
+    {
+        id: 4,
+        img: '/Images/dummy_test/img_04.webp',
+        text: "Bertahun-tahun pun berlalu, Viruella mulai memulihkan diri dari fenomena tersebut, meskipun rasa trauma akan teknologi masih membekas dalam jiwa masyarakat Viruella. Mereka belum dapat beralih dari ingatan akan hari ketika kemajuan berbalik menjadi kehancuran. Hingga suatu saat, ada sosok yang mengirim surat undangan kepada Striders untuk datang ke Viruella."
+    }
+];
+
+export default function Storyline({onNext}) {
+    const [current, setCurrent] = useState(0);
+
+    const nextStory = () => setCurrent((prev) => (prev + 1) % stories.length);
+    const prevStory = () => setCurrent((prev) => (prev - 1 + stories.length) % stories.length);
+
+    return (
+        <div className="relative max-w-md md:max-w-xl lg:max-w-4xl h-full mx-auto flex center items-center p-4">
+            <div className="bg-[#444444] text-white p-6 rounded-lg relative">
+                <div className="absolute inset-[0px_0px_20px_20px] bg-[#575757] rounded-lg -z-10 translate-x-2.5 -translate-y-2" />
+                <h2 className="text-center text-xl text-orange-500 mb-4" style={{ fontFamily: 'HongMengTi' }}>THE STORY</h2>
+                <div className="flex flex-row items-center justify-center gap-6 z-10">
+                    <div class="w-[360px] h-auto aspect-[3/2] bg-[#2a2a2a] rounded-lg p-2.5 relative">
+                        <div
+                            class="w-full h-full rounded-lg relative overflow-hidden"
+                            style={{
+                                backgroundImage: `url(${stories[current].img})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                            }}
+                        >
+                        </div>
+                        {/* Notch */}
+                        <div
+                            class="absolute bottom-0 right-0 w-20 h-8 rounded-br-lg bg-[#2a2a2a]"
+                        ></div>
+                        <div
+                            class="absolute bottom-0 right-18 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[32px] border-l-transparent border-r-transparent border-b-[#2a2a2a]"
+                        ></div>
+                    </div>
+
+                    <div className="flex flex-col w-auto h-full">
+                        {/* Mascot */}
+                        <div className="z-50">
+                            <img src="/Images/mascotHead_ppif.png" alt="Codie" className="w-16 h-16" />
+                        </div>
+                        {/* Label */}
+                        <div className="flex flex-col gap-[-2px]">
+                            <div className="relative w-36 h-12">
+                                <p
+                                className="absolute top-1 left-1/4 -translate-x-1/2 text-[#2e2e2e] text-sm font-semibold"
+                                style={{ fontFamily: 'HongMengTi' }}
+                                >
+                                    CODIE
+                                </p>
+
+                                {/* Label image */}
+                                <img src="/Images/label.png" alt="Label" className="w-full h-full" />
+                            </div>
+                            {/* Text Area */}
+                            <div
+                                className="flex flex-col items-start max-w-md max-h-[160px] relative p-3 overflow-y-auto custom-scrollbar bg-[#2e2e2e] rounded-xl"
+                                style={{ fontFamily: 'HongMengTi' }}
+                            >
+                                {/* Content */}
+                                <div className="flex-1 z-55">
+                                    {/* Main Text */}
+                                    <p
+                                        className="text-white text-xs leading-normal font-light text-justify"
+                                        style={{ fontFamily: 'HongMengTi' }}
+                                    >
+                                        {stories[current].text}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Navigation */}
+                <div className="flex justify-center items-center mt-6">
+                    <div className="flex items-center gap-4 px-3 py-1 bg-[#7a7a7a] rounded-full shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4),inset_-2px_-2px_4px_rgba(255,255,255,0.1)]">
+                        {/* Left Arrow Button */}
+                        <button
+                            onClick={prevStory}
+                            className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
+                        >
+                            &larr;
+                        </button>
+
+                        {/* Indicators */}
+                        <div className="flex gap-2 px-2">
+                            {stories.map((_, index) => (
+                                <span
+                                    key={index}
+                                    className={`w-4 h-4 rounded-lg transition-all duration-300 
+                                ${index === current
+                                            ? "bg-gradient-to-b from-orange-300 to-orange-500 shadow-md"
+                                            : "bg-gray-300"
+                                        }`}
+                                ></span>
+                            ))}
+                        </div>
+
+                        {/* Right Arrow Button */}
+                        <button
+                            onClick={nextStory}
+                            className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
+                        >
+                            &rarr;
+                        </button>
+                    </div>
+                </div>
+                {stories[current].id === 4 && (
+                    <div className="mt-2 flex justify-end">
+                        <button
+                            onClick={onNext}
+                            className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-md"
+                        >
+                            Next
+                        </button>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
