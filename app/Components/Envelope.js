@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Spline from '@splinetool/react-spline';
 
 export default function Envelope() {
@@ -8,6 +8,12 @@ export default function Envelope() {
     'https://prod.spline.design/RRF-H-e5ZfciGKxs/scene.splinecode', // open
     'https://prod.spline.design/ESmbWcgsyPh93M2Y/scene.splinecode', // out
   ];
+
+  useEffect(() => {
+    scenes.forEach(url => {
+      fetch(url, { method: 'GET', mode: 'no-cors' }).catch(() => {});
+    });
+  }, []);
 
   const [sceneIndex, setSceneIndex] = useState(0);
   const [hasClickedOnce, setHasClickedOnce] = useState(false);

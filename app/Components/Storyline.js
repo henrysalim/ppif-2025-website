@@ -1,6 +1,6 @@
 'use-client';
 import React, { useState } from "react";
-import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 
 const stories = [
     {
@@ -27,113 +27,143 @@ const stories = [
 
 export default function Storyline({ onNext }) {
     const [current, setCurrent] = useState(0);
-
-    const nextStory = () => setCurrent((prev) => (prev + 1) % stories.length);
-    const prevStory = () => setCurrent((prev) => (prev - 1 + stories.length) % stories.length);
+    const [direction, setDirection] = useState("next");
+    const nextStory = () => {
+        setDirection("next");
+        setCurrent((prev) => (prev + 1) % stories.length);
+    };
+    const prevStory = () => {
+        setDirection("prev");
+        setCurrent((prev) => (prev - 1 + stories.length) % stories.length);
+    };
 
     return (
-        <div className="relative max-w-md md:max-w-xl lg:max-w-4xl h-full mx-auto flex center items-center p-4">
-            <div className="bg-[#444444] text-white p-6 rounded-lg relative">
-                <div className="absolute inset-[0px_0px_20px_20px] bg-[#575757] rounded-lg -z-10 translate-x-2.5 -translate-y-2" />
-                <h2 className="text-center text-xl text-orange-500 mb-4" style={{ fontFamily: 'HongMengTi' }}>THE STORY</h2>
-                <div className="flex flex-row items-center justify-center gap-6 z-10">
-                    <div class="w-[360px] h-auto aspect-[3/2] bg-[#2a2a2a] rounded-lg p-2.5 relative">
-                        <div
-                            class="w-full h-full rounded-lg relative overflow-hidden"
-                            style={{
-                                backgroundImage: `url(${stories[current].img})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                            }}
-                        >
+        <AnimatePresence mode="wait">
+            <motion.div
+                key={stories[current].id}
+                className="flex flex-row items-center justify-center gap-6 z-10"
+                initial={{ opacity: 0, x: direction === "next" ? 100 : -100 }} // changed y to x
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: direction === "next" ? -100 : 100 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+                <div className="relative max-w-md md:max-w-xl lg:max-w-4xl h-full mx-auto flex center justify-center items-center p-4">
+                    <div className="bg-[#444444] text-white p-6 rounded-lg relative">
+                        <div className="absolute inset-[0px_0px_20px_20px] bg-[#575757] rounded-lg -z-10 translate-x-2.5 -translate-y-2" />
+                        <h2 className="text-center text-xl text-orange-500 mb-4" style={{ fontFamily: 'HongMengTi' }}>THE STORY</h2>
+                        <div className="absolute top-5 right-8 -rotate-12">
+                            <img src="/Images/PPIF/2-noBG.png" className="w-28 h-24" />
                         </div>
-                        {/* Notch */}
-                        <div
-                            class="absolute bottom-0 right-0 w-20 h-8 rounded-br-lg bg-[#2a2a2a]"
-                        ></div>
-                        <div
-                            class="absolute bottom-0 right-18 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[32px] border-l-transparent border-r-transparent border-b-[#2a2a2a]"
-                        ></div>
-                    </div>
+                        <div className="flex flex-row items-center justify-center gap-6 z-10">
+                            <div class="w-[360px] h-auto aspect-[3/2] bg-[#2a2a2a] rounded-lg p-2.5 relative">
+                                <div
+                                    class="w-full h-full rounded-lg relative overflow-hidden"
+                                    style={{
+                                        backgroundImage: `url(${stories[current].img})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                    }}
+                                >
+                                </div>
+                                {/* Notch */}
+                                <div
+                                    class="absolute bottom-0 right-0 w-20 h-8 rounded-br-lg bg-[#2a2a2a]"
+                                ></div>
+                                <div
+                                    class="absolute bottom-0 right-18 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[32px] border-l-transparent border-r-transparent border-b-[#2a2a2a]"
+                                ></div>
+                            </div>
 
-                    <div className="flex flex-col w-auto h-full relative">
-                        {/* Mascot */}
-                        <div className="z-50 mb-4">
-                            <img src="/Images/mascotHead_ppif.png" alt="Codie" className="w-16 h-16" />
+                            <div className="flex flex-col w-auto h-full relative">
+                                {/* Mascot */}
+                                <div className="z-50 mb-4">
+                                    <img src="/Images/mascotHead_ppif.png" alt="Codie" className="w-16 h-16" />
+                                </div>
+
+                                {/* Label */}
+                                <div className="relative w-36 h-12 -mt-4"> {/* Shift upward with -mt-4 */}
+                                    <img src="/Images/label.png" alt="Label" className="w-full h-full" />
+                                    <p
+                                        className="absolute top-1 left-1/4 -translate-x-1/2 text-[#2e2e2e] text-sm font-semibold"
+                                        style={{ fontFamily: 'HongMengTi' }}
+                                    >
+                                        CODIE
+                                    </p>
+                                </div>
+
+                                {/* Text Area */}
+                                <div
+                                    className="flex flex-col items-start max-w-md max-h-[160px] relative p-3 overflow-y-auto custom-scrollbar bg-[#2e2e2e] rounded-xl -mt-[18px] ml-1"
+                                    style={{ fontFamily: 'HongMengTi' }}
+                                >
+                                    <p
+                                        className="text-white text-xs leading-normal font-light text-justify"
+                                        style={{ fontFamily: 'HongMengTi' }}
+                                    >
+                                        {stories[current].text}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Label */}
-                        <div className="relative w-36 h-12 -mt-4"> {/* Shift upward with -mt-4 */}
-                            <img src="/Images/label.png" alt="Label" className="w-full h-full" />
-                            <p
-                                className="absolute top-1 left-1/4 -translate-x-1/2 text-[#2e2e2e] text-sm font-semibold"
-                                style={{ fontFamily: 'HongMengTi' }}
-                            >
-                                CODIE
-                            </p>
-                        </div>
+                        {/* Navigation */}
+                        <div className="flex justify-between items-center gap-3 mt-6">
+                            <div className="flex items-center gap-4 px-3 py-1 bg-[#7a7a7a] rounded-full shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4),inset_-2px_-2px_4px_rgba(255,255,255,0.1)]">
+                                {/* Left Arrow Button */}
+                                <button
+                                    onClick={prevStory}
+                                    className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
+                                >
+                                    <img src="/Images/storyPrev.png" alt="Previous" className="w-5 h-6" />
+                                </button>
 
-                        {/* Text Area */}
-                        <div
-                            className="flex flex-col items-start max-w-md max-h-[160px] relative p-3 overflow-y-auto custom-scrollbar bg-[#2e2e2e] rounded-xl -mt-5"
-                            style={{ fontFamily: 'HongMengTi' }}
-                        >
-                            <p
-                                className="text-white text-xs leading-normal font-light text-justify"
-                                style={{ fontFamily: 'HongMengTi' }}
-                            >
-                                {stories[current].text}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Navigation */}
-                <div className="flex justify-center items-center mt-6">
-                    <div className="flex items-center gap-4 px-3 py-1 bg-[#7a7a7a] rounded-full shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4),inset_-2px_-2px_4px_rgba(255,255,255,0.1)]">
-                        {/* Left Arrow Button */}
-                        <button
-                            onClick={prevStory}
-                            className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
-                        >
-                            <img src="/Images/storyPrev.png" alt="Previous" className="w-5 h-6" />
-                        </button>
-
-                        {/* Indicators */}
-                        <div className="flex gap-2 px-2">
-                            {stories.map((_, index) => (
-                                <span
-                                    key={index}
-                                    className={`w-4 h-4 rounded-lg transition-all duration-300 
+                                {/* Indicators */}
+                                <div className="flex gap-2 px-2">
+                                    {stories.map((_, index) => (
+                                        <span
+                                            key={index}
+                                            className={`w-4 h-4 rounded-lg transition-all duration-300 
                                 ${index === current
-                                            ? "bg-gradient-to-b from-orange-300 to-orange-500 shadow-md"
-                                            : "bg-gray-300"
-                                        }`}
-                                ></span>
-                            ))}
-                        </div>
+                                                    ? "bg-gradient-to-b from-orange-300 to-orange-500 shadow-md"
+                                                    : "bg-gray-300"
+                                                }`}
+                                        ></span>
+                                    ))}
+                                </div>
 
-                        {/* Right Arrow Button */}
-                        <button
-                            onClick={nextStory}
-                            className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
-                        >
-                            <img src="/Images/storyNext.png" alt="Next" className="w-5 h-6" />
-                        </button>
+                                {/* Right Arrow Button */}
+                                <button
+                                    onClick={nextStory}
+                                    className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
+                                >
+                                    <img src="/Images/storyNext.png" alt="Next" className="w-5 h-6" />
+                                </button>
+                            </div>
+                            {stories[current].id === 4 ? (
+                                <div className="flex justify-end">
+                                    <button
+                                        onClick={onNext}
+                                        className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-md"
+                                        style={{ fontFamily: 'HongMengTi' }}
+                                    >
+                                        Next
+                                    </button>
+                                </div>
+                            ) : (
+                                <div className="flex flex-col justify-end">
+                                    <img src="/Images/PPIF/9-noBG.png" className="w-30 h-14" />
+                                    <div
+                                        className="text-sm text-gray-500 italic"
+                                        style={{ fontFamily: 'HongMengTi' }}
+                                    >
+                                        To be continue...
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
-                {stories[current].id === 4 && (
-                    <div className="mt-2 flex justify-end">
-                        <button
-                            onClick={onNext}
-                            className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-md"
-                            style={{ fontFamily: 'HongMengTi' }}
-                        >
-                            Next
-                        </button>
-                    </div>
-                )}
-            </div>
-        </div>
+            </motion.div>
+        </AnimatePresence>
     );
 }
