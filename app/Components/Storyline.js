@@ -1,6 +1,7 @@
 'use-client';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { initClickSound, playClickSound } from "./SoundPlayer";
 
 const stories = [
     {
@@ -36,6 +37,10 @@ export default function Storyline({ onNext }) {
         setDirection("prev");
         setCurrent((prev) => (prev - 1 + stories.length) % stories.length);
     };
+
+    useEffect(() => {
+        initClickSound("/Audio/clicking.mp3", 0.6);
+    }, []);
 
     return (
         <AnimatePresence mode="wait">
@@ -111,7 +116,10 @@ export default function Storyline({ onNext }) {
                             <div className="flex items-center gap-4 px-3 py-1 bg-[#7a7a7a] rounded-full shadow-[inset_2px_2px_4px_rgba(0,0,0,0.4),inset_-2px_-2px_4px_rgba(255,255,255,0.1)]">
                                 {/* Left Arrow Button */}
                                 <button
-                                    onClick={prevStory}
+                                    onClick={() =>{
+                                        prevStory();
+                                        playClickSound();
+                                    }}
                                     className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
                                 >
                                     <img src="/Images/storyPrev.png" alt="Previous" className="w-5 h-6" />
@@ -133,7 +141,10 @@ export default function Storyline({ onNext }) {
 
                                 {/* Right Arrow Button */}
                                 <button
-                                    onClick={nextStory}
+                                    onClick={() =>{
+                                        nextStory();
+                                        playClickSound();
+                                    }}
                                     className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
                                 >
                                     <img src="/Images/storyNext.png" alt="Next" className="w-5 h-6" />

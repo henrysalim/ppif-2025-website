@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Spline from '@splinetool/react-spline';
 import { motion, AnimatePresence } from 'framer-motion';
+import { initClickSound, playClickSound } from "./SoundPlayer";
 
 export default function Envelope({ onNext }) {
   const scenes = [
@@ -19,6 +20,9 @@ export default function Envelope({ onNext }) {
   const [errorMessage, setErrorMessage] = useState('');
   const inputRef = useRef(null);
 
+  useEffect(() => {
+    initClickSound("/Audio/clicking.mp3", 0.6);
+  }, []);
 
   useEffect(() => {
     scenes.forEach(url => {
@@ -34,7 +38,7 @@ export default function Envelope({ onNext }) {
   }, [])
 
   const handleClick = () => {
-    if (showPaper) return; 
+    if (showPaper) return;
 
     if (!hasClickedOnce) {
       setHasClickedOnce(true);
@@ -49,7 +53,7 @@ export default function Envelope({ onNext }) {
   return (
     <div className="relative w-full h-screen overflow-hidden" onClick={handleClick}>
       {!showPaper && (
-        <Spline scene={scenes[sceneIndex]} />
+        <Spline scene={scenes[sceneIndex]} onClick={playClickSound()} />
       )}
 
       <AnimatePresence>
@@ -103,7 +107,7 @@ export default function Envelope({ onNext }) {
               />
             </div>
             {errorMessage && (
-              <p className="text-center text-red-600 text-sm mt-1" style={{fontFamily: 'HongMengTi'}}>{errorMessage}</p>
+              <p className="text-center text-red-600 text-sm mt-1" style={{ fontFamily: 'HongMengTi' }}>{errorMessage}</p>
             )}
             <div className='absolute right-4 bottom-4'>
               <img src="/Images/PPIF/1-noBG.png" alt='stamp' className='w-16 h-10' />
