@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import Background from '../Background'
 import Storyline from '../Storyline'
 import Envelope from '../Envelope'
-import Groups from "../../Components/Groups/Groups.json"
-import UniqueCodes from "../../Components/Groups/UniqueCodes.json"
+import Play from '../Play'
 
 export default function Game() {
     const [phase, setPhase] = useState('storyline');
@@ -11,7 +10,8 @@ export default function Game() {
         <Background textChild="GAME">
             <div className='w-full flex h-screen justify-center items-center'>
                 {phase === 'storyline' && <Storyline onNext={() => setPhase('envelope')} />}
-                {phase === 'envelope' && <Envelope />}
+                {phase === 'envelope' && <Envelope onNext={() => setPhase('play')}/>}
+                {phase === 'play' && <Play />}
             </div>
         </Background>
     )
