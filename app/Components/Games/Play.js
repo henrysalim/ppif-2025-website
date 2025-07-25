@@ -1,6 +1,6 @@
 "use-client";
 import { React, useRef, useState, useEffect } from "react";
-import Groups from "../Components/Groups/Groups.json";
+import Groups from "../Groups/Groups.json";
 
 export default function Play({ groupCode }) {
   const inputRef = useRef(null);
