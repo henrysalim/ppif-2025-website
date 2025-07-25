@@ -1,20 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 @tailwind utilities;
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'HongMengTi';
-  src: url('/Fonts/Inpin/inpin-hongmengti.ttf') format('truetype');
+  font-family: "HongMengTi";
+  src: url("/Fonts/Inpin/inpin-hongmengti.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 .about-font {
-  font-family: 'HongMengTi', sans-serif;
+  font-family: "HongMengTi", sans-serif;
 }
 
 .about-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #f97316 #1f2937; 
+  scrollbar-color: #f97316 #1f2937;
 }
 
 .about-scrollbar::-webkit-scrollbar {
@@ -27,17 +28,16 @@
 }
 
 .about-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #f97316; 
+  background-color: #f97316;
   border-radius: 9999px;
   border: 1px solid #1f2937;
 }
 
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-geist-sans: 'HongMengTi', sans-serif;
-  --font-geist-mono: 'Courier New', monospace;
+  --font-geist-sans: "HongMengTi", sans-serif;
+  --font-geist-mono: "Courier New", monospace;
 }
 
 @theme inline {
@@ -75,7 +75,11 @@ body {
 
 .blur-t-only {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 20%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    black 20%
+  );
   filter: blur(6px);
 }
 
@@ -112,7 +116,7 @@ body {
 /* Custom Scrollbar */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #f97316 #1f2937; 
+  scrollbar-color: #f97316 #1f2937;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -125,24 +129,24 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #f97316; 
+  background-color: #f97316;
   border-radius: 9999px;
   border: 1px solid #1f2937;
 }
 
 @keyframes pulseRingColor {
-  0%, 100% {
-    box-shadow: 0 0 0 4px #5AE93A;
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px #5ae93a;
   }
   50% {
-    box-shadow: 0 0 10px 6px #FBCE2A;
+    box-shadow: 0 0 10px 6px #fbce2a;
   }
 }
 
 .pulse-ring {
   animation: pulseRingColor 1s infinite ease-in-out;
 }
-
 
 /* @media (max-aspect-ratio: 16/9) {
   .locked-desktop-content {

@@ -60,9 +60,9 @@ export default function Storyline({ onNext }) {
                             <img src="/Images/PPIF/2-noBG.png" className="w-28 h-24" />
                         </div>
                         <div className="flex flex-row items-center justify-center gap-6 z-10">
-                            <div class="w-[360px] h-auto aspect-[3/2] bg-[#2a2a2a] rounded-lg p-2.5 relative">
+                            <div className="w-[360px] h-auto aspect-[3/2] bg-[#2a2a2a] rounded-lg p-2.5 relative">
                                 <div
-                                    class="w-full h-full rounded-lg relative overflow-hidden"
+                                    className="w-full h-full rounded-lg relative overflow-hidden"
                                     style={{
                                         backgroundImage: `url(${stories[current].img})`,
                                         backgroundSize: 'cover',
@@ -72,10 +72,10 @@ export default function Storyline({ onNext }) {
                                 </div>
                                 {/* Notch */}
                                 <div
-                                    class="absolute bottom-0 right-0 w-20 h-8 rounded-br-lg bg-[#2a2a2a]"
+                                    className="absolute bottom-0 right-0 w-20 h-8 rounded-br-lg bg-[#2a2a2a]"
                                 ></div>
                                 <div
-                                    class="absolute bottom-0 right-18 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[32px] border-l-transparent border-r-transparent border-b-[#2a2a2a]"
+                                    className="absolute bottom-0 right-18 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[32px] border-l-transparent border-r-transparent border-b-[#2a2a2a]"
                                 ></div>
                             </div>
 
