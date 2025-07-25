@@ -99,7 +99,7 @@ export default function Envelope({ onNext }) {
                     const isValid = validCodes.includes(input);
                     if (isValid) {
                       setTimeout(() => {
-                        onNext(code);
+                        onNext(input);
                       }, 500);
                       setErrorMessage("");
                     } else {
