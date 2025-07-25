@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Spline from '@splinetool/react-spline';
 import { motion, AnimatePresence } from 'framer-motion';
 import { initClickSound, playClickSound } from "./SoundPlayer";
+import UniqueCode from '../Components/Groups/UniqueCodes.json'
 
 export default function Envelope({ onNext }) {
   const scenes = [
@@ -11,12 +12,13 @@ export default function Envelope({ onNext }) {
     'https://prod.spline.design/ESmbWcgsyPh93M2Y/scene.splinecode', // out
   ];
 
+  const validCodes = UniqueCode.codes
+
   const [sceneIndex, setSceneIndex] = useState(0);
   const [hasClickedOnce, setHasClickedOnce] = useState(false);
   const [showPaper, setShowPaper] = useState(false);
 
-  const [code, setCode] = useState('');
-  const [validCode, setValidCode] = useState([]);
+  const [ code, setCode] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const inputRef = useRef(null);
 
@@ -29,13 +31,6 @@ export default function Envelope({ onNext }) {
       fetch(url, { method: 'GET', mode: 'no-cors' }).catch(() => { });
     });
   }, []);
-
-  useEffect(() => {
-    fetch('/Groups/UniqueCodes.json')
-      .then((res) => res.json())
-      .then((data) => setValidCode(data.codes || []))
-      .catch(() => setValidCode([]));
-  }, [])
 
   const handleClick = () => {
     if (showPaper) return;
@@ -88,10 +83,10 @@ export default function Envelope({ onNext }) {
                   const input = e.target.value.toUpperCase().slice(0, 5);
                   setCode(input);
                   if (input.length === 5) {
-                    const isValid = validCode.includes(input);
+                    const isValid = validCodes.includes(input);
                     if (isValid) {
                       setTimeout(() => {
-                        onNext();
+                        onNext(code);
                       }, 500);
                       setErrorMessage('');
                     } else {
