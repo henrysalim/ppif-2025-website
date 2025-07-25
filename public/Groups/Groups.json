@@ -1,0 +1,719 @@
+{
+  "groups": {
+    "ChatGPT": {
+      "unique_code": "7ZK9A",
+      "first_answer_detail": {
+        "answer": "api",
+        "letter": "a",
+        "letter_position": 3
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "P",
+        "letter_position": 6
+      },
+      "third_answer_detail": {
+        "answer": "dingin",
+        "letter": "g"
+      },
+      "fourth_answer_detail": {
+        "answer": "bete",
+        "letter": "h"
+      }
+    },
+    "Claude": {
+      "unique_code": "J3TQX",
+      "first_answer_detail": {
+        "answer": "sultan",
+        "letter": "l",
+        "letter_position": 2
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "d",
+        "letter_position": 5
+      },
+      "third_answer_detail": {
+        "answer": "bingung",
+        "letter": "u"
+      },
+      "fourth_answer_detail": {
+        "answer": "rebahan",
+        "letter": "c"
+      }
+    },
+    "DeepSeek": {
+      "unique_code": "M1C7P",
+      "first_answer_detail": {
+        "answer": "menyelam",
+        "letter": "p",
+        "letter_position": 4
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "e",
+        "letter_position": 3
+      },
+      "third_answer_detail": {
+        "answer": "mewing",
+        "letter": "s"
+      },
+      "fourth_answer_detail": {
+        "answer": "doraemon",
+        "letter": "d"
+      }
+    },
+    "Gemini": {
+      "unique_code": "B8ZWR",
+      "first_answer_detail": {
+        "answer": "jarjit",
+        "letter": "e",
+        "letter_position": 2
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "i",
+        "letter_position": 4
+      },
+      "third_answer_detail": {
+        "answer": "ghibah",
+        "letter": "g"
+      },
+      "fourth_answer_detail": {
+        "answer": "confess",
+        "letter": "n"
+      }
+    },
+    "Copilot": {
+      "unique_code": "F92KL",
+      "first_answer_detail": {
+        "answer": "supir",
+        "letter": "p",
+        "letter_position": 3
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "l",
+        "letter_position": 5
+      },
+      "third_answer_detail": {
+        "answer": "drift",
+        "letter": "c"
+      },
+      "fourth_answer_detail": {
+        "answer": "panik",
+        "letter": "o"
+      }
+    },
+    "Mistral": {
+      "unique_code": "GY5XE",
+      "first_answer_detail": {
+        "answer": "dingin",
+        "letter": "r",
+        "letter_position": 5
+      },
+      "second_answer_detail": {
+        "answer": "takut",
+        "letter": "t",
+        "letter_position": 4
+      },
+      "third_answer_detail": {
+        "answer": "patung",
+        "letter": "m"
+      },
+      "fourth_answer_detail": {
+        "answer": "misterius",
+        "letter": "s"
+      }
+    },
+    "Perplexity": {
+      "unique_code": "R4C2V",
+      "first_answer_detail": {
+        "answer": "denis",
+        "letter": "p",
+        "letter_position": 4
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "l",
+        "letter_position": 5
+      },
+      "third_answer_detail": {
+        "answer": "loading",
+        "letter": "x"
+      },
+      "fourth_answer_detail": {
+        "answer": "confess",
+        "letter": "y"
+      }
+    },
+    "Siri": {
+      "unique_code": "QN8J3",
+      "first_answer_detail": {
+        "answer": "apel",
+        "letter": "i",
+        "letter_position": 2
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "r",
+        "letter_position": 3
+      },
+      "third_answer_detail": {},
+      "fourth_answer_detail": {}
+    },
+    "LLaMA": {
+      "unique_code": "X6PMA",
+      "first_answer_detail": {
+        "answer": "lama",
+        "letter": "a",
+        "letter_position": 3
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "m",
+        "letter_position": 4
+      },
+      "third_answer_detail": {
+        "answer": "jerapah",
+        "letter": "l"
+      },
+      "fourth_answer_detail": {}
+    },
+    "Cleverbot": {
+      "unique_code": "T57UZ",
+      "first_answer_detail": {
+        "answer": "reahan",
+        "letter": "c",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "v",
+        "letter_position": 4
+      },
+      "third_answer_detail": {
+        "answer": "ghibah",
+        "letter": "b"
+      },
+      "fourth_answer_detail": {
+        "answer": "robot",
+        "letter": "t"
+      }
+    },
+    "Replika": {
+      "unique_code": "HJ3YK",
+      "first_answer_detail": {
+        "answer": "ngaca",
+        "letter": "p",
+        "letter_position": 3
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "i",
+        "letter_position": 5
+      },
+      "third_answer_detail": {
+        "answer": "naruto",
+        "letter": "k"
+      },
+      "fourth_answer_detail": {
+        "answer": "bingung",
+        "letter": "r"
+      }
+    },
+    "Simsimi": {
+      "unique_code": "A1XQL",
+      "first_answer_detail": {
+        "answer": "ayam",
+        "letter": "s",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "i",
+        "letter_position": 5
+      },
+      "third_answer_detail": {
+        "answer": "saranghae",
+        "letter": "m"
+      },
+      "fourth_answer_detail": {
+        "answer": "terima kasih",
+        "letter": "m"
+      }
+    },
+    "Cursor": {
+      "unique_code": "L2WZ9",
+      "first_answer_detail": {
+        "answer": "koki",
+        "letter": "r",
+        "letter_position": 3
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "o",
+        "letter_position": 5
+      },
+      "third_answer_detail": {
+        "answer": "loading",
+        "letter": "c"
+      },
+      "fourth_answer_detail": {
+        "answer": "doraemon",
+        "letter": "s"
+      }
+    },
+    "Grok": {
+      "unique_code": "DVM84",
+      "first_answer_detail": {
+        "answer": "pikir",
+        "letter": "g",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "o",
+        "letter_position": 3
+      },
+      "third_answer_detail": {},
+      "fourth_answer_detail": {}
+    },
+    "Qwen": {
+      "unique_code": "E7KPJ",
+      "first_answer_detail": {
+        "answer": "mikir",
+        "letter": "q",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "laptop",
+        "letter": "n",
+        "letter_position": 4
+      },
+      "third_answer_detail": {},
+      "fourth_answer_detail": {}
+    },
+    "Scite": {
+      "unique_code": "ZN3TU",
+      "first_answer_detail": {
+        "answer": "ngantuk",
+        "letter": "i",
+        "letter_position": 3
+      },
+      "second_answer_detail": {
+        "answer": "ngoding",
+        "letter": "e",
+        "letter_position": 5
+      },
+      "third_answer_detail": {
+        "answer": "menulis",
+        "letter": "t"
+      },
+      "fourth_answer_detail": {}
+    },
+    "Otter": {
+      "unique_code": "3HXYQ",
+      "first_answer_detail": {
+        "answer": "kupu-kupu",
+        "letter": "r",
+        "letter_position": 5
+      },
+      "second_answer_detail": {
+        "answer": "menunggu",
+        "letter": "e",
+        "letter_position": 4
+      },
+      "third_answer_detail": {
+        "answer": "berenang",
+        "letter": "t"
+      },
+      "fourth_answer_detail": {}
+    },
+    "Elicit": {
+      "unique_code": "K8CR5",
+      "first_answer_detail": {
+        "answer": "gali",
+        "letter": "e",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "buka",
+        "letter": "l",
+        "letter_position": 2
+      },
+      "third_answer_detail": {
+        "answer": "susun",
+        "letter": "i",
+        "letter_position": 3
+      },
+      "fourth_answer_detail": {
+        "answer": "tutup",
+        "letter" : "c",
+        "letter_position": 4
+      }
+    },
+    "Fireflies": {
+      "unique_code": "C7JBZ",
+      "first_answer_detail": {
+        "answer": "api",
+        "letter": "f",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "menyalakan",
+        "letter": "i",
+        "letter_position": 2
+      },
+      "third_answer_detail": {
+        "answer": "memadamkan",
+        "letter": "r",
+        "letter_position": 3
+      },
+      "fourth_answer_detail": {
+        "answer": "meniup",
+        "letter": "e",
+        "letter_position": 4
+      }
+    },
+    "Consensus": {
+      "unique_code": "V1Z6M",
+      "first_answer_detail": {
+        "answer": "jabat tangan",
+        "letter": "c",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "buka",
+        "letter": "o",
+        "letter_position": 2
+      },
+      "third_answer_detail": {
+        "answer": "menulis",
+        "letter": "n",
+        "letter_position": 3
+      },
+      "fourth_answer_detail": {
+        "answer": "sepakat",
+        "letter": "s",
+        "letter_position": 4
+      }
+    },
+    "Notion": {
+      "unique_code": "U92NE",
+      "first_answer_detail": {
+        "answer": "mencatat",
+        "letter": "n",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "kaget",
+        "letter": "i",
+        "letter_position": 4
+      },
+      "third_answer_detail": {
+        "answer": "capek",
+        "letter": "o",
+        "letter_position": 2
+      },
+      "fourth_answer_detail": {
+        "answer": "ketik",
+        "letter": "t",
+        "letter_position": 3
+      }
+    },
+    "Blackbox": {
+      "unique_code": "W5AKL",
+      "first_answer_detail": {
+        "answer": "foto",
+        "letter": "k",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "setrika",
+        "letter": "l",
+        "letter_position": 2
+      },
+      "third_answer_detail": {
+        "answer": "mancing",
+        "letter": "o"
+      },
+      "fourth_answer_detail": {
+        "answer": "unboxing",
+        "letter": "b"
+      }
+    },
+    "Deepl": {
+      "unique_code": "P3R8Y",
+      "first_answer_detail": {
+        "answer": "inspirasi",
+        "letter": "e",
+        "letter_position": 2
+      },
+      "second_answer_detail": {
+        "answer": "cukur",
+        "letter": "l",
+        "letter_position": 5
+      },
+      "third_answer_detail": {
+        "answer": "menyelam",
+        "letter": "p"
+      },
+      "fourth_answer_detail": {}
+    },
+    "Quillbot": {
+      "unique_code": "YT9CQ",
+      "first_answer_detail": {
+        "answer": "takut",
+        "letter": "l",
+        "letter_position": 5
+      },
+      "second_answer_detail": {
+        "answer": "panik",
+        "letter": "i",
+        "letter_position": 3
+      },
+      "third_answer_detail": {
+        "answer": "kaget",
+        "letter": "t"
+      },
+      "fourth_answer_detail": {
+        "answer": "patung",
+        "letter": "q"
+      }
+    },
+    "Smartwriter": {
+      "unique_code": "NX47B",
+      "first_answer_detail": {
+        "answer": "belajar",
+        "letter": "s",
+        "letter_position": 1
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "r",
+        "letter_position": 7
+      },
+      "third_answer_detail": {
+        "answer": "bingung",
+        "letter": "w"
+      },
+      "fourth_answer_detail": {
+        "answer": "gerah",
+        "letter": "a"
+      }
+    },
+    "SciSpace": {
+      "unique_code": "S2ZKL",
+      "first_answer_detail": {
+        "answer": "roket",
+        "letter": "s",
+        "letter_position": 4
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "c",
+        "letter_position": 7
+      },
+      "third_answer_detail": {
+        "answer": "dingin",
+        "letter": "s"
+      },
+      "fourth_answer_detail": {
+        "answer": "belajar",
+        "letter": "p"
+      }
+    },
+    "Harvey": {
+      "unique_code": "9QH3V",
+      "first_answer_detail": {
+        "answer": "mobil",
+        "letter": "v",
+        "letter_position": 4
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "a",
+        "letter_position": 2
+      },
+      "third_answer_detail": {
+        "answer": "dingin",
+        "letter": "y"
+      },
+      "fourth_answer_detail": {
+        "answer": "belajar",
+        "letter": "h"
+      }
+    },
+    "Headlime": {
+      "unique_code": "M6YTW",
+      "first_answer_detail": {
+        "answer": "interview",
+        "letter": "l",
+        "letter_position": 5
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "m",
+        "letter_position": 7
+      },
+      "third_answer_detail": {
+        "answer": "gosip",
+        "letter": "h"
+      },
+      "fourth_answer_detail": {
+        "answer": "koran",
+        "letter": "d"
+      }
+    },
+    "DeepInfra": {
+      "unique_code": "JX4RP",
+      "first_answer_detail": {
+        "answer": "menyelam",
+        "letter": "p",
+        "letter_position": 4
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "f",
+        "letter_position": 7
+      },
+      "third_answer_detail": {
+        "answer": "silau",
+        "letter": "d"
+      },
+      "fourth_answer_detail": {
+        "answer": "bingung",
+        "letter": "i"
+      }
+    },
+    "Paperpal": {
+      "unique_code": "K19ZE",
+      "first_answer_detail": {
+        "answer": "membaca",
+        "letter": "p",
+        "letter_position": 3
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "a",
+        "letter_position": 2
+      },
+      "third_answer_detail": {
+        "answer": "sapa",
+        "letter": "l"
+      },
+      "fourth_answer_detail": {
+        "answer": "gerah",
+        "letter": "r"
+      }
+    },
+    "CodeWhisperer": {
+      "unique_code": "G5LQN",
+      "first_answer_detail": {
+        "answer": "membaca",
+        "letter": "d",
+        "letter_position": 3
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "p",
+        "letter_position": 9
+      },
+      "third_answer_detail": {
+        "answer": "sapa",
+        "letter": "h",
+        "letter_position": 6
+      },
+      "fourth_answer_detail": {
+        "answer": "gerah",
+        "letter": "r",
+        "letter_position": 13
+      }
+    },
+    "BioCatch": {
+      "unique_code": "8UZPK",
+      "first_answer_detail": {
+        "answer": "bunga",
+        "letter": "t",
+        "letter_position": 6
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "i",
+        "letter_position": 2
+      },
+      "third_answer_detail": {
+        "answer": "nyamuk",
+        "letter": "h"
+      },
+      "fourth_answer_detail": {
+        "answer": "kiper",
+        "letter": "r"
+      }
+    },
+    "ArmorCode": {
+      "unique_code": "B73MX",
+      "first_answer_detail": {
+        "answer": "perisai",
+        "letter": "m",
+        "letter_position": 3
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "d",
+        "letter_position": 8
+      },
+      "third_answer_detail": {
+        "answer": "coding",
+        "letter": "e"
+      },
+      "fourth_answer_detail": {
+        "answer": "bingung",
+        "letter": "a"
+      }
+    },
+    "DarkTrace": {
+      "unique_code": "RD92A",
+      "first_answer_detail": {
+        "answer": "silau",
+        "letter": "t",
+        "letter_position": 5
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "r",
+        "letter_position": 3
+      },
+      "third_answer_detail": {
+        "answer": "coding",
+        "letter": "k"
+      },
+      "fourth_answer_detail": {
+        "answer": "naris",
+        "letter": "c"
+      }
+    },
+    "ZeroFox": {
+      "unique_code": "H4VTC",
+      "first_answer_detail": {
+        "answer": "naruto",
+        "letter": "f",
+        "letter_position": 5
+      },
+      "second_answer_detail": {
+        "answer": "patung",
+        "letter": "r",
+        "letter_position": 3
+      },
+      "third_answer_detail": {
+        "answer": "hitung",
+        "letter": "o"
+      },
+      "fourth_answer_detail": {
+        "answer": "kucing",
+        "letter": "e"
+      }
+    }
+  }
+}
