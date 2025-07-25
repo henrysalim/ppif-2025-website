@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
 
-export default function Background({ children, textChild }) {
+export default function Background({ children, textChild, height = "screen" }) {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
@@ -16,12 +16,12 @@ export default function Background({ children, textChild }) {
     const ribbon = Array(5).fill("Images/PPIF/13.png");
 
     const BackgroundContent = (
-        <div className="relative w-full h-screen overflow-hidden">
+        <div className={`relative w-full ${height === "screen" ? "h-screen" : "h-full"} overflow-hidden`}>
             {/* BG Images */}
             <div className="absolute inset-0 -z-10 overflow-hidden">
                 <Marquee gradient={false} speed={40} direction="right">
                     {images.map((src, idx) => (
-                        <div key={idx} className="relative h-screen -ml-10">
+                        <div key={idx} className={`${height === "screen" ? "h-screen" : "h-full"} -ml-10`}>
                             <img src={src} alt="Background" className="h-full w-auto" />
                         </div>
                     ))}

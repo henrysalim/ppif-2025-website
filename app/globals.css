@@ -8,6 +8,30 @@
   font-style: normal;
 }
 
+.about-font {
+  font-family: 'HongMengTi', sans-serif;
+}
+
+.about-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #1f2937; 
+}
+
+.about-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-scrollbar::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 9999px;
+}
+
+.about-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #f97316; 
+  border-radius: 9999px;
+  border: 1px solid #1f2937;
+}
+
 
 :root {
   --background: #ffffff;
