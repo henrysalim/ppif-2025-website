@@ -1,5 +1,6 @@
 import React from 'react'
 import Background from '../Background'
+import Footer from "../FooterContact"
 
 export default function Contact() {
     return (
