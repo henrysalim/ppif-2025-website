@@ -17,11 +17,22 @@ export default function Game() {
         {phase === "envelope" && (
           <Envelope
             onNext={(correctCode) => {
-              setPhase("play"), setCode(correctCode);
+              setPhase("play");
+              setCode(correctCode);
+            }}
+            onPrev={() => {
+              setPhase("storyline");
             }}
           />
         )}
-        {phase === "play" && <Play groupCode={code} />}
+        {phase === "play" && (
+          <Play
+            onPrev={() => {
+              setPhase("envelope");
+            }}
+            groupCode={code}
+          />
+        )}
       </div>
     </Background>
   );
