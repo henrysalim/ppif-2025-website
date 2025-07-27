@@ -1,8 +1,9 @@
 "use-client";
 import { React, useState, useEffect, useRef } from "react";
 import Groups from "../Groups/Groups.json";
+import BackButton from "../BackButton";
 
-export default function Play({ groupCode }) {
+export default function Play({ groupCode, onPrev }) {
   // State for game progression
   const [groupData, setGroupData] = useState(null);
   const [currentRound, setCurrentRound] = useState(1);
@@ -157,6 +158,7 @@ export default function Play({ groupCode }) {
   return (
     <div className="relative max-w-md md:max-w-xl lg:max-w-4xl h-full mx-auto flex center justify-center items-center p-4">
       <img src="/Images/TV.png" alt="TV" className="mt-22 relative" />
+      <BackButton onPrev={onPrev} className="absolute left-[15%] top-[27.5%]" />
       <h1
         style={{ fontFamily: "Anton" }}
         className="font-bold text-5xl absolute top-[27%] text-[#111111] text-center"

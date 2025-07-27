@@ -4,8 +4,9 @@ import Spline from "@splinetool/react-spline";
 import { motion, AnimatePresence } from "framer-motion";
 import { initClickSound, playClickSound } from "../SoundPlayer";
 import UniqueCode from "../Groups/UniqueCodes.json";
+import BackButton from "../BackButton";
 
-export default function Envelope({ onNext }) {
+export default function Envelope({ onNext, onPrev }) {
   const scenes = [
     "https://prod.spline.design/QwCKxSuek9YolkQb/scene.splinecode", // flip
     "https://prod.spline.design/RRF-H-e5ZfciGKxs/scene.splinecode", // open
@@ -51,12 +52,16 @@ export default function Envelope({ onNext }) {
       onClick={handleClick}
     >
       {!showPaper && (
-        <Spline onLoad={() => (
-          <p>Loading...</p>
-        )} scene={scenes[sceneIndex]} onClick={playClickSound()} />
+        <Spline
+          onLoad={() => <p>Loading...</p>}
+          scene={scenes[sceneIndex]}
+          onClick={playClickSound()}
+        />
       )}
 
       <AnimatePresence>
+        <BackButton key="backbtn" className="absolute top-[20%] left-[15%]" onPrev={onPrev} />
+
         {showPaper && (
           <motion.div
             initial={{ y: "100%", opacity: 0 }}
