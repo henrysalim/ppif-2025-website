@@ -51,7 +51,9 @@ export default function Envelope({ onNext }) {
       onClick={handleClick}
     >
       {!showPaper && (
-        <Spline scene={scenes[sceneIndex]} onClick={playClickSound()} />
+        <Spline onLoad={() => (
+          <p>Loading...</p>
+        )} scene={scenes[sceneIndex]} onClick={playClickSound()} />
       )}
 
       <AnimatePresence>
