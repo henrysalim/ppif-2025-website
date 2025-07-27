@@ -57,16 +57,20 @@ export default function Play({ groupCode }) {
         setFinalAnswerState(newFinalAnswer);
       }
 
-      // MODIFIED: For rounds 3 & 4, add the 'letter' to the permanent display
-      if (currentRound === 3 || currentRound === 4) {
-        if (letter && !permanentLetters.includes(letter.toUpperCase())) {
-          setPermanentLetters((prev) => [...prev, letter.toUpperCase()]);
+      if (groupData[roundMap[3]] && groupData[roundMap[4]]) {
+        if (currentRound === 3 || currentRound === 4) {
+          if (letter && !permanentLetters.includes(letter.toUpperCase())) {
+            setPermanentLetters((prev) => [...prev, letter.toUpperCase()]);
+          }
         }
+      } else if (groupData[roundMap[3]]) {
+      } else {
       }
 
       setUserInput("");
 
       const nextRound = currentRound + 1;
+
       if (roundMap[nextRound] && groupData[roundMap[nextRound]]) {
         setCurrentRound(nextRound);
       } else {
@@ -84,11 +88,11 @@ export default function Play({ groupCode }) {
       setIsRoundWrong(true);
     }
 
-    // MODIFIED: No longer clears the displayed clue/letter
     setTimeout(() => {
       setIsRoundCorrect(false);
       setIsRoundWrong(false);
-    }, 1500);
+      setUserInput("");
+    }, 1000);
   };
 
   const handleFinalInputChange = (e, index) => {
