@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Background from "../Background";
 import "../../globals.css";
 import { informaticsGallery, ppifGallery } from "../GalleryData";
+import BackButton from "../BackButton";
 
 export default function AboutAll() {
   const tabs = ["information", "gallery"];
@@ -27,6 +28,7 @@ export default function AboutAll() {
       if (activeContent === "informatics") {
         return (
           <>
+          <BackButton href="/#home" />
             <h2 className="text-2xl font-bold">What is Informatics?</h2>
             <p className="text-gray-400 text-sm mb-4">
               Multimedia Nusantara University
