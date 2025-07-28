@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { initClickSound, playClickSound } from "../SoundPlayer";
+import Image from "next/image";
 
 const stories = [
   {
@@ -62,7 +63,13 @@ export default function Storyline({ onNext }) {
               THE STORY
             </h2>
             <div className="absolute top-5 right-8 -rotate-12">
-              <img src="/Images/PPIF/2-noBG.png" className="w-28 h-24" />
+              <Image
+                alt="PPIF"
+                width={100}
+                height={100}
+                src="/Images/PPIF/2-noBG.png"
+                className="w-28 h-24"
+              />
             </div>
             <div className="flex flex-row items-center justify-center gap-6 z-10">
               <div className="w-[360px] h-auto aspect-[3/2] bg-[#2a2a2a] rounded-lg p-2.5 relative">
@@ -82,7 +89,9 @@ export default function Storyline({ onNext }) {
               <div className="flex flex-col w-auto h-full relative">
                 {/* Mascot */}
                 <div className="z-50 mb-4">
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     src="/Images/mascotHead_ppif.png"
                     alt="Codie"
                     className="w-16 h-16"
@@ -93,7 +102,9 @@ export default function Storyline({ onNext }) {
                 <div className="relative w-36 h-12 -mt-4">
                   {" "}
                   {/* Shift upward with -mt-4 */}
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     src="/Images/label.png"
                     alt="Label"
                     className="w-full h-full"
@@ -133,7 +144,9 @@ export default function Storyline({ onNext }) {
                   }}
                   className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
                 >
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     src="/Images/storyPrev.png"
                     alt="Previous"
                     className="w-5 h-6"
@@ -164,7 +177,9 @@ export default function Storyline({ onNext }) {
                   }}
                   className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
                 >
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     src="/Images/storyNext.png"
                     alt="Next"
                     className="w-5 h-6"
@@ -183,7 +198,13 @@ export default function Storyline({ onNext }) {
                 </div>
               ) : (
                 <div className="flex flex-col justify-end">
-                  <img src="/Images/PPIF/9-noBG.png" className="w-30 h-14" />
+                  <Image
+                    src="/Images/PPIF/9-noBG.png"
+                    width={100}
+                    height={100}
+                    alt="PPIF"
+                    className="w-30 h-14"
+                  />
                   <div
                     className="text-sm text-gray-500 italic"
                     style={{ fontFamily: "HongMengTi" }}
