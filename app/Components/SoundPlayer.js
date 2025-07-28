@@ -1,11 +1,10 @@
 let clickAudio = null;
 
-export function initClickSound(path = "/Audio/clicking.mp3", volume = 0.6) {
-    if (!clickAudio) {
-        clickAudio = new Audio(path);
-        clickAudio.volume = volume;
-        clickAudio.preload = "auto";
-    }
+export function initClickSound(path, volume = 0.6) {
+    // Selalu buat ulang Audio baru (jika ingin ganti suara)
+    clickAudio = new Audio(path);
+    clickAudio.volume = volume;
+    clickAudio.preload = "auto";
 }
 
 export function playClickSound() {
