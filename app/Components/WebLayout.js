@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import Navigation from "./Navigation";
 import SectionWrapper from "./SectionWrapper";
 import HomePage from "./Pages/HomePage";
@@ -119,6 +119,40 @@ export default function WebLayout() {
     const [contentVisible, setContentVisible] = useState(false);
     const [showGlitch, setShowGlitch] = useState(false);
 
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    const toggleFullscreen = useCallback(() => {
+        const el = document.documentElement;
+        if (!isFullscreen) {
+            if (el.requestFullscreen) el.requestFullscreen();
+            else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+            else if (el.msRequestFullscreen) el.msRequestFullscreen();
+        } else {
+            // Keluar fullscreen
+            if (document.exitFullscreen) document.exitFullscreen();
+            else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            else if (document.msExitFullscreen) document.msExitFullscreen();
+        }
+    }, [isFullscreen]);
+
+    useEffect(() => {
+        function handleFS() {
+            setIsFullscreen(!!(
+                document.fullscreenElement ||
+                document.webkitFullscreenElement ||
+                document.msFullscreenElement
+            ));
+        }
+        document.addEventListener("fullscreenchange", handleFS);
+        document.addEventListener("webkitfullscreenchange", handleFS);
+        document.addEventListener("msfullscreenchange", handleFS);
+        return () => {
+            document.removeEventListener("fullscreenchange", handleFS);
+            document.removeEventListener("webkitfullscreenchange", handleFS);
+            document.removeEventListener("msfullscreenchange", handleFS);
+        };
+    }, []);
+
     const musicAudioRef = useRef(null);
     const glitchAudioRef = useRef(null);
 
@@ -138,13 +172,15 @@ export default function WebLayout() {
         if (musicAudioRef.current) {
             if (isMusicPlaying) {
                 musicAudioRef.current.pause();
+                setIsMusicPlaying(false);
+                localStorage.setItem('music_pref', 'paused');
             } else {
                 musicAudioRef.current.play().catch(() => { });
+                setIsMusicPlaying(true);
+                localStorage.setItem('music_pref', 'playing');
             }
-            setIsMusicPlaying(!isMusicPlaying);
         }
     };
-
 
     useEffect(() => {
         const introSeen = localStorage.getItem("intro_seen");
@@ -160,7 +196,7 @@ export default function WebLayout() {
         setTimeout(() => setContentVisible(true), 100);
     };
 
-        useEffect(() => {
+    useEffect(() => {
         if (typeof window === "undefined") return;
         if (window.location.hash !== "#" + currentSection) {
             window.location.hash = "#" + currentSection;
@@ -190,6 +226,21 @@ export default function WebLayout() {
             setTimeout(() => setShowGlitch(false), 350);
         }, 90);
     };
+
+    useEffect(() => {
+        // Cek: hanya jalankan kalo content sudah visible dan file audio sudah ada
+        if (contentVisible && musicAudioRef.current) {
+            const musicPref = localStorage.getItem('music_pref');
+            if (musicPref === 'paused') {
+                setIsMusicPlaying(false);
+                return;
+            }
+            musicAudioRef.current
+                .play()
+                .then(() => setIsMusicPlaying(true))
+                .catch(() => setIsMusicPlaying(false));
+        }
+    }, [contentVisible]);
 
 
     const handleNavigate = (id) => {
@@ -221,40 +272,40 @@ export default function WebLayout() {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [isMobile, currentSection]);
 
-    // Desktop: intercept wheel
-    useEffect(() => {
-        if (!containerRef.current || isMobile) return;
+    // Desktop: intercept wheel jika perlu, aktifin lagi aja
+    // useEffect(() => {
+    //     if (!containerRef.current || isMobile) return;
 
-        let ticking = false;
-        let index = sectionList.findIndex((s) => s.id === currentSection);
-        let wheelDelta = 0;
+    //     let ticking = false;
+    //     let index = sectionList.findIndex((s) => s.id === currentSection);
+    //     let wheelDelta = 0;
 
-        const onWheel = (e) => {
-            if (ticking) return;
-            e.preventDefault();
+    //     const onWheel = (e) => {
+    //         if (ticking) return;
+    //         e.preventDefault();
 
-            wheelDelta += e.deltaY;
+    //         wheelDelta += e.deltaY;
 
-            // Scroll ke bawah
-            if (wheelDelta > SCROLL_THRESHOLD && index < sectionList.length - 1) {
-                index++;
-                triggerSectionChange(sectionList[index].id);
-                wheelDelta = 0;
-                ticking = true;
-                setTimeout(() => (ticking = false), 600);
-            } else if (wheelDelta < -SCROLL_THRESHOLD && index > 0) {
-                index--;
-                triggerSectionChange(sectionList[index].id);
-                wheelDelta = 0;
-                ticking = true;
-                setTimeout(() => (ticking = false), 600);
-            }
-        };
+    //         // Scroll ke bawah
+    //         if (wheelDelta > SCROLL_THRESHOLD && index < sectionList.length - 1) {
+    //             index++;
+    //             triggerSectionChange(sectionList[index].id);
+    //             wheelDelta = 0;
+    //             ticking = true;
+    //             setTimeout(() => (ticking = false), 600);
+    //         } else if (wheelDelta < -SCROLL_THRESHOLD && index > 0) {
+    //             index--;
+    //             triggerSectionChange(sectionList[index].id);
+    //             wheelDelta = 0;
+    //             ticking = true;
+    //             setTimeout(() => (ticking = false), 600);
+    //         }
+    //     };
 
-        const el = containerRef.current;
-        el.addEventListener("wheel", onWheel, { passive: false });
-        return () => el.removeEventListener("wheel", onWheel);
-    }, [isMobile, currentSection]);
+    //     const el = containerRef.current;
+    //     el.addEventListener("wheel", onWheel, { passive: false });
+    //     return () => el.removeEventListener("wheel", onWheel);
+    // }, [isMobile, currentSection]);
 
     //untuk mobile ughhh
     useEffect(() => {
@@ -304,7 +355,7 @@ export default function WebLayout() {
                                 transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1] }}
                                 style={{ minHeight: "100vh" }}
                             >
-                                <header className="lg:p-4 p-2 lg:pr-6 pr-5 bg-transparent fixed w-full text-white z-50">
+                                {/* <header className="lg:p-4 p-2 lg:pr-6 pr-5 bg-transparent fixed w-full text-white z-50">
                                     <Navigation
                                         currentSection={currentSection}
                                         onNavigate={handleNavigate}
@@ -313,6 +364,31 @@ export default function WebLayout() {
                                         onToggleMusic={toggleMusic}
                                     />
 
+                                </header> */}
+                                <header className="lg:p-4 p-2 lg:pr-6 pr-5 bg-transparent fixed w-full text-white z-50">
+                                    {currentSection !== "game" ? (
+                                        <Navigation
+                                            currentSection={currentSection}
+                                            onNavigate={handleNavigate}
+                                            isMobile={isMobile}
+                                            isMusicPlaying={isMusicPlaying}
+                                            onToggleMusic={toggleMusic}
+                                            isFullscreen={isFullscreen}
+                                            onToggleFullscreen={toggleFullscreen}
+                                        />
+                                    ) : (
+                                        // Tombol Home muncul di page game
+                                        <button
+                                            onClick={() => {
+                                                handleNavigate("home");
+                                                playClickSound();
+                                            }}
+                                            className=""
+                                            aria-label="Back to Home"
+                                        >
+                                                <img src="/Assets/HomeIcon.png" className="lg:w-[60px] w-[45px] h-full rounded-full" />
+                                        </button>
+                                    )}
                                 </header>
 
                                 {showGlitch && (
@@ -345,7 +421,10 @@ export default function WebLayout() {
                                                 className="snap-start min-h-screen w-full flex-shrink-0"
                                             >
                                                 <SectionWrapper id={id} active={true}>
-                                                    <SectionComp />
+                                                    <SectionComp
+                                                        isFullscreen={isFullscreen}
+                                                        onToggleFullscreen={toggleFullscreen}
+                                                    />
                                                 </SectionWrapper>
                                             </div>
                                         ))
@@ -363,7 +442,10 @@ export default function WebLayout() {
                                                             style={{ height: "100vh" }}
                                                         >
                                                             <SectionWrapper id={id} active={true}>
-                                                                <SectionComp />
+                                                                <SectionComp
+                                                                    isFullscreen={isFullscreen}
+                                                                    onToggleFullscreen={toggleFullscreen}
+                                                                />
                                                             </SectionWrapper>
                                                         </motion.div>
                                                     );

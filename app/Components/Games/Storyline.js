@@ -48,7 +48,7 @@ export default function Storyline({ onNext }) {
       <motion.div
         key={stories[current].id}
         className="flex flex-row items-center justify-center gap-6 z-10"
-        initial={{ opacity: 0, x: direction === "next" ? 100 : -100 }} // changed y to x
+        initial={{ opacity: 0, x: direction === "next" ? 100 : -100 }} 
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: direction === "next" ? -100 : 100 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -62,16 +62,16 @@ export default function Storyline({ onNext }) {
             >
               THE STORY
             </h2>
-            <div className="absolute top-5 right-8 -rotate-12">
+            <div className="absolute lg:top-5 top-10 right-8 -rotate-12">
               <Image
                 alt="PPIF"
                 width={100}
                 height={100}
                 src="/Images/PPIF/2-noBG.png"
-                className="w-28 h-24"
+                className="lg:w-28 lg:h-24 w-20 h-auto"
               />
             </div>
-            <div className="flex flex-row items-center justify-center gap-6 z-10">
+            <div className="flex flex-row items-center justify-center lg:gap-6 gap-3 z-10">
               <div className="w-[360px] h-auto aspect-[3/2] bg-[#2a2a2a] rounded-lg p-2.5 relative">
                 <div
                   className="w-full h-full rounded-lg relative overflow-hidden"
@@ -86,7 +86,7 @@ export default function Storyline({ onNext }) {
                 <div className="absolute bottom-0 right-18 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[32px] border-l-transparent border-r-transparent border-b-[#2a2a2a]"></div>
               </div>
 
-              <div className="flex flex-col w-auto h-full relative">
+              <div className="flex flex-col w-auto lg:h-full h-auto relative">
                 {/* Mascot */}
                 <div className="z-50 mb-4">
                   <Image
@@ -94,7 +94,7 @@ export default function Storyline({ onNext }) {
                     height={100}
                     src="/Images/mascotHead_ppif.png"
                     alt="Codie"
-                    className="w-16 h-16"
+                    className="lg:w-16 lg:h-16 w-10 h-10"
                   />
                 </div>
 
@@ -119,11 +119,11 @@ export default function Storyline({ onNext }) {
 
                 {/* Text Area */}
                 <div
-                  className="flex flex-col items-start max-w-md max-h-[160px] relative p-3 overflow-y-auto custom-scrollbar bg-[#2e2e2e] rounded-xl -mt-[18px] ml-1"
+                  className="flex flex-col items-start max-w-md lg:max-h-[160px] max-h-[100px] relative p-3 overflow-y-auto custom-scrollbar bg-[#2e2e2e] rounded-xl -mt-[18px] ml-1"
                   style={{ fontFamily: "HongMengTi" }}
                 >
                   <p
-                    className="text-white text-xs leading-normal font-light text-justify"
+                    className="text-white lg:text-xs text-[10px] leading-normal font-light text-justify"
                     style={{ fontFamily: "HongMengTi" }}
                   >
                     {stories[current].text}
@@ -142,14 +142,14 @@ export default function Storyline({ onNext }) {
                     prevStory();
                     playClickSound();
                   }}
-                  className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
+                  className="lg:w-14 lg:h-14 w-12 h-12 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
                 >
                   <Image
                     width={100}
                     height={100}
                     src="/Images/storyPrev.png"
                     alt="Previous"
-                    className="w-5 h-6"
+                    className="lg:w-5 lg:h-6 w-3 h-auto"
                   />
                 </button>
 
@@ -158,7 +158,7 @@ export default function Storyline({ onNext }) {
                   {stories.map((_, index) => (
                     <span
                       key={index}
-                      className={`w-4 h-4 rounded-lg transition-all duration-300 
+                      className={`lg:w-4 lg:h-4 w-2 h-2 rounded-lg transition-all duration-300 
                                 ${
                                   index === current
                                     ? "bg-gradient-to-b from-orange-300 to-orange-500 shadow-md"
@@ -175,14 +175,14 @@ export default function Storyline({ onNext }) {
                     nextStory();
                     playClickSound();
                   }}
-                  className="w-14 h-14 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
+                  className="lg:w-14 lg:h-14 w-12 h-12 flex items-center justify-center rounded-full bg-[#2b2b2b] shadow-[inset_2px_2px_4px_rgba(0,0,0,0.6),inset_-2px_-2px_4px_rgba(255,255,255,0.05)] border-2 border-[#7a7a7a] text-white text-lg font-bold"
                 >
                   <Image
                     width={100}
                     height={100}
                     src="/Images/storyNext.png"
                     alt="Next"
-                    className="w-5 h-6"
+                    className="lg:w-5 lg:h-6 w-3 h-auto"
                   />
                 </button>
               </div>
@@ -190,7 +190,7 @@ export default function Storyline({ onNext }) {
                 <div className="flex justify-end">
                   <button
                     onClick={onNext}
-                    className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-md"
+                    className="lg:px-6 lg:py-2 px-3 py-1 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-md"
                     style={{ fontFamily: "HongMengTi" }}
                   >
                     Next
@@ -203,10 +203,10 @@ export default function Storyline({ onNext }) {
                     width={100}
                     height={100}
                     alt="PPIF"
-                    className="w-30 h-14"
+                    className="lg:w-30 lg:h-14 w-20 h-auto"
                   />
                   <div
-                    className="text-sm text-gray-500 italic"
+                    className="lg:text-sm text-xs text-gray-500 italic"
                     style={{ fontFamily: "HongMengTi" }}
                   >
                     To be continue...

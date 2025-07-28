@@ -3,6 +3,49 @@ import { React, useState, useEffect, useRef } from "react";
 import Groups from "../Groups/Groups.json";
 import BackButton from "../BackButton";
 
+function CongratsModal({ groupName, onClose }) {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        zIndex: 99999,
+        inset: 0,
+        background: "rgba(0,0,0,0.85)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-xs w-full flex flex-col items-center animate-bounce-in">
+        <h2 className="text-2xl lg:text-3xl font-bold text-center text-orange-500 mb-3" style={{ fontFamily: "Anton" }}>CONGRATULATION</h2>
+        <div className="text-lg text-center text-gray-800 font-bold mb-1" style={{ fontFamily: "Anton" }}>
+          YOUR TEAM NAME IS
+        </div>
+        <div className="text-3xl lg:text-4xl text-center font-extrabold mb-6 text-green-600 tracking-widest" style={{ fontFamily: "Anton" }}>
+          {groupName.toUpperCase()}
+        </div>
+        <button
+          className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full text-lg w-full transition-all"
+          onClick={onClose}
+        >
+          Back to Home
+        </button>
+      </div>
+      <style jsx>{`
+        @keyframes bounce-in {
+          0% { transform: scale(0.8); opacity: 0; }
+          60% { transform: scale(1.05); opacity: 1; }
+          100% { transform: scale(1); }
+        }
+        .animate-bounce-in {
+          animation: bounce-in 0.6s cubic-bezier(.34,1.56,.64,1) both;
+        }
+      `}</style>
+    </div>
+  );
+}
+
 export default function Play({ groupCode, onPrev }) {
   // State for game progression
   const [groupData, setGroupData] = useState(null);
@@ -58,11 +101,19 @@ export default function Play({ groupCode, onPrev }) {
         setFinalAnswerState(newFinalAnswer);
       }
 
-      if (groupData[roundMap[3]] && groupData[roundMap[4]]) {
-        if (currentRound === 3 || currentRound === 4) {
-          if (letter && !permanentLetters.includes(letter.toUpperCase())) {
-            setPermanentLetters((prev) => [...prev, letter.toUpperCase()]);
-          }
+      //koding sebelumnya
+      // if (groupData[roundMap[3]] && groupData[roundMap[4]]) {
+      //   if (currentRound === 3 || currentRound === 4) {
+      //     if (letter && !permanentLetters.includes(letter.toUpperCase())) {
+      //       setPermanentLetters((prev) => [...prev, letter.toUpperCase()]);
+      //     }
+      //   }
+      // }
+
+      //setelah di ubah
+      if ((currentRound === 3 || currentRound === 4) && letter) {
+        if (!permanentLetters.includes(letter.toUpperCase())) {
+          setPermanentLetters((prev) => [...prev, letter.toUpperCase()]);
         }
       } else if (groupData[roundMap[3]]) {
       } else {
@@ -155,20 +206,24 @@ export default function Play({ groupCode, onPrev }) {
     return "bg-gray-600 text-white";
   };
 
+  const handleBackToHome = () => {
+    window.location.hash = "#home";
+  };
+
   return (
     <div className="relative max-w-md md:max-w-xl lg:max-w-4xl h-full mx-auto flex center justify-center items-center p-4">
-      <img src="/Images/TV.png" alt="TV" className="mt-22 relative" />
-      <BackButton onPrev={onPrev} className="absolute left-[15%] top-[36%] lg:top-[27.5%]" />
+      <img src="/Images/TV.png" alt="TV" className="lg:mt-22 relative w-full lg:h-auto h-full" />
+      <BackButton onPrev={onPrev} className="absolute left-[15%] top-[18%] lg:top-[27.5%]" />
       <h1
         style={{ fontFamily: "Anton" }}
-        className="font-bold text-3xl md:text-4xl lg:text-5xl absolute top-[35%] lg:top-[27%] text-[#111111] text-center"
+        className="font-bold text-xl lg:text-5xl absolute top-[18%] lg:top-[27%] text-[#111111] text-center"
       >
         Insert the Answer
       </h1>
 
-      <div className="absolute top-[35%] w-full">
+      <div className="absolute lg:top-[32%] top-[13%] w-full">
         {/* MODIFIED: This <p> now permanently displays the collected letters */}
-        <p className={"text-center mt-12 lg:mt-6 mb-4 text-xl font-bold h-6"}>
+        <p className={"text-center mt-12 lg:mt-6 mb-2 lg:mb-6 lg:text-xl text-sm font-bold h-4"}>
           <span className="text-white tracking-[.2em]">
             {permanentLetters.join(" ")}
           </span>
@@ -185,11 +240,10 @@ export default function Play({ groupCode, onPrev }) {
               onChange={(e) => handleFinalInputChange(e, i)}
               onKeyDown={(e) => handleKeyDown(e, i)}
               disabled={!isFinalInputStage || isGameWon}
-              className={`w-8 lg:w-10 h-10 lg:h-12 rounded-md focus:border-0 text-2xl font-bold text-center transition-all duration-300 ${getFinalInputBoxStyle()} ${
-                !isFinalInputStage && !isGameWon
-                  ? "opacity-50 cursor-not-allowed"
-                  : ""
-              }`}
+              className={`w-6 lg:w-10 h-6 lg:h-12 rounded-md focus:border-0 lg:text-2xl text-md font-bold text-center transition-all duration-300 ${getFinalInputBoxStyle()} ${!isFinalInputStage && !isGameWon
+                ? "opacity-50 cursor-not-allowed"
+                : ""
+                }`}
             />
           ))}
         </div>
@@ -203,9 +257,8 @@ export default function Play({ groupCode, onPrev }) {
               type="text"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
-              className={`bg-transparent border-b-2 text-white text-center text-lg lg:text-2xl focus:outline-none placeholder-white font-[Anton] transition-all duration-300 ${
-                isRoundCorrect ? "border-green-400" : "border-white"
-              }`}
+              className={`bg-transparent border-b-2 text-white text-center text-md lg:text-2xl focus:outline-none placeholder-white font-[Anton] transition-all duration-300 ${isRoundCorrect ? "border-green-400" : "border-white"
+                }`}
               maxLength={15}
               autoFocus
             />
@@ -215,7 +268,7 @@ export default function Play({ groupCode, onPrev }) {
 
       {!isFinalInputStage && !isGameWon && (
         <div
-          className="text-xl lg:text-3xl bottom-[36.5%] lg:bottom-[34.5%] left-[28%] font-bold absolute text-[#111111]"
+          className="text-lg lg:text-3xl bottom-[37%] lg:bottom-[34.5%] left-[28%] font-bold absolute text-[#111111]"
           style={{ fontFamily: "Anton" }}
         >
           ROUND {currentRound}
@@ -224,10 +277,13 @@ export default function Play({ groupCode, onPrev }) {
 
       <div
         style={{ fontFamily: "Anton" }}
-        className="absolute left-[25%] bottom-[30.7%] lg:bottom-[27%] text-white px-6 py-2 mt-2 text-2xl lg:text-4xl"
+        className="absolute left-[25%] bottom-[27.5%] lg:bottom-[27%] text-white px-6 py-2 mt-2 text-lg lg:text-4xl"
       >
         GUESS THE MOVE
       </div>
+      {isGameWon && (
+        <CongratsModal groupName={groupName} onClose={handleBackToHome} />
+      )}
     </div>
   );
 }
