@@ -5,6 +5,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import { initClickSound, playClickSound } from "./SoundPlayer";
+import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
 
 const sections = [
     { id: "home", label: "HOME" },
@@ -13,7 +15,7 @@ const sections = [
     { id: "contact", label: "CONTACT" },
 ];
 
-export default function Navigation({ currentSection, onNavigate, isMobile, isMusicPlaying, onToggleMusic }) {
+export default function Navigation({ currentSection, onNavigate, isMobile, isMusicPlaying, onToggleMusic, isFullscreen, onToggleFullscreen }) {
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     useEffect(() => {
@@ -82,17 +84,28 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                                     <img src="/Assets/musicOff.png" className="w-[45px] h-full rounded-full" />
                                 )}
                             </button>
-                            <button 
+                            <button
                                 onClick={() => {
                                     playClickSound();
                                     onNavigate("game");
-                                }} 
+                                }}
                                 className="w-full h-full flex items-center rounded-full justify-center"
                             >
                                 <img src="/Assets/GamesIcon.png" className="w-[45px] h-full rounded-full" />
                             </button>
                             <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
                                 <img src="/Assets/Button.png" className="w-[45px] h-full rounded-full" />
+                            </button>
+                            <button
+                                onClick={() => { onToggleFullscreen(); playClickSound(); }}
+                                title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+                                className="w-full h-full flex items-center rounded-full justify-center"
+                            >
+                                {isFullscreen ? (
+                                    <FullscreenExitIcon style={{ color: "white", fontSize: 30 }} />
+                                ) : (
+                                    <FullscreenIcon style={{ color: "white", fontSize: 30 }} />
+                                )}
                             </button>
                         </div>
                     </div>
@@ -148,16 +161,28 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                         <img src="/Assets/musicOff.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                     )}
                 </button>
-                <button 
+                <button
                     onClick={() => {
                         playClickSound();
-                        onNavigate("game");}} 
+                        onNavigate("game");
+                    }}
                     className="w-full h-full flex items-center rounded-full justify-center"
                 >
                     <img src="/Assets/GamesIcon.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                 </button>
                 <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
                     <img src="/Assets/Button.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
+                </button>
+                <button
+                    onClick={() => { onToggleFullscreen(); playClickSound(); }}
+                    title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+                    className="w-full h-full lg:mt-2 mt-1 flex items-center rounded-full justify-center"
+                >
+                    {isFullscreen ? (
+                        <FullscreenExitIcon style={{ color: "white", fontSize: 30 }} />
+                    ) : (
+                        <FullscreenIcon style={{ color: "white", fontSize: 30 }} />
+                    )}
                 </button>
             </div>
         </div>

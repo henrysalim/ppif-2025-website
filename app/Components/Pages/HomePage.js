@@ -7,19 +7,19 @@ import { WelcomeFlicker } from '../WelcomeFlicker';
 import { motion } from 'framer-motion';
 
 
-export default function HomePage() {
+export default function HomePage({ isFullscreen, onToggleFullscreen }) {
     const [dots, setDots] = useState('');
 
-    const requestFullscreen = () => {
-        const el = document.documentElement;
-        if (el.requestFullscreen) {
-            el.requestFullscreen();
-        } else if (el.webkitRequestFullscreen) {
-            el.webkitRequestFullscreen();
-        } else if (el.msRequestFullscreen) {
-            el.msRequestFullscreen();
-        }
-    };
+    // const requestFullscreen = () => {
+    //     const el = document.documentElement;
+    //     if (el.requestFullscreen) {
+    //         el.requestFullscreen();
+    //     } else if (el.webkitRequestFullscreen) {
+    //         el.webkitRequestFullscreen();
+    //     } else if (el.msRequestFullscreen) {
+    //         el.msRequestFullscreen();
+    //     }
+    // };
 
     useEffect(() => {
         initClickSound("/Audio/clicking.mp3", 0.6);
@@ -43,45 +43,48 @@ export default function HomePage() {
 
     return (
         // <Background>
-            <div className="relative w-full h-screen overflow-hidden">
-                <WelcomeFlicker />
-                {/* Tilt container */}
-                <Tilt
-                    className="w-full h-full"
-                    tiltMaxAngleX={4}
-                    tiltMaxAngleY={4}
-                    perspective={1000}
-                    transitionSpeed={800}
-                    scale={1.02}
-                    gyroscope={true}
-                    style={{
-                        width: isMobile ? '126vw' : '106vw',
-                        height: '106vh',
-                        marginLeft: isMobile ? '0vw' : '-2.5vw',
-                        marginTop: '-2.5vh',
-                    }}
+        <div className="relative w-full h-screen overflow-hidden">
+            <WelcomeFlicker />
+            {/* Tilt container */}
+            <Tilt
+                className="w-full h-full"
+                tiltMaxAngleX={4}
+                tiltMaxAngleY={4}
+                perspective={1000}
+                transitionSpeed={800}
+                scale={1.02}
+                gyroscope={true}
+                style={{
+                    width: isMobile ? '126vw' : '106vw',
+                    height: '106vh',
+                    marginLeft: isMobile ? '0vw' : '-2.5vw',
+                    marginTop: '-2.5vh',
+                }}
+            >
+                <div
+                    className="absolute top-0 left-0 w-full h-full"
+                    style={{ transform: 'translateZ(10px)' }}
+                    onClick={() => playClickSound()}
                 >
-                    <div
-                        className="absolute top-0 left-0 w-full h-full"
-                        style={{ transform: 'translateZ(10px)' }}
+                    <video
+                        className="w-full h-full object-cover pointer-events-none"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                     >
-                        <video
-                            className="w-full h-full object-cover pointer-events-none"
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                        >
-                            <source src="Models/vid_idle.webm" type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
+                        <source src="Models/vid_idle.webm" type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
 
-                    </div>
+                </div>
 
-                    <button onClick={() => {
-                        requestFullscreen();
-                        playClickSound();
-                    }}
+                {!isFullscreen && (
+                    <button
+                        onClick={() => {
+                            onToggleFullscreen();
+                            playClickSound();
+                        }}
                         className={`relative z-10 flex lg:left-0 -left-2 justify-center translate-y-1/2 -bottom-1/4 h-full w-full`}
                         style={{ transform: 'translateZ(60px)' }}
                     >
@@ -89,11 +92,12 @@ export default function HomePage() {
                             className="font-black text-gray-300 lg:text-xl text-sm text-center italic drop-shadow-xl"
                             style={{ fontFamily: 'HongMengTi' }}
                         >
-                            Tap To Continue{dots}
+                            Tap To Fullscreen{dots}
                         </h1>
                     </button>
-                </Tilt>
-            </div>
+                )}
+            </Tilt>
+        </div>
         // </Background>
     );
 }
