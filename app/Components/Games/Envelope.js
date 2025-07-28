@@ -24,7 +24,7 @@ export default function Envelope({ onNext, onPrev }) {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    initClickSound("/Audio/clicking.mp3", 0.6);
+    initClickSound("/Audio/page-flip.mp3", 0.6);
   }, []);
 
   useEffect(() => {
