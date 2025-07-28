@@ -1,11 +1,8 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import Tilt from 'react-parallax-tilt';
-import Background from '../Background';
 import { initClickSound, playClickSound } from "../SoundPlayer";
 import { WelcomeFlicker } from '../WelcomeFlicker';
-import { motion } from 'framer-motion';
-
 
 export default function HomePage({ isFullscreen, onToggleFullscreen }) {
     const [dots, setDots] = useState('');
