@@ -158,17 +158,17 @@ export default function Play({ groupCode, onPrev }) {
   return (
     <div className="relative max-w-md md:max-w-xl lg:max-w-4xl h-full mx-auto flex center justify-center items-center p-4">
       <img src="/Images/TV.png" alt="TV" className="mt-22 relative" />
-      <BackButton onPrev={onPrev} className="absolute left-[15%] top-[27.5%]" />
+      <BackButton onPrev={onPrev} className="absolute left-[15%] top-[36%] lg:top-[27.5%]" />
       <h1
         style={{ fontFamily: "Anton" }}
-        className="font-bold text-5xl absolute top-[27%] text-[#111111] text-center"
+        className="font-bold text-3xl md:text-4xl lg:text-5xl absolute top-[35%] lg:top-[27%] text-[#111111] text-center"
       >
         Insert the Answer
       </h1>
 
       <div className="absolute top-[35%] w-full">
         {/* MODIFIED: This <p> now permanently displays the collected letters */}
-        <p className={"text-center mt-6 mb-4 text-xl font-bold h-6"}>
+        <p className={"text-center mt-12 lg:mt-6 mb-4 text-xl font-bold h-6"}>
           <span className="text-white tracking-[.2em]">
             {permanentLetters.join(" ")}
           </span>
@@ -185,7 +185,7 @@ export default function Play({ groupCode, onPrev }) {
               onChange={(e) => handleFinalInputChange(e, i)}
               onKeyDown={(e) => handleKeyDown(e, i)}
               disabled={!isFinalInputStage || isGameWon}
-              className={`w-10 h-12 rounded-md focus:border-0 text-2xl font-bold text-center transition-all duration-300 ${getFinalInputBoxStyle()} ${
+              className={`w-8 lg:w-10 h-10 lg:h-12 rounded-md focus:border-0 text-2xl font-bold text-center transition-all duration-300 ${getFinalInputBoxStyle()} ${
                 !isFinalInputStage && !isGameWon
                   ? "opacity-50 cursor-not-allowed"
                   : ""
@@ -197,13 +197,13 @@ export default function Play({ groupCode, onPrev }) {
         {!isFinalInputStage && !isGameWon && (
           <form
             onSubmit={handleAnswerSubmit}
-            className="absolute flex items-center justify-center w-full -bottom-[60%]"
+            className="absolute flex items-center justify-center w-full -bottom-[20%] lg:-bottom-[60%]"
           >
             <input
               type="text"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
-              className={`bg-transparent border-b-2 text-white text-center text-2xl focus:outline-none placeholder-white font-[Anton] transition-all duration-300 ${
+              className={`bg-transparent border-b-2 text-white text-center text-lg lg:text-2xl focus:outline-none placeholder-white font-[Anton] transition-all duration-300 ${
                 isRoundCorrect ? "border-green-400" : "border-white"
               }`}
               maxLength={15}
@@ -215,7 +215,7 @@ export default function Play({ groupCode, onPrev }) {
 
       {!isFinalInputStage && !isGameWon && (
         <div
-          className="text-3xl bottom-[34.5%] left-[28%] font-bold absolute text-[#111111]"
+          className="text-xl lg:text-3xl bottom-[36.5%] lg:bottom-[34.5%] left-[28%] font-bold absolute text-[#111111]"
           style={{ fontFamily: "Anton" }}
         >
           ROUND {currentRound}
@@ -224,7 +224,7 @@ export default function Play({ groupCode, onPrev }) {
 
       <div
         style={{ fontFamily: "Anton" }}
-        className="absolute left-[25%] bottom-[27%] text-white px-6 py-2 mt-2 text-4xl"
+        className="absolute left-[25%] bottom-[30.7%] lg:bottom-[27%] text-white px-6 py-2 mt-2 text-2xl lg:text-4xl"
       >
         GUESS THE MOVE
       </div>
