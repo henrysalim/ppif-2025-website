@@ -5,8 +5,8 @@ import Footer from "../FooterContact"
 export default function Contact() {
     return (
         <Background textChild="CONTACT">
-            <div className='w-full flex h-screen justify-center items-center'>
-                <h1 className='font-black text-white lg:text-5xl text-xl text-center' style={{ fontFamily: 'HongMengTi' }}>CONTACT</h1>
+            <div className='w-full flex h-full justify-center items-center'>
+                <Footer />
             </div>
         </Background>
     )
