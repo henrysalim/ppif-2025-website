@@ -75,7 +75,7 @@ function RotateOverlay() {
             </div>
             <div className="text-center text-[20px]">
                 <b>Rotate your device</b><br />
-                <b>or change your device to larger</b>
+                <b>or change your device to larger</b>=
             </div>
             <div style={{ fontSize: 16, marginTop: 8, textAlign: "center" }}>
                 Please use landscape mode<br />for the best experience.
@@ -95,7 +95,7 @@ const sectionList = [
 const useIsMobile = () => {
     const [mobile, setMobile] = React.useState(false);
     React.useEffect(() => {
-        const handleResize = () => setMobile(window.innerWidth <= 768);
+        const handleResize = () => setMobile(window.innerWidth <= 638);
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);

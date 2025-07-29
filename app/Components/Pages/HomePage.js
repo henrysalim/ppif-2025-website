@@ -70,7 +70,7 @@ export default function HomePage({ isFullscreen, onToggleFullscreen }) {
                         muted
                         playsInline
                     >
-                        <source src="Models/vid_idle.webm" type="video/mp4" />
+                        <source src="Models/vid_idle.webm" type="video/webm" />
                         Your browser does not support the video tag.
                     </video>
 
