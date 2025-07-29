@@ -31,7 +31,7 @@ export default function GlitchTransition() {
         playsInline
         key={pathname} // reload video tiap route
       >
-        <source src="/Images/glitch_transition.mp4" type="video/mp4" />
+        <source src="/Images/glitch_transition.webm" type="video/webm" />
       </video>
       <audio autoPlay>
         <source src="/Audio/glitch_transition.mp3" type="audio/mp3" />

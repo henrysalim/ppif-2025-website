@@ -399,7 +399,7 @@ export default function WebLayout() {
                                             muted
                                             playsInline
                                         >
-                                            <source src="/Images/glitch_transition.webm" type="video/mp4" />
+                                            <source src="/Images/glitch_transition.webm" type="video/webm" />
                                         </video>
                                     </div>
                                 )}
