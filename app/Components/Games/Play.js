@@ -211,8 +211,8 @@ export default function Play({ groupCode, onPrev }) {
   };
 
   return (
-    <div className="relative max-w-md md:max-w-xl lg:max-w-4xl h-full mx-auto flex center justify-center items-center p-4">
-      <img src="/Images/TV.png" alt="TV" className="lg:mt-22 relative w-full lg:h-auto h-full" />
+    <div className="relative max-w-md md:max-w-xl lg:max-w-6xl h-full mx-auto flex center justify-center items-center p-4">
+      <img src="/Images/TV.png" alt="TV" className="lg:mt-22 relative w-full h-full" />
       <BackButton onPrev={onPrev} className="absolute left-[15%] top-[18%] lg:top-[27.5%]" />
       <h1
         style={{ fontFamily: "Anton" }}
@@ -277,7 +277,7 @@ export default function Play({ groupCode, onPrev }) {
 
       <div
         style={{ fontFamily: "Anton" }}
-        className="absolute left-[25%] bottom-[27.5%] lg:bottom-[27%] text-white px-6 py-2 mt-2 text-lg lg:text-4xl"
+        className="absolute left-[25%] bottom-[27.5%] lg:bottom-[26%] text-white px-6 py-2 mt-2 text-lg lg:text-4xl"
       >
         GUESS THE MOVE
       </div>
