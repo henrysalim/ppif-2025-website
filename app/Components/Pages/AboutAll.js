@@ -103,7 +103,7 @@ export default function AboutAll() {
                 Informatika (HMIF) setiap tahunnya pada awal tahun ajar
                 perkuliahan. Pada tahun ini, dengan tema "Discovering for Future
                 Domination", diharapkan PPIF 2025 menjadi penguat dari semangat
-                eksplorasi dan visi besar untuk menguasai masa depan.
+                eksplorasi dan visi besar untuk menguasai masa depan .
                 <br />
                 <br />
                 Sebagai generasi yang hidup di era digital, Striders sebagai
