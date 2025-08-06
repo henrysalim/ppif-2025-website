@@ -81,22 +81,22 @@ export default function Archive() {
                     `}</style>
                 </div>
 
-                <div className='w-1/7 absolute z-1 ml-290 mb-70 justify-center items-center'>
-                    <div className='mb-3' style={{overflow: 'hidden'}}>
+                <div className='w-1/7 absolute z-1 ml-285 mb-70 justify-center items-center'>
+                    <div className={`mb-3 ${page === 1 ? 'ml-7': ''}`}>
                         <button
                             onClick={() => {setPage(1); playClickSound();}}
                             className='relative w-fit'
                         >
                             <img src="/Images/AssetArchives/Subtract(3).png" className='w-full h-auto'></img>
                             <span 
-                            className={`absolute inset-0 flex items-center justify-center ml-5
-                                ${page === 1 ? 'text-pulse' : ''}`}
+                            className={`absolute inset-0 flex items-center justify-center
+                                ${page === 1 ? 'text-pulse' : 'ml-5'}`}
                             style={{fontFamily: "HongMengTi", color: "#848484"}}>
                                 Briefing Day
                             </span>
                         </button>
                     </div>
-                    <div className='mb-3'>
+                    <div className={`mb-3 ${page === 2 ? 'ml-7': ''}`}>
                         <button onClick={() => {setPage(2); playClickSound();}} className="relative w-fit">
                             <img src="/Images/AssetArchives/Subtract(3).png"></img>
                             <span 
@@ -107,7 +107,7 @@ export default function Archive() {
                             </span>
                         </button>
                     </div>
-                    <div className='mb-3'>
+                    <div className={`mb-3 ${page === 3 ? 'ml-7': ''}`}>
                         <button onClick={() => {setPage(3); playClickSound();}} className="relative w-fit">
                             <img src="/Images/AssetArchives/Subtract(3).png"></img>   
                             <span 
