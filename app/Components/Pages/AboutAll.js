@@ -28,7 +28,7 @@ export default function AboutAll() {
       if (activeContent === "informatics") {
         return (
           <>
-          {/* <BackButton href="/#home" /> */}
+            {/* <BackButton href="/#home" /> */}
             <h2 className="text-2xl font-bold">What is Informatics?</h2>
             <p className="text-gray-400 text-sm mb-4">
               Multimedia Nusantara University
@@ -41,20 +41,22 @@ export default function AboutAll() {
             >
               <p className="text-white text-base leading-relaxed">
                 Informatika adalah bidang ilmu yang menggabungkan teknologi dan
-                pemrograman untuk memecahkan masalah melalui pengolahan data dan
-                informasi. Di jurusan ini, kamu akan belajar mengembangkan
-                perangkat lunak, memahami algoritma, dan merancang sistem
-                inovatif untuk berbagai sektor, seperti bisnis dan kesehatan.
+                pemrograman untuk memecahkan masalah melalui pengolahan
+                informasi dan data. Di jurusan ini, kamu akan belajar memahami
+                algoritma, pengembangan perangkat lunak yang cerdas, interaktif,
+                secure, dan terintegrasi dengan kecerdasan buatan (AI), serta
+                merancang sistem yang inovatif untuk kebutuhan di berbagai
+                sektor, mulai dari bisnis hingga kesehatan.
                 <br />
                 <br />
-                Di era digital, informatika semakin penting karena hampir semua
-                aspek kehidupan terhubung dengan teknologi. Di Universitas
-                Multimedia Nusantara (UMN), kamu akan didukung dengan fasilitas
-                modern dan acara seperti CodeXP yang memberikan pengalaman
-                langsung di dunia teknologi.
-                <br />
-                <br />
-                Buat kamu yang tertarik dengan teknologi...
+                Di era digital ini, Informatika menjadi semakin penting karena
+                hampir setiap aspek kehidupan kita terhubung dengan teknologi.
+                Di Universitas Multimedia Nusantara, kamu akan mendapatkan
+                banyak dukungan untuk belajar Informatika, mulai dari fasilitas
+                lab modern dan acara yang diselenggarakan oleh Himpunan
+                Mahasiswa Informatika (HMIF) UMN, seperti BYTE (Bringing Your
+                Tech Experience), yang memberikan pengalaman langsung dan
+                memperluas wawasan dalam dunia teknologi.
               </p>
             </div>
           </>
@@ -73,15 +75,24 @@ export default function AboutAll() {
               }}
             >
               <p className="text-white text-base leading-relaxed">
-                PPIF adalah program pengenalan untuk mahasiswa baru Informatika.
-                Di sini kamu akan dikenalkan dengan budaya kampus, nilai-nilai
-                program studi, serta aktivitas-aktivitas seru yang akan
-                membekali kamu untuk survive dan thrive di dunia perkuliahan.
+                Perkenalan Prodi Informatika (PPIF) merupakan bagian dari
+                kegiatan Orientasi Mahasiswa Baru (OMB) Universitas Multimedia
+                Nusantara yang diselenggarakan oleh Himpunan Mahasiswa
+                Informatika (HMIF) setiap tahunnya pada awal tahun ajar
+                perkuliahan. Pada tahun ini, dengan tema "Discovering for Future
+                Domination", diharapkan PPIF 2025 menjadi penguat dari semangat
+                eksplorasi dan visi besar untuk menguasai masa depan.
                 <br />
                 <br />
-                Event ini biasanya dilengkapi dengan workshop, pengenalan dosen,
-                sampai simulasi project bareng tim. Cocok banget buat kamu yang
-                baru nyemplung ke dunia coding.
+                Sebagai generasi yang hidup di era digital, Striders sebagai
+                mahasiswa baru Informatika 2025 perlu lebih dari sekadar belajar
+                mereka perlu menemukan, mencoba, dan menguasai setiap peluang
+                yang ada. Penemuan ini bukan hanya tentang teknologi terbaru,
+                tetapi juga tentang mengenali potensi diri, menemukan passion,
+                dan membentuk visi pribadi dalam ranah Informatika. Dari proses
+                eksplorasi inilah akan lahir dominasi bukan dalam arti kekuasaan
+                semata, tetapi dalam kemampuan untuk menjadi pemimpin dan
+                inovator di masa depan digital yang terus berkembang.
               </p>
             </div>
           </>
