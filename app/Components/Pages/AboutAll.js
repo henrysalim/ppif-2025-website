@@ -49,7 +49,9 @@ export default function AboutAll() {
       if (activeContent === "informatics") {
         return (
           <>
-            <h2 className="lg:text-2xl text-sm font-bold">What is Informatics?</h2>
+            <h2 className="lg:text-2xl text-sm font-bold">
+              What is Informatics?
+            </h2>
             <p className="text-gray-400 lg:text-sm text-[10px] lg:mb-4 mb-2">
               Multimedia Nusantara University
             </p>
@@ -61,20 +63,22 @@ export default function AboutAll() {
             >
               <p className="text-white lg:text-lg text-[10px] leading-relaxed">
                 Informatika adalah bidang ilmu yang menggabungkan teknologi dan
-                pemrograman untuk memecahkan masalah melalui pengolahan data dan
-                informasi. Di jurusan ini, kamu akan belajar mengembangkan
-                perangkat lunak, memahami algoritma, dan merancang sistem
-                inovatif untuk berbagai sektor, seperti bisnis dan kesehatan.
+                pemrograman untuk memecahkan masalah melalui pengolahan
+                informasi dan data. Di jurusan ini, kamu akan belajar memahami
+                algoritma, pengembangan perangkat lunak yang cerdas, interaktif,
+                secure, dan terintegrasi dengan kecerdasan buatan (AI), serta
+                merancang sistem yang inovatif untuk kebutuhan di berbagai
+                sektor, mulai dari bisnis hingga kesehatan.
                 <br />
                 <br />
-                Di era digital, informatika semakin penting karena hampir semua
-                aspek kehidupan terhubung dengan teknologi. Di Universitas
-                Multimedia Nusantara (UMN), kamu akan didukung dengan fasilitas
-                modern dan acara seperti CodeXP yang memberikan pengalaman
-                langsung di dunia teknologi.
-                <br />
-                <br />
-                Buat kamu yang tertarik dengan teknologi...
+                Di era digital ini, Informatika menjadi semakin penting karena
+                hampir setiap aspek kehidupan kita terhubung dengan teknologi.
+                Di Universitas Multimedia Nusantara, kamu akan mendapatkan
+                banyak dukungan untuk belajar Informatika, mulai dari fasilitas
+                lab modern dan acara yang diselenggarakan oleh Himpunan
+                Mahasiswa Informatika (HMIF) UMN, seperti BYTE (Bringing Your
+                Tech Experience), yang memberikan pengalaman langsung dan
+                memperluas wawasan dalam dunia teknologi.
               </p>
             </div>
           </>
@@ -93,15 +97,24 @@ export default function AboutAll() {
               }}
             >
               <p className="text-white lg:text-lg text-[10px] leading-relaxed">
-                PPIF adalah program pengenalan untuk mahasiswa baru Informatika.
-                Di sini kamu akan dikenalkan dengan budaya kampus, nilai-nilai
-                program studi, serta aktivitas-aktivitas seru yang akan
-                membekali kamu untuk survive dan thrive di dunia perkuliahan.
+                Perkenalan Prodi Informatika (PPIF) merupakan bagian dari
+                kegiatan Orientasi Mahasiswa Baru (OMB) Universitas Multimedia
+                Nusantara yang diselenggarakan oleh Himpunan Mahasiswa
+                Informatika (HMIF) setiap tahunnya pada awal tahun ajar
+                perkuliahan. Pada tahun ini, dengan tema "Discovering for Future
+                Domination", diharapkan PPIF 2025 menjadi penguat dari semangat
+                eksplorasi dan visi besar untuk menguasai masa depan.
                 <br />
                 <br />
-                Event ini biasanya dilengkapi dengan workshop, pengenalan dosen,
-                sampai simulasi project bareng tim. Cocok banget buat kamu yang
-                baru nyemplung ke dunia coding.
+                Sebagai generasi yang hidup di era digital, Striders sebagai
+                mahasiswa baru Informatika 2025 perlu lebih dari sekadar belajar
+                mereka perlu menemukan, mencoba, dan menguasai setiap peluang
+                yang ada. Penemuan ini bukan hanya tentang teknologi terbaru,
+                tetapi juga tentang mengenali potensi diri, menemukan passion,
+                dan membentuk visi pribadi dalam ranah Informatika. Dari proses
+                eksplorasi inilah akan lahir dominasi bukan dalam arti kekuasaan
+                semata, tetapi dalam kemampuan untuk menjadi pemimpin dan
+                inovator di masa depan digital yang terus berkembang.
               </p>
             </div>
           </>
@@ -161,7 +174,8 @@ export default function AboutAll() {
             <div className="flex-1">
               <h3 className="lg:text-xl text-[12px] font-bold mb-2">
                 {selectedImage?.title ||
-                  `Gallery ${activeContent === "informatics" ? "Informatics" : "PPIF"
+                  `Gallery ${
+                    activeContent === "informatics" ? "Informatics" : "PPIF"
                   }`}
               </h3>
               <p className="text-gray-300 lg:text-lg text-[9px] mt-4 lg:w-[500px] w-[230px] truncate">
@@ -214,9 +228,9 @@ export default function AboutAll() {
                 disabled={activeTab === "information"}
                 {...(activeTab === "information"
                   ? {
-                    className:
-                      "rounded-full w-full flex justify-center items-center lg:py-2 py-1 focus:outline-none mt-0 mb-0 mx-[8px] border-4 opacity-50 cursor-not-allowed",
-                  }
+                      className:
+                        "rounded-full w-full flex justify-center items-center lg:py-2 py-1 focus:outline-none mt-0 mb-0 mx-[8px] border-4 opacity-50 cursor-not-allowed",
+                    }
                   : {})}
               >
                 <svg
@@ -238,10 +252,11 @@ export default function AboutAll() {
             </div>
             {/* Buttons */}
             <button
-              className={`w-11/12 mb-0 py-3 rounded-lg font-bold lg:text-lg text-[11px] transition-all duration-200 ${activeTab === "information"
-                ? "bg-yellow-400 text-black pulse-ring"
-                : "bg-transparent text-white"
-                }`}
+              className={`w-11/12 mb-0 py-3 rounded-lg font-bold lg:text-lg text-[11px] transition-all duration-200 ${
+                activeTab === "information"
+                  ? "bg-yellow-400 text-black pulse-ring"
+                  : "bg-transparent text-white"
+              }`}
               onClick={() => {
                 setActiveTab("information");
                 playClickSound();
@@ -251,10 +266,11 @@ export default function AboutAll() {
             </button>
             <hr className="w-10/12 mt-0 mb-2 border-gray-400" />
             <button
-              className={`w-11/12 mb-0 py-3 rounded-lg font-bold lg:text-lg text-[11px] transition-all duration-200 ${activeTab === "gallery"
-                ? "bg-yellow-400 text-black pulse-ring"
-                : "bg-transparent text-white"
-                }`}
+              className={`w-11/12 mb-0 py-3 rounded-lg font-bold lg:text-lg text-[11px] transition-all duration-200 ${
+                activeTab === "gallery"
+                  ? "bg-yellow-400 text-black pulse-ring"
+                  : "bg-transparent text-white"
+              }`}
               onClick={() => {
                 setActiveTab("gallery");
                 playClickSound();
@@ -268,10 +284,11 @@ export default function AboutAll() {
             {activeContent === "ppif" && (
               <>
                 <button
-                  className={`w-11/12 mb-0 py-3 rounded-lg font-bold lg:text-lg text-[11px] transition-all duration-200 ${showDivision
-                    ? "bg-yellow-400 text-black pulse-ring"
-                    : "bg-transparent text-white hover:bg-yellow-400/10"
-                    }`}
+                  className={`w-11/12 mb-0 py-3 rounded-lg font-bold lg:text-lg text-[11px] transition-all duration-200 ${
+                    showDivision
+                      ? "bg-yellow-400 text-black pulse-ring"
+                      : "bg-transparent text-white hover:bg-yellow-400/10"
+                  }`}
                   onClick={() => {
                     playClickSound();
                     setShowDivision(true);
@@ -297,9 +314,9 @@ export default function AboutAll() {
                 disabled={activeTab === "gallery"}
                 {...(activeTab === "gallery"
                   ? {
-                    className:
-                      "rounded-full w-full flex justify-center items-center lg:py-2 py-1 focus:outline-none mt-0 mb-0 mx-[8px] border-4 opacity-50 cursor-not-allowed",
-                  }
+                      className:
+                        "rounded-full w-full flex justify-center items-center lg:py-2 py-1 focus:outline-none mt-0 mb-0 mx-[8px] border-4 opacity-50 cursor-not-allowed",
+                    }
                   : {})}
               >
                 <svg
@@ -329,10 +346,11 @@ export default function AboutAll() {
               <div className="flex gap-0 overflow-hidden rounded-full border-4 border-[#8F8F8F] relative z-20">
                 {/* Informatics Button */}
                 <button
-                  className={`lg:px-5 lg:py-2 px-4 py-1 font-semibold text-sm transition-all duration-200 relative ${activeContent === "informatics"
-                    ? "bg-[#FBCE2A] text-black"
-                    : "bg-[#25272B] text-white hover:bg-white/10"
-                    } rounded-l-full`}
+                  className={`lg:px-5 lg:py-2 px-4 py-1 font-semibold text-sm transition-all duration-200 relative ${
+                    activeContent === "informatics"
+                      ? "bg-[#FBCE2A] text-black"
+                      : "bg-[#25272B] text-white hover:bg-white/10"
+                  } rounded-l-full`}
                   onClick={() => {
                     setActiveContent("informatics");
                     playClickSound();
@@ -341,15 +359,18 @@ export default function AboutAll() {
                   {activeContent === "informatics" && (
                     <span className="absolute lg:-right-3 -right-2 top-0 z-10 h-full w-6 bg-[#FBCE2A] skew-x-[-25deg] pointer-events-none" />
                   )}
-                  <span className="relative z-10 lg:text-lg text-[11px]">Informatics</span>
+                  <span className="relative z-10 lg:text-lg text-[11px]">
+                    Informatics
+                  </span>
                 </button>
 
                 {/* PPIF Button */}
                 <button
-                  className={`lg:px-5 lg:py-2 px-4 py-1 font-semibold text-sm transition-all duration-200 relative ${activeContent === "ppif"
-                    ? "bg-[#FBCE2A] text-black"
-                    : "bg-[#25272B] text-white hover:bg-white/10"
-                    } rounded-r-full`}
+                  className={`lg:px-5 lg:py-2 px-4 py-1 font-semibold text-sm transition-all duration-200 relative ${
+                    activeContent === "ppif"
+                      ? "bg-[#FBCE2A] text-black"
+                      : "bg-[#25272B] text-white hover:bg-white/10"
+                  } rounded-r-full`}
                   onClick={() => {
                     setActiveContent("ppif");
                     playClickSound();
@@ -358,7 +379,9 @@ export default function AboutAll() {
                   {activeContent === "ppif" && (
                     <span className="absolute lg:-left-3 -left-2 top-0 h-full w-6 bg-[#FBCE2A] transform skew-x-[-25deg] pointer-events-none" />
                   )}
-                  <span className="relative z-10 lg:text-lg text-[11px]">PPIF</span>
+                  <span className="relative z-10 lg:text-lg text-[11px]">
+                    PPIF
+                  </span>
                 </button>
               </div>
             </div>
@@ -400,7 +423,7 @@ export default function AboutAll() {
             )}
           </div>
 
-          < AnimatePresence >
+          <AnimatePresence>
             {isModalOpen && selectedImage && (
               <motion.div
                 key="modal-bg"
@@ -430,22 +453,26 @@ export default function AboutAll() {
                     y: 0,
                     skewX: 0,
                   }}
-                  exit={isClosing ? {
-                    // Glitch effect: opacity turun, goyang X, filter drop-shadow warna
-                    opacity: [1, 0.8, 0.85, 0.7, 0],
-                    x: [0, -10, 10, -5, 5, 0, -20, 20, 0],
-                    skewX: [0, 12, -12, 8, -8, 0],
-                    filter: [
-                      "none",
-                      "drop-shadow(0 0 8px #fbce2a)",
-                      "drop-shadow(0 0 12px #5ae93a)",
-                      "drop-shadow(0 0 8px #ff1e1e)",
-                      "none",
-                    ],
-                    transition: { duration: 0.6, ease: "easeInOut" }
-                  } : {
-                    opacity: 0
-                  }}
+                  exit={
+                    isClosing
+                      ? {
+                          // Glitch effect: opacity turun, goyang X, filter drop-shadow warna
+                          opacity: [1, 0.8, 0.85, 0.7, 0],
+                          x: [0, -10, 10, -5, 5, 0, -20, 20, 0],
+                          skewX: [0, 12, -12, 8, -8, 0],
+                          filter: [
+                            "none",
+                            "drop-shadow(0 0 8px #fbce2a)",
+                            "drop-shadow(0 0 12px #5ae93a)",
+                            "drop-shadow(0 0 8px #ff1e1e)",
+                            "none",
+                          ],
+                          transition: { duration: 0.6, ease: "easeInOut" },
+                        }
+                      : {
+                          opacity: 0,
+                        }
+                  }
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   {/* Header */}
@@ -456,7 +483,9 @@ export default function AboutAll() {
                     <button
                       onClick={handleModalClose}
                       disabled={isClosing}
-                      className={`relative bg-red-600 lg:w-[80px] h-[40px] w-[60px]${showPulse ? " fast-pulse-4x" : ""} skew-x-[-12] overflow-hidden flex items-center justify-center rounded-full`}
+                      className={`relative bg-red-600 lg:w-[80px] h-[40px] w-[60px]${
+                        showPulse ? " fast-pulse-4x" : ""
+                      } skew-x-[-12] overflow-hidden flex items-center justify-center rounded-full`}
                     >
                       <span className="skew-x-[12] text-black font-black z-10">
                         ✕
@@ -490,7 +519,7 @@ export default function AboutAll() {
           </AnimatePresence>
         </div>
       </div>
-    </div >
+    </div>
   );
 
   // Konten Division
@@ -506,7 +535,9 @@ export default function AboutAll() {
               setShowPulse(false);
             }, 300);
           }}
-          className={`bg-[#FBCE2A] text-black rounded-full ${showPulse ? " fast-pulse-4x" : ""} lg:px-6 lg:py-2 px-3 py-1 lg:text-lg text-[12px] font-bold shadow-md hover:bg-yellow-300 transition`}
+          className={`bg-[#FBCE2A] text-black rounded-full ${
+            showPulse ? " fast-pulse-4x" : ""
+          } lg:px-6 lg:py-2 px-3 py-1 lg:text-lg text-[12px] font-bold shadow-md hover:bg-yellow-300 transition`}
         >
           ← Back
         </button>
