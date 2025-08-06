@@ -1,0 +1,82 @@
+[33mb0d2c14[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mzian[m[33m, [m[1;31morigin/zian[m[33m)[m Merge branch 'zian' of https://github.com/henrysalim/ppif-2025-website into zian
+[33mcc6833b[m wordingan done
+[33m39038f0[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #20 from henrysalim/wian
+[33m2801bee[m Merge pull request #19 from henrysalim/Henry
+[33mf4b8d25[m[33m ([m[1;31morigin/Henry[m[33m)[m fix: user can tap anywhere at home to fullscreen
+[33mfacbe8c[m perbaikan
+[33me1153c9[m lagi
+[33m23efad2[m sorry
+[33m5912c77[m footer fix
+[33m327050a[m Merge pull request #18 from henrysalim/Henry
+[33m20f62a3[m fix: removed unused import in homepage.js, commit for deployment
+[33m9efb316[m soundplayer fix
+[33m98d6504[m Perbaikan program
+[33m1410374[m Merge pull request #17 from henrysalim/Henry
+[33mc33b095[m fix: typo reahan
+[33mf88f7bb[m Merge pull request #16 from henrysalim/Henry
+[33m2bdfb11[m fix: deleted empty answer detail
+[33me84d2cd[m Merge pull request #15 from henrysalim/Henry
+[33mbd08879[m fix: responsive page
+[33mda84a60[m Merge pull request #14 from henrysalim/wian
+[33me51a04b[m add: Footer for contact
+[33m05e36b5[m Merge pull request #13 from henrysalim/Henry
+[33m6bb4dc6[m feat: added back button at envelope and play page
+[33m8a00385[m Merge pull request #12 from henrysalim/Henry
+[33m19fa1aa[m feat: GAME DONE
+[33m06e4130[m Update AboutAll.js
+[33m8bacf5d[m back button
+[33me7e2dae[m Merge pull request #11 from henrysalim/Henry
+[33mb6a92db[m feat: game logic (almost 100% correct)
+[33mf074347[m Merge pull request #10 from henrysalim/Henry
+[33m87de4c4[m fix: storyline bug prev and next; changed envelope text color
+[33mcc10742[m Merge pull request #9 from henrysalim/Henry
+[33m90eb3bd[m fix: moved sensitive data to app. added some logic for game
+[33m801e172[m Merge pull request #8 from henrysalim/zian
+[33ma6398b2[m Merge branch 'main' into zian
+[33m7f68210[m Merge pull request #7 from henrysalim/jesselyn
+[33m9e9a2f2[m tweak sedikit biar bisa dipake di dalem modal galerry
+[33m856ed1f[m progress done 80 - 90 %
+[33mc50b4c6[m gatau ini nambah apaan
+[33mab54be1[m dummy data for gallery
+[33ma024780[m custom scrollbar
+[33ma0ad04d[m Dummy data for gallery
+[33m2ecd164[m[33m ([m[1;31morigin/jesselyn[m[33m)[m play.js is the main game, the base UI is done
+[33m079d01e[m input unique code done
+[33m138f5c3[m storyline and envelope done
+[33mb031e29[m envelope done
+[33m79cb8c1[m storyline almost done, envelope animation done
+[33m3d85ecd[m ubah format video
+[33m0099271[m Merge pull request #6 from henrysalim/Henry
+[33m490c80b[m added import json, added favicon
+[33mb9d3226[m Merge pull request #5 from henrysalim/game-section
+[33m6192a01[m Merge pull request #4 from henrysalim/Henry
+[33mf7a438e[m feat: loaded json groups
+[33m85c2025[m ---
+[33mee85dcd[m envelope animation
+[33me411d15[m perbaikan
+[33me217da2[m Navigation fix
+[33m6af8fd7[m Merge pull request #3 from henrysalim/Henry
+[33m7300b97[m Merge branch 'main' into Henry
+[33mb93e390[m feat: group name completed
+[33m5b4154a[m Merge pull request #2 from henrysalim/game-section
+[33mfc2c29a[m Merge branch 'main' into game-section
+[33m636721e[m spline installation
+[33m0a5d1bf[m progress approx. 70-75%
+[33m458e2d9[m add game-section and try envelope
+[33m612de0c[m bug fixed resolution
+[33m6820e5a[m responsiveness testing
+[33m90900cb[m testing responsive mobile
+[33mbea324d[m[33m ([m[1;32mAbout[m[33m)[m Delete BackgroundContact copy.txt
+[33mf837159[m making textchild for background
+[33mbff4287[m Create umn-logo.svg
+[33m2b935f4[m navbar text color, sound effect (click effect)
+[33m6c6f5f2[m navbar fix
+[33m1950393[m Merge branch 'main' of https://github.com/henrysalim/ppif-2025-website
+[33mffd15be[m --
+[33m320503b[m bug fixed
+[33maae91f0[m transition perpage
+[33m8425748[m home page 3D progress
+[33md607a31[m Completion 65%
+[33m8363814[m Website Layout
+[33mf926bc0[m initialize project
+[33mf1ab563[m Initial commit from Create Next App
