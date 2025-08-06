@@ -17,23 +17,24 @@ export const BriefingDay = [
     {
         src: "/Images/AssetArchives/Group33.png"
     },
-    
     {
         src: "/Images/AssetArchives/Group33.png"
     },
-    
     {
         src: "/Images/AssetArchives/Group33.png"
     },
-    
     {
         src: "/Images/AssetArchives/Group33.png"
     },
-    
     {
         src: "/Images/AssetArchives/Group33.png"
     },
-    
+    {
+        src: "/Images/AssetArchives/Group33.png"
+    },
+    {
+        src: "/Images/AssetArchives/Group33.png"
+    },
     {
         src: "/Images/AssetArchives/Group33.png"
     }

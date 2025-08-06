@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Background from '../Background';
 import {BriefingDay, DDay, DominationDay} from '../ArchiveData';
 import { initClickSound, playClickSound } from "../SoundPlayer";
 
 export default function Archive() {
     const [page, setPage] = useState(1);
+
+    useEffect(()=>{
+        initClickSound('/Audio/clicking.mp3', 0.6);
+    }, []);
     
     const listToRender = 
         page === 1 ? BriefingDay :
@@ -16,6 +20,8 @@ export default function Archive() {
         page === 2 ? "D-Day PPIF" :
         "DOMINATION Day!";
 
+    
+    
     return (
         <Background textChild="ARCHIVE">
             <div className="w-full flex h-full justify-center items-center">
@@ -78,7 +84,7 @@ export default function Archive() {
                 <div className='w-1/7 absolute z-1 ml-290 mb-70 justify-center items-center'>
                     <div className='mb-3' style={{overflow: 'hidden'}}>
                         <button
-                            onClick={() => setPage(1)}
+                            onClick={() => {setPage(1); playClickSound();}}
                             className='relative w-fit'
                         >
                             <img src="/Images/AssetArchives/Subtract(3).png" className='w-full h-auto'></img>
@@ -91,7 +97,7 @@ export default function Archive() {
                         </button>
                     </div>
                     <div className='mb-3'>
-                        <button onClick={() => setPage(2)} className="relative w-fit">
+                        <button onClick={() => {setPage(2); playClickSound();}} className="relative w-fit">
                             <img src="/Images/AssetArchives/Subtract(3).png"></img>
                             <span 
                             className={`absolute inset-0 flex items-center ml-10
@@ -102,7 +108,7 @@ export default function Archive() {
                         </button>
                     </div>
                     <div className='mb-3'>
-                        <button onClick={() => setPage(3)} className="relative w-fit">
+                        <button onClick={() => {setPage(3); playClickSound();}} className="relative w-fit">
                             <img src="/Images/AssetArchives/Subtract(3).png"></img>   
                             <span 
                             className={`absolute inset-0 flex items-center justify-center ml-5
