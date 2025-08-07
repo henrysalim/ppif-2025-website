@@ -27,32 +27,34 @@ export default function Archive() {
             <div className="w-full flex h-full justify-center items-center">
                 <div className='w-3/4 flex justify-center items-center'>
 
-                    <img className="absolute z-0" src="/Images/AssetArchives/Group49.png"></img>
-                    <img className="absolute z-5 mb-127 mr-237" src="/Images/AssetArchives/binder.png"></img>
+                    <img className="absolute z-0 lg:w-279 sm:w-100" src="/Images/AssetArchives/Group49.png"></img>
+                    <img className="absolute z-5 lg:w-39 lg:mb-127 lg:mr-237 sm:w-14 sm:mb-46 sm:mr-86" src="/Images/AssetArchives/binder.png"></img>
 
-                    <img className="absolute z-2 mt-2" src="/Images/AssetArchives/Frame32.png"></img>
+                    <img className="absolute z-2 lg:w-279 lg:mt-2 sm:w-100 sm:mt-1" src="/Images/AssetArchives/Frame32.png"></img>
                     
-                    <div className='absolute z-3 ml-40'>
+                    {/*Content*/}
+                    <div className='absolute z-3 lg:ml-40 sm:ml-16'>
                         <div
-                            className="w-185 h-30 bg-gradient-to-b rounded-xl lg:p-6 p-3 lg:mb-0 mb-2 about-scrollbar inset-shadow-sm/50"
+                            className="lg:w-185 lg:h-30 sm:h-11 bg-gradient-to-b lg:rounded-xl sm:rounded-lg lg:p-6 sm:p-2 p-3 lg:mb-0 mb-2 inset-shadow-sm/50"
                             style={{
                                 background: "linear-gradient(to bottom, #3E3E3E, #101010)",
                             }}
                         >
-                            <h1 style={{fontSize: 30, fontFamily: "HongMengTi", color: "#A3A3A3", textShadow: "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black"}}>
+                            <h1 className='lg:text-[30px] sm:text-[10px]'
+                                style={{fontFamily: "HongMengTi", color: "#A3A3A3", textShadow: "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black"}}>
                                 {title}
                             </h1>
                         </div>
 
                         <div
-                            className="mt-5 h-120 w-185 bg-gradient-to-b rounded-xl lg:p-6 p-3 lg:mb-0 mb-2 about-scrollbar inset-shadow-sm/50 overflow-y-scroll about-scrollbar"
+                            className="lg:mt-5 lg:h-120 sm:h-40 sm:w-65 lg:w-185 bg-gradient-to-b lg:rounded-xl sm:rounded-lg lg:p-6 p-3 lg:mb-0 mb-2 about-scrollbar inset-shadow-sm/50 overflow-y-scroll about-scrollbar"
                             style={{
                                 background: "linear-gradient(to bottom, #3E3E3E, #101010)",
                             }}
                         >
-                            <div className='grid grid-cols-4 gap-3'>
+                            <div className='grid lg:grid-cols-4 sm:grid-cols-3 lg:gap-3 sm:gap-2'>
                             {listToRender.map((item, index) => (
-                                <div className='w-42 h-29 border-neutral-500 border-2 rounded-xl overflow-hidden flex items-center justify-center'
+                                <div key={index} className='lg:w-42 sm:w-18 lg:h-29 sm:h-12 border-neutral-500 hover:border-yellow-300 lg:border-2 sm:border-1 lg:rounded-xl sm:rounded-lg overflow-hidden flex items-center justify-center'
                                     style={{backgroundColor: "#1F1F1F"}}>
                                     <img className='object-contain h-full w-full' key={index} src={item.src} alt={'/Images/AssetArchive/Group32.png'}></img>
                                 </div>
@@ -63,10 +65,11 @@ export default function Archive() {
                     </div>
                 </div>
 
-                <div className='absolute z-4 mr-238 mb-25'>
+                {/*Key Chain*/}
+                <div className='absolute z-4 lg:mr-238 lg:mb-25 sm:mr-87 sm:mb-13'>
                     <img 
                     src='/Images/AssetArchives/Group80.png'
-                    className='swing origin-top'>
+                    className='swing origin-top lg:w-62 sm:w-20'>
                     </img>
                     <style jsx>{`
                         .swing {
@@ -81,38 +84,39 @@ export default function Archive() {
                     `}</style>
                 </div>
 
-                <div className='w-1/7 absolute z-1 ml-285 mb-70 justify-center items-center'>
-                    <div className={`mb-3 ${page === 1 ? 'ml-7': ''}`}>
+                {/*Book Mark*/}
+                <div className='lg:w-1/7 absolute z-1 lg:ml-285 md:ml-95 sm:ml-103 sm:mb-20 lg:mb-70 justify-center items-center'>
+                    <div className={`lg:w-44 sm:w-20 lg:mb-3 ${page === 1 ? 'lg:ml-7 sm:ml-2': ''}`}>
                         <button
                             onClick={() => {setPage(1); playClickSound();}}
                             className='relative w-fit'
                         >
-                            <img src="/Images/AssetArchives/Subtract(3).png" className='w-full h-auto'></img>
+                            <img src="/Images/AssetArchives/Subtract(3).png"></img>
                             <span 
-                            className={`absolute inset-0 flex items-center justify-center
-                                ${page === 1 ? 'text-pulse' : 'ml-5'}`}
+                            className={`lg:text-[15px] sm:text-[8px] absolute inset-0 flex items-center justify-center 
+                                ${page === 1 ? 'text-pulse' : 'lg:ml-5'}`}
                             style={{fontFamily: "HongMengTi", color: "#848484"}}>
                                 Briefing Day
                             </span>
                         </button>
                     </div>
-                    <div className={`mb-3 ${page === 2 ? 'ml-7': ''}`}>
+                    <div className={`lg:w-44 sm:w-20 lg:mb-3  ${page === 2 ? 'lg:ml-7 sm:ml-2': ''}`}>
                         <button onClick={() => {setPage(2); playClickSound();}} className="relative w-fit">
                             <img src="/Images/AssetArchives/Subtract(3).png"></img>
                             <span 
-                            className={`absolute inset-0 flex items-center ml-10
+                            className={`lg:text-[15px] sm:text-[8px] absolute inset-0 flex items-center lg:ml-11 sm:ml-3
                                 ${page === 2 ? 'text-pulse' : ''}`}
                             style={{fontFamily: "HongMengTi", color: "#848484"}}>
                                 D-Day PPIF
                             </span>
                         </button>
                     </div>
-                    <div className={`mb-3 ${page === 3 ? 'ml-7': ''}`}>
+                    <div className={`lg:w-44 sm:w-20 lg:mb-3 ${page === 3 ? 'lg:ml-7 sm:ml-2' : ''}`}>
                         <button onClick={() => {setPage(3); playClickSound();}} className="relative w-fit">
-                            <img src="/Images/AssetArchives/Subtract(3).png"></img>   
+                            <img className='lg:w-44' src="/Images/AssetArchives/Subtract(3).png"></img>   
                             <span 
-                            className={`absolute inset-0 flex items-center justify-center ml-5
-                                ${page === 3 ? 'text-pulse' : ''}`}
+                            className={`lg:text-[15px] sm:text-[8px] absolute inset-0 flex items-center justify-center 
+                                ${page === 3 ? 'text-pulse' : 'lg:ml-5'}`}
                             style={{fontFamily: "HongMengTi", color: "#848484"}}>
                                 DOMINATION!
                             </span>                   
