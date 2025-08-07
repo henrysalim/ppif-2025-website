@@ -3,7 +3,6 @@ import {motion, AnimatePresence } from "framer-motion";
 import Background from '../Background';
 import {BriefingDay, DDay, DominationDay} from '../ArchiveData';
 import { initClickSound, playClickSound } from "../SoundPlayer";
-import { BubbleChartTwoTone } from '@mui/icons-material';
 
 
 export default function Archive() {
