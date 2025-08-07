@@ -40,7 +40,7 @@ export default function Archive() {
                                 background: "linear-gradient(to bottom, #3E3E3E, #101010)",
                             }}
                         >
-                            <h1 className='lg:text-[30px] sm:text-[10px]'
+                            <h1 className='lg:text-[30px] sm:text-[12px]'
                                 style={{fontFamily: "HongMengTi", color: "#A3A3A3", textShadow: "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black"}}>
                                 {title}
                             </h1>
@@ -85,7 +85,7 @@ export default function Archive() {
                 </div>
 
                 {/*Book Mark*/}
-                <div className='lg:w-1/7 absolute z-1 lg:ml-285 md:ml-95 sm:ml-103 sm:mb-20 lg:mb-70 justify-center items-center'>
+                <div className='lg:w-1/7 absolute z-1 lg:ml-285 sm:ml-103 sm:mb-20 lg:mb-70 justify-center items-center'>
                     <div className={`lg:w-44 sm:w-20 lg:mb-3 ${page === 1 ? 'lg:ml-7 sm:ml-2': ''}`}>
                         <button
                             onClick={() => {setPage(1); playClickSound();}}
