@@ -1,94 +1,102 @@
-import Image from "next/image";
+"use client";
 
-const socialLinks = [
-    {
-        name: "WhatsApp",
-        iconPath: "/Assets/icons/Whatsapp.png",
-        url: "https://wa.me/YOUR_PHONE_NUMBER",
-    },
-    {
-        name: "Discord",
-        iconPath: "/Assets/icons/Discord.png",
-        url: "https://discord.gg/YOUR_SERVER_INVITE",
-    },
-    {
-        name: "Instagram",
-        iconPath: "/Assets/icons/Instagram.png",
-        url: "https://instagram.com/YOUR_USERNAME",
-    },
-    {
-        name: "Line",
-        iconPath: "/Assets/icons/Line.png",
-        url: "https://line.me/ti/p/~YOUR_LINE_ID",
-    },
-];
+import Image from 'next/image';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "../globals.css";
 
-export default function ContactContent() {
-    return (
-        <div className="w-full flex flex-col items-center gap-y-12 py-16">
+export default function Home() {
+  const icons = [
+    { src: "/Assets/icons/Whatsapp.png", alt: "WhatsApp" },
+    { src: "/Assets/icons/Discord.png", alt: "Discord" },
+    { src: "/Assets/icons/Instagram.png", alt: "Instagram" },
+    { src: "/Assets/icons/Line.png", alt: "Line" },
+    { src: "/Assets/icons/Whatsapp.png", alt: "WhatsApp" },
+    { src: "/Assets/icons/Discord.png", alt: "Discord" },
+    { src: "/Assets/icons/Instagram.png", alt: "Instagram" },
+    { src: "/Assets/icons/Line.png", alt: "Line" }
+  ];
 
-            {/* --- Tombol "Connect to the Network" --- */}
-            <div className="w-full max-w-3xl bg-[#33353A] rounded-full flex items-center justify-center py-4 shadow-inner">
-                <h1 className="text-white text-3xl font-extrabold opacity-30 tracking-wider">
-                    Connect to the Network
-                </h1>
-            </div>
+  // Group icons into chunks of 4 for 4-frame layout
+  const groupedIcons = [];
+  for (let i = 0; i < icons.length; i += 4) {
+    groupedIcons.push(icons.slice(i, i + 4));
+  }
 
-            {/* --- Bagian Strip Film Media Sosial --- */}
-            <div className="flex items-center">
-                {/* Bagian Ujung Kiri Strip Film */}
+  // Duplicate for smooth looping
+  const allGroups = [...groupedIcons, ...groupedIcons];
+
+  return (
+    <div className="film-carousel-container">
+      {/* Left Roll */}
+      <div className="film-roll left-roll">
+        <Image
+          src="/Assets/RollKiri.png"
+          alt="Film Roll Left"
+          width={60}
+          height={200}
+          className="roll-image"
+        />
+      </div>
+
+      {/* Film Strip Carousel */}
+      <div className="film-strip-wrapper">
+        <Swiper
+          modules={[Autoplay, FreeMode]}
+          slidesPerView={'auto'}
+          spaceBetween={10}
+          loop={true}
+          freeMode={true}
+          speed={3000}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+            reverseDirection: false,
+          }}
+          className="film-swiper"
+        >
+          {allGroups.map((group, groupIndex) => (
+            <SwiperSlide key={groupIndex} className="four-frame-slide">
+              <div className="film-strip-container">
+                {/* Film Strip Background */}
                 <Image
-                    src="/Assets/RollKiri.png"
-                    alt="Film strip left end"
-                    width={60}
-                    height={172}
-                    className="object-contain"
-                    priority
+                  src="/Assets/film-strip.png"
+                  alt="Film Strip 4 Frame"
+                  fill
+                  className="film-strip-bg"
                 />
-
-                {/* Kontainer untuk semua frame film */}
-                <div className="flex flex-row">
-                    {socialLinks.map((social) => (
-                        <a
-                            key={social.name}
-                            href={social.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block relative transform transition-transform duration-300 hover:scale-105"
-                        >
-                            {/* 1. LATAR BELAKANG FRAME DARI FILE PNG ANDA */}
-                            <Image
-                                src="/Assets/film-strip.png" // PASTIKAN PATH INI SESUAI
-                                alt="Film frame background"
-                                width={170}
-                                height={170}
-                                className="object-contain"
-                            />
-
-                            {/* 2. IKON SOSIAL MEDIA (ditumpuk di atas) */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <Image
-                                    src={social.iconPath}
-                                    alt={social.name}
-                                    width={100}
-                                    height={100}
-                                    className="object-contain"
-                                />
-                            </div>
-                        </a>
-                    ))}
+                {/* Content over the film strip */}
+                <div className="four-frames-content">
+                  {group.map((icon, iconIndex) => (
+                    <div key={iconIndex} className="frame-slot">
+                      <Image 
+                        src={icon.src}
+                        alt={icon.alt}
+                        width={60}
+                        height={60}
+                        className="app-icon"
+                      />
+                    </div>
+                  ))}
                 </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
-                {/* Bagian Ujung Kanan Strip Film */}
-                <Image
-                    src="/Assets/RollKanan.png"
-                    alt="Film strip right end"
-                    width={60}
-                    height={172}
-                    className="object-contain"
-                    priority
-                />
-            </div>
-        </div>
-    );
+      {/* Right Roll */}
+      <div className="film-roll right-roll">
+        <Image
+          src="/Assets/RollKanan.png"
+          alt="Film Roll Right"
+          width={60}
+          height={200}
+          className="roll-image"
+        />
+      </div>
+    </div>
+  );
 }
