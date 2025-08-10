@@ -174,8 +174,7 @@ export default function AboutAll() {
             <div className="flex-1">
               <h3 className="lg:text-xl text-[12px] font-bold mb-2">
                 {selectedImage?.title ||
-                  `Gallery ${
-                    activeContent === "informatics" ? "Informatics" : "PPIF"
+                  `Gallery ${activeContent === "informatics" ? "Informatics" : "PPIF"
                   }`}
               </h3>
               <p className="text-gray-300 lg:text-lg text-[9px] mt-4 lg:w-[500px] w-[230px] truncate">
