@@ -170,8 +170,25 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                 >
                     <img src="/Assets/GamesIcon.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
                 </button>
-                <button onClick={playClickSound} className="w-full h-full flex items-center rounded-full justify-center">
-                    <img src="/Assets/Button.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
+                <button
+                    onClick={() => {
+                        playClickSound();
+                        onNavigate("archive");
+                    }} 
+                    className="w-full h-full flex items-center rounded-full justify-center"
+                >
+                        <img src="/Assets/Button.png" className="lg:w-[60px] w-[38px] h-full rounded-full" />
+                </button>
+                <button
+                    onClick={() => { onToggleFullscreen(); playClickSound(); }}
+                    title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
+                    className="w-full h-full lg:mt-2 mt-1 flex items-center rounded-full justify-center"
+                >
+                    {isFullscreen ? (
+                        <FullscreenExitIcon style={{ color: "white", fontSize: 30 }} />
+                    ) : (
+                        <FullscreenIcon style={{ color: "white", fontSize: 30 }} />
+                    )}
                 </button>
                 <button
                     onClick={() => { onToggleFullscreen(); playClickSound(); }}
