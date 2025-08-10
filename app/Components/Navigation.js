@@ -190,17 +190,6 @@ export default function Navigation({ currentSection, onNavigate, isMobile, isMus
                         <FullscreenIcon style={{ color: "white", fontSize: 30 }} />
                     )}
                 </button>
-                <button
-                    onClick={() => { onToggleFullscreen(); playClickSound(); }}
-                    title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
-                    className="w-full h-full lg:mt-2 mt-1 flex items-center rounded-full justify-center"
-                >
-                    {isFullscreen ? (
-                        <FullscreenExitIcon style={{ color: "white", fontSize: 30 }} />
-                    ) : (
-                        <FullscreenIcon style={{ color: "white", fontSize: 30 }} />
-                    )}
-                </button>
             </div>
         </div>
     );
