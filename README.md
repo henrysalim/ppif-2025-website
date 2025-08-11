@@ -1,6 +1,6 @@
 # PPIF 2025 Website
 
-A modern, interactive website for PPIF (Pekan Perangkat Lunak dan Informatika) 2025 built with Next.js, featuring immersive animations, 3D elements, and a film-inspired design.
+A modern, interactive website for PPIF (Perkenalan Prodi Informatika) 2025 built with Next.js, featuring immersive animations, 3D elements, and a film-inspired design.
 
 ## ✨ Features
 
