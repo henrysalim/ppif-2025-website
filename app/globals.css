@@ -18,6 +18,11 @@
   scrollbar-color: #f97316 #1f2937;
 }
 
+.timeline-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #888888;
+}
+
 .about-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
