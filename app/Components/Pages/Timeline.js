@@ -10,7 +10,8 @@ export default function Timeline() {
       time: "09:00 AM",
       location: "Multimedia Nusantara University",
       text: "Briefing Day merupakan sesi pembuka dari rangkaian Perkenalan Prodi Informatika 2025 yang diselenggarakan secara online melalui Zoom. Dalam sesi ini, para Striders akan diperkenalkan dengan tema, judul, dan tagline utama acara sebagai bekal awal sebelum memasuki rangkaian kegiatan selanjutnya, yaitu D-Day dan Domination Day. Selanjutnya, para Striders akan dibagi ke dalam breakout room untuk berkenalan dengan PIC dan anggota kelompok, serta menentukan nama kelompok melalui aktivitas interaktif. Briefing Day dirancang untuk membekali para Striders dengan berbagai informasi agar siap mengikuti rangkaian kegiatan utama dengan antusias dan percaya diri.",
-      sideImage: "/Images/Timeline/briefing-side.jpg",
+      polaroidImage: "/Images/Timeline/briefing-polaroid.png",
+      sideImage: "/Images/Timeline/briefing-side.png",
       detailImage: "/Images/Timeline/briefing-detail.jpg",
       necessities: [
         "/Images/Timeline/shirt.png",
@@ -34,7 +35,8 @@ export default function Timeline() {
       time: "07:00 AM",
       location: "Multimedia Nusantara University",
       text: "D-DAY Perkenalan Prodi Informatika 2025 merupakan rangkaian yang dirancang untuk membekali para Striders dengan pemahaman mendalam mengenai dunia perkuliahan di Informatika UMN. Dalam sesi ini, Striders akan dikenalkan dengan profil Program Studi Informatika, para dosen pengajar, sistem akademik, serta tiga laboratorium utama: Cybersecurity R&D, Artificial Intelligence, dan Digital Interaction. Selain itu, para Striders juga akan memahami penggunaan berbagai platform pendukung pembelajaran seperti MyUMN dan UNION. Rangkaian ini ditutup dengan talkshow bertema “Eksplorasi Dunia Informatika” yang bertujuan memperluas wawasan Striders mengenai beragam peluang dan potensi di dunia informatika.",
-      sideImage: "/Images/Timeline/dday-side.jpg",
+      polaroidImage: "/Images/Timeline/dday-polaroid.png",
+      sideImage: "/Images/Timeline/dday-side.png",
       detailImage: "/Images/Timeline/dday-detail.jpg",
       necessities: [
         "/Images/Timeline/shirt.png",
@@ -53,7 +55,8 @@ export default function Timeline() {
       time: "10:00 AM",
       location: "Multimedia Nusantara University",
       text: "Domination Day merupakan puncak rangkaian acara yang dirancang untuk memberikan pengalaman transformatif bagi Striders dalam menjelajahi dunia teknologi. Selaras dengan tema ''Discovering for Future Domination'' dan tagline ''Discover, Develop, Dominate'', rangkaian kegiatan PPIF ini mendorong Striders untuk melalui tiga tahap penting: Discover (Menemukan): Mengenal lebih dalam berbagai aspek teknologi dan inovasi dalam dunia Informatika Develop (Mengembangkan): Meningkatkan keterampilan teknis dan kreativitas dengan bimbingan dari para ahli serta praktisi di bidang informatika. Dominate (Mendominasi): Mengasah kemampuan untuk mengendalikan dan menerapkan teknologi secara strategis demi menciptakan solusi masa depan yang inovatif.Melalui konsep ini, Domination Day tidak sekadar menjadi ajang pembelajaran, tetapi juga menjadi momen penting untuk menumbuhkan keberanian dalam mengambil peran aktif sebagai penggerak kemajuan teknologi. Dengan begitu, Striders dipersiapkan untuk menjadi pionir di era digital yang terus berkembang.",
-      sideImage: "/Images/Timeline/domination-side.jpg",
+      polaroidImage: "/Images/Timeline/domination-polaroid.png",
+      sideImage: "/Images/Timeline/domination-side.png",
       detailImage: "/Images/Timeline/domination-detail.jpg",
       necessities: [
         "/Images/Timeline/shirt.png",
@@ -122,29 +125,30 @@ export default function Timeline() {
                   />
 
                   {/* Polaroid */}
-                  <motion.div
-                    className="relative w-80 mt-[-5%]"
-                    whileHover={{
-                      rotate: [0, 1.5, -1.5, 1.5, 0],
-                      transition: { duration: 2, repeat: Infinity },
-                    }}
-                  >
-                    <img
-                      src="/Images/Timeline/polaroid.png"
-                      alt="polaroid"
-                      className="w-full h-auto"
-                    />
-                  </motion.div>
+                <motion.div
+                  className="relative w-80 mt-[-5%]"
+                  whileHover={{
+                    rotate: [0, 1.5, -1.5, 1.5, 0],
+                    transition: { duration: 2, repeat: Infinity },
+                  }}
+                >
+                  {/* Polaroid frame */}
+                  <img
+                    src={item.polaroidImage}
+                    alt={item.title}
+                    className="w-full h-auto relative z-10"
+                  />
+                </motion.div>
                 </div>
               ))}
             </div>
 
             {/* Slide-in Panel */}
-<div
-  className={`fixed top-0 right-0 h-full w-[500px] transform transition-transform duration-500 z-50 ${
-    selectedEvent ? "translate-x-0" : "translate-x-full"
-  }`}
->
+  <div
+    className={`fixed top-0 right-0 h-full w-[500px] transform transition-transform duration-500 z-50 ${
+      selectedEvent ? "translate-x-0" : "translate-x-full"
+    }`}
+  >
   {/* Background frame */}
   <img
     src="/Images/Timeline/popup.png"
