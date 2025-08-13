@@ -117,11 +117,11 @@ export default function DetailBox({ selectedBox, activeTab }) {
                             className="w-full h-72 object-cover rounded-2xl mb-4 shadow-xl"
                             loading="lazy"
                         />
-                        <div className="lg:text-lg text-[16px] font-bold text-center">{selectedBox.title}</div>
+                        <div className="lg:text-lg text-[16px] font-bold text-center text-white">{selectedBox.title}</div>
                         <div className="lg:text-sm text-[12px] text-slate-500 text-center mt-1 px-2">{selectedBox.description}</div>
                     </>
                 )}
-                {activeTab === 'Member' && (
+                {/* {activeTab === 'Member' && (
                     <>
                         <div className="text-lg font-bold text-center mb-2">Team Members</div>
                         <div className="flex flex-wrap justify-center gap-4 mt-2">
@@ -138,7 +138,7 @@ export default function DetailBox({ selectedBox, activeTab }) {
                             ))}
                         </div>
                     </>
-                )}
+                )} */}
                 {activeTab === 'Skill' && (
                     <div className="w-full flex flex-col items-center">
                         <div className="text-lg font-bold text-center mb-2">Skill Overview</div>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, Suspense, lazy } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { animate } from 'animejs';
-import { FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode } from 'swiper/modules';
 import slides from './swiperData';
 import { initClickSound, playClickSound } from "./SoundPlayer";
 
@@ -9,7 +9,7 @@ const DetailBox = lazy(() => import('./DetailBox'));
 
 const SCROLL_AUDIO_VOLUME = 0.1;
 
-const TABS = ['Info', 'Member', 'Skill'];
+const TABS = ['Info', 'Skill'];
 
 export default function DiagonalSwiper() {
     const [activeSlide, setActiveSlide] = useState(0);
