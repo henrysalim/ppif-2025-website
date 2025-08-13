@@ -150,21 +150,21 @@ export default function Archive() {
 
                 {/*Book Mark*/}
                 <div className='lg:w-1/7 absolute z-1 lg:ml-285 sm:ml-103 sm:mb-20 lg:mb-70 justify-center items-center'>
-                    <div className={`lg:w-44 sm:w-20 lg:mb-3 ${page === 1 ? 'lg:ml-7 sm:ml-2': ''}`}>
+                    <div className={`lg:w-44 sm:w-20 lg:mb-3 ${page === 1 ? 'lg:ml-7 sm:ml-2': 'lg:hover:ml-7 sm:hover:ml-2 transition-all delay-150 duration-300 ease-in-out'}`}>
                         <button
                             onClick={() => {setPage(1); playClickSound();}}
                             className='relative w-fit'
                         >
                             <img src="/Images/AssetArchives/Subtract(3).png"></img>
                             <span 
-                            className={`lg:text-[15px] sm:text-[8px] absolute inset-0 flex items-center justify-center 
+                            className={`text-[#848484] lg:text-[15px] sm:text-[8px] absolute inset-0 flex items-center justify-center 
                                 ${page === 1 ? 'text-pulse' : 'lg:ml-5'}`}
-                            style={{fontFamily: "HongMengTi", color: "#848484"}}>
+                            style={{fontFamily: "HongMengTi"}}>
                                 Briefing Day
                             </span>
                         </button>
                     </div>
-                    <div className={`lg:w-44 sm:w-20 lg:mb-3  ${page === 2 ? 'lg:ml-7 sm:ml-2': ''}`}>
+                    <div className={`lg:w-44 sm:w-20 lg:mb-3  ${page === 2 ? 'lg:ml-7 sm:ml-2': 'lg:hover:ml-7 sm:hover:ml-2 transition-all delay-150 duration-300 ease-in-out'}`}>
                         <button onClick={() => {setPage(2); playClickSound();}} className="relative w-fit">
                             <img src="/Images/AssetArchives/Subtract(3).png"></img>
                             <span 
@@ -175,7 +175,7 @@ export default function Archive() {
                             </span>
                         </button>
                     </div>
-                    <div className={`lg:w-44 sm:w-20 lg:mb-3 ${page === 3 ? 'lg:ml-7 sm:ml-2' : ''}`}>
+                    <div className={`lg:w-44 sm:w-20 lg:mb-3 ${page === 3 ? 'lg:ml-7 sm:ml-2' : 'lg:hover:ml-7 sm:hover:ml-2 transition-all delay-150 duration-300 ease-in-out'}`}>
                         <button onClick={() => {setPage(3); playClickSound();}} className="relative w-fit">
                             <img className='lg:w-44' src="/Images/AssetArchives/Subtract(3).png"></img>   
                             <span 
