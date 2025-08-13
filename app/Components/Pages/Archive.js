@@ -70,25 +70,61 @@ export default function Archive() {
                                 background: "linear-gradient(to bottom, #3E3E3E, #101010)",
                             }}
                         >
-                            <div className='grid lg:grid-cols-4 sm:grid-cols-3 lg:gap-3 sm:gap-2'>
-                            {listToRender.map((item, index) => (
-                                <div key={index} className='lg:w-42 sm:w-18 lg:h-29 sm:h-12 border-neutral-500 hover:border-yellow-300 lg:border-2 sm:border-1 lg:rounded-xl sm:rounded-lg overflow-hidden flex items-center justify-center'
-                                    style={{backgroundColor: "#1F1F1F"}}>
-                                    <img 
-                                        className='object-contain h-full w-full cursor-pointer'
-                                        key={index}
-                                        src={item.src}
-                                        alt={item.title}
-                                        onClick={() => {
-                                            setSelectedImage(item);
-                                            setIsModalOpen(true);
-                                            playClickSound();
+                            
+                            {listToRender.length === 0 ? (
+                                /*Coming Soon*/
+                                <div className="flex items-center justify-center h-full relative">
+                                    <div className='lg:h-50 lg:mb-50 sm:h-12 sm:mb-15 overflow-hidden absolute justify-center'>
+                                        <img className="opacity-50 lg:h-85 sm:h-20" src="/Images/AssetArchives/3.png"></img>
+                                    </div>
+                                    <h2
+                                        className="lg:text-[40px] lg:mt-7 sm:text-base text-center absolute z-10"
+                                        style={{
+                                            fontFamily: "HongMengTi",
+                                            color: "#A3A3A3",
+                                            textShadow: "-1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black"
                                         }}
-                                    ></img>
-                                </div>
-                            ))}
-                            </div>
+                                    >
+                                        COMING SOON<span className='ellipsis'></span>
+                                    </h2>
 
+                                    <style jsx>{`
+                                        @keyframes ellipsis {
+                                            0%{content: '';}
+                                            33%{content: '.';}
+                                            66%{content: '..';}
+                                            100%{content: '...';}
+                                        }
+                                        .ellipsis::after{
+                                            display: inline-block;
+                                            animation: ellipsis 2s infinite steps(4, end);
+                                            content: '';
+                                            width: 1em;
+                                            text-align: left;
+                                        }
+                                    `}</style>
+                                </div>
+                                
+                            ):(
+                                /*Archive Image*/
+                                <div className='grid lg:grid-cols-4 sm:grid-cols-3 lg:gap-3 sm:gap-2'>
+                                    {listToRender.map((item, index) => (
+                                        <div key={index} className='lg:w-42 sm:w-18 lg:h-29 sm:h-12 border-neutral-500 hover:border-yellow-300 lg:border-2 sm:border-1 lg:rounded-xl sm:rounded-lg overflow-hidden flex items-center justify-center'
+                                            style={{backgroundColor: "#1F1F1F"}}>
+                                            <img 
+                                                className='object-contain h-full w-full cursor-pointer'
+                                                src={item.src}
+                                                alt="Archive Data"
+                                                onClick={() => {
+                                                    setSelectedImage(item);
+                                                    setIsModalOpen(true);
+                                                    playClickSound();
+                                                }}
+                                            ></img>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -250,7 +286,7 @@ export default function Archive() {
                                                 {/* Actual Image */}
                                                 <img
                                                     src={selectedImage.src}
-                                                    alt={selectedImage.title}
+                                                    alt="Archive Data"
                                                     className="relative z-10 lg:w-[500px] w-[240px] h-auto rounded-xl border-[4px] border-[#6B6B6B] object-contain"
                                                 />
                                         </div>
