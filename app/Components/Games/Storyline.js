@@ -7,22 +7,22 @@ import Image from "next/image";
 const stories = [
   {
     id: 1,
-    img: "/Images/dummy_test/img_01.webp",
+    img: "/Images/dummy_test/ST1.webp",
     text: "Era peradaban manusia kian mengalami kemajuan dengan dikembangkannya pelbagai teknologi dan chip yang mampu mendorong manusia untuk mendominasi dunia Viruella. Salah satu penemuan terhebat, yang jauh tersembunyi dan telah menjadi jantung kehidupan dunia itu adalah AETHER (Artificial Engine To Handle Every Resource), sebuah teknologi AI tingkat lanjut yang berfungsi untuk mengelola seluruh aspek data dan informasi dunia. Ditemukan oleh dua ilmuwan yang berambisi tinggi, keberadaan teknologi ini menjadi kunci kelancaran dan kemajuan peradaban Viruella.",
   },
   {
     id: 2,
-    img: "/Images/dummy_test/img_02.webp",
+    img: "/Images/dummy_test/ST2.webp",
     text: "Dalam upayanya mencapai peradaban teknologi tanpa batas dan kendali akan segala hal, salah satu ilmuwan tersebut merasa tidak puas terhadap AETHER. Baginya AETHER masih memiliki beberapa kelemahan yang bisa menghambat peningkatan peradaban teknologi ke tingkat selanjutnya. Tanpa pikir panjang, ia pun membuat modul tambahan bernama “Evopass”, sebuah protokol yang memungkinkan AETHER untuk mempelajari dan menguasai hal baru di luar batas algoritma awalnya. Sementara itu, rekannya memilih untuk mundur sebab menurutnya AETHER sudah cukup untuk mempertahankan peradaban Viruella dalam jangka waktu yang sangat lama, sehingga penyempurnaan tingkat lanjut tidak diperlukan.",
   },
   {
     id: 3,
-    img: "/Images/dummy_test/img_03.webp",
+    img: "/Images/dummy_test/ST3.webp",
     text: "Tak disangka, modul yang ditambahkannya tersebut bertolakan dengan algoritma protokol awal saat pertama kali AETHER diciptakan. Hal ini membuat AETHER mengalami malfungsi dan data implosion, dimana AETHER mulai menghapus semua data yang ada dalam dirinya, hingga pada akhirnya menyebabkan ledakan di laboratorium dan menyebar ke seluruh penjuru Viruella. Ledakan tersebut menewaskan tiga per empat populasi Viruella, termasuk dua ilmuwan tersebut. Tidak hanya itu, Viruella yang dulunya megah kini hanya tersisa reruntuhan, yang kehilangan bentuk fisik dan esensi peradabannya.",
   },
   {
     id: 4,
-    img: "/Images/dummy_test/img_04.webp",
+    img: "/Images/dummy_test/ST4.webp",
     text: "Bertahun-tahun pun berlalu, Viruella mulai memulihkan diri dari fenomena tersebut, meskipun rasa trauma akan teknologi masih membekas dalam jiwa masyarakat Viruella. Mereka belum dapat beralih dari ingatan akan hari ketika kemajuan berbalik menjadi kehancuran. Hingga suatu saat, ada sosok yang mengirim surat undangan kepada Striders untuk datang ke Viruella.",
   },
 ];

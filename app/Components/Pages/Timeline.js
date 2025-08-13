@@ -10,14 +10,14 @@ export default function Timeline() {
       time: "09:00 AM",
       location: "Multimedia Nusantara University",
       text: "Briefing Day merupakan sesi pembuka dari rangkaian Perkenalan Prodi Informatika 2025 yang diselenggarakan secara online melalui Zoom. Dalam sesi ini, para Striders akan diperkenalkan dengan tema, judul, dan tagline utama acara sebagai bekal awal sebelum memasuki rangkaian kegiatan selanjutnya, yaitu D-Day dan Domination Day. Selanjutnya, para Striders akan dibagi ke dalam breakout room untuk berkenalan dengan PIC dan anggota kelompok, serta menentukan nama kelompok melalui aktivitas interaktif. Briefing Day dirancang untuk membekali para Striders dengan berbagai informasi agar siap mengikuti rangkaian kegiatan utama dengan antusias dan percaya diri.",
-      polaroidImage: "/Images/Timeline/briefing-polaroid.png",
-      sideImage: "/Images/Timeline/briefing-side.png",
+      polaroidImage: "/Images/Timeline/briefing-polaroid.webp",
+      sideImage: "/Images/Timeline/briefing-side.webp",
       detailImage: "/Images/Timeline/briefing-detail.jpg",
       necessities: [
-        "/Images/Timeline/shirt.png",
-        "/Images/Timeline/pen.png",
-        "/Images/Timeline/notebook.png",
-        "/Images/Timeline/shoes.png",
+        "/Images/Timeline/shirt.webp",
+        "/Images/Timeline/pen.webp",
+        "/Images/Timeline/notebook.webp",
+        "/Images/Timeline/shoes.webp",
       ],
       tags: ["Engagement", "UMN"],
       comments: [
@@ -35,14 +35,14 @@ export default function Timeline() {
       time: "07:00 AM",
       location: "Multimedia Nusantara University",
       text: "D-DAY Perkenalan Prodi Informatika 2025 merupakan rangkaian yang dirancang untuk membekali para Striders dengan pemahaman mendalam mengenai dunia perkuliahan di Informatika UMN. Dalam sesi ini, Striders akan dikenalkan dengan profil Program Studi Informatika, para dosen pengajar, sistem akademik, serta tiga laboratorium utama: Cybersecurity R&D, Artificial Intelligence, dan Digital Interaction. Selain itu, para Striders juga akan memahami penggunaan berbagai platform pendukung pembelajaran seperti MyUMN dan UNION. Rangkaian ini ditutup dengan talkshow bertema “Eksplorasi Dunia Informatika” yang bertujuan memperluas wawasan Striders mengenai beragam peluang dan potensi di dunia informatika.",
-      polaroidImage: "/Images/Timeline/dday-polaroid.png",
-      sideImage: "/Images/Timeline/dday-side.png",
+      polaroidImage: "/Images/Timeline/dday-polaroid.webp",
+      sideImage: "/Images/Timeline/dday-side.webp",
       detailImage: "/Images/Timeline/dday-detail.jpg",
       necessities: [
-        "/Images/Timeline/shirt.png",
-        "/Images/Timeline/pen.png",
-        "/Images/Timeline/notebook.png",
-        "/Images/Timeline/shoes.png",
+        "/Images/Timeline/shirt.webp",
+        "/Images/Timeline/pen.webp",
+        "/Images/Timeline/notebook.webp",
+        "/Images/Timeline/shoes.webp",
       ],
       tags: ["Festival", "Informatics"],
       comments: [
@@ -55,14 +55,14 @@ export default function Timeline() {
       time: "10:00 AM",
       location: "Multimedia Nusantara University",
       text: "Domination Day merupakan puncak rangkaian acara yang dirancang untuk memberikan pengalaman transformatif bagi Striders dalam menjelajahi dunia teknologi. Selaras dengan tema ''Discovering for Future Domination'' dan tagline ''Discover, Develop, Dominate'', rangkaian kegiatan PPIF ini mendorong Striders untuk melalui tiga tahap penting: Discover (Menemukan): Mengenal lebih dalam berbagai aspek teknologi dan inovasi dalam dunia Informatika Develop (Mengembangkan): Meningkatkan keterampilan teknis dan kreativitas dengan bimbingan dari para ahli serta praktisi di bidang informatika. Dominate (Mendominasi): Mengasah kemampuan untuk mengendalikan dan menerapkan teknologi secara strategis demi menciptakan solusi masa depan yang inovatif.Melalui konsep ini, Domination Day tidak sekadar menjadi ajang pembelajaran, tetapi juga menjadi momen penting untuk menumbuhkan keberanian dalam mengambil peran aktif sebagai penggerak kemajuan teknologi. Dengan begitu, Striders dipersiapkan untuk menjadi pionir di era digital yang terus berkembang.",
-      polaroidImage: "/Images/Timeline/domination-polaroid.png",
-      sideImage: "/Images/Timeline/domination-side.png",
+      polaroidImage: "/Images/Timeline/domination-polaroid.webp",
+      sideImage: "/Images/Timeline/domination-side.webp",
       detailImage: "/Images/Timeline/domination-detail.jpg",
       necessities: [
-        "/Images/Timeline/shirt.png",
-        "/Images/Timeline/pen.png",
-        "/Images/Timeline/notebook.png",
-        "/Images/Timeline/shoes.png",
+        "/Images/Timeline/shirt.webp",
+        "/Images/Timeline/pen.webp",
+        "/Images/Timeline/notebook.webp",
+        "/Images/Timeline/shoes.webp",
       ],
       tags: ["Celebration", "Finale"],
       comments: [
@@ -87,7 +87,7 @@ export default function Timeline() {
           <>
             {/* Timeline Line */}
             <img
-              src="/Images/Timeline/line.png"
+              src="/Images/Timeline/line.webp"
               alt="timeline line"
               className="absolute top-[45%] transform -translate-y-[120px] left-1/2 -translate-x-1/2 w-[120%] z-0"
             />
@@ -109,17 +109,17 @@ export default function Timeline() {
                 >
                   {/* Title */}
                   <div className="absolute -top-20 text-center w-max">
-                    <span className="block text-gray-400 font-bold text-xl drop-shadow-md">
+                    <span className="block text-gray-400 font-bold text-xl drop-shadow-md" style={{ fontFamily: "HongMengTi" }}>
                       Timeline
                     </span>
-                    <span className="block font-extrabold text-white text-3xl drop-shadow-lg">
+                    <span className="block font-bold text-white text-3xl drop-shadow-lg" style={{ fontFamily: "HongMengTi" }}>
                       {item.title}
                     </span>
                   </div>
 
                   {/* Pin */}
                   <img
-                    src="/Images/Timeline/pin.png"
+                    src="/Images/Timeline/pin.webp"
                     alt="pin"
                     className="w-9 h-9 object-contain z-20"
                   />
@@ -151,7 +151,7 @@ export default function Timeline() {
   >
   {/* Background frame */}
   <img
-    src="/Images/Timeline/popup.png"
+    src="/Images/Timeline/popup.webp"
     alt="popup frame"
     className="absolute inset-0 w-full h-full object-contain pointer-events-none"
   />
@@ -164,7 +164,7 @@ export default function Timeline() {
         onClick={() => setSelectedEvent(null)}
       >
         <img
-          src="/Images/Timeline/close.png"
+          src="/Images/Timeline/close.webp"
           alt="Close"
           className="w-8 h-8 hover:scale-110 transition-transform duration-200"
         />
@@ -238,7 +238,7 @@ export default function Timeline() {
       >
         <div className="relative">
           <img
-            src="/Images/Timeline/detail-popup.png"
+            src="/Images/Timeline/detail-popup.webp"
             alt="popup frame"
             className="w-full h-auto object-contain"
           />
@@ -249,7 +249,7 @@ export default function Timeline() {
             onClick={() => setShowPopup(false)}
           >
             <img
-              src="/Images/Timeline/previous.png"
+              src="/Images/Timeline/previous.webp"
               alt="Close"
               className="w-[90%] h-auto"
             />
