@@ -178,7 +178,7 @@ export default function Timeline() {
                     <button
                       onClick={() => setSelectedEvent(null)}
                       className="hover:scale-110 transition-transform duration-200
-               w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8"
+                                 w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8"
                     >
                       <img
                         src="/Images/Timeline/close.webp"
@@ -247,119 +247,125 @@ export default function Timeline() {
               exit={{ opacity: 0 }}
             >
               <motion.div
-                className="relative w-[90%] max-w-6xl flex items-center justify-center"
+                className="relative w-[95%] sm:w-[70%] lg:w-[85%] max-w-6xl flex items-center justify-center"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                <div
-                  className="relative bg-no-repeat bg-contain bg-center 
-             h-[90vh] md:h-[80vh] lg:w-[80%] xl:w-[100%] 
-             overflow-hidden rounded-lg shadow-lg mt-15"
-                  style={{
-                    backgroundImage:
-                      "url('/Images/Timeline/detail-popup.webp')",
-                  }}
-                >
-                  {/* Close Button */}
-                  <button
-                    className="absolute top-[10%] right-[6%] z-50"
-                    onClick={() => setShowPopup(false)}
+                {/* Popup Box */}
+                <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-12">
+                  <div
+                    className={`
+                      bg-[#222326] rounded-4xl shadow-2xl
+                      flex flex-col md:flex-row gap-6 sm:gap-8
+                      w-[full] 
+                      sm:max-w-3xl lg:max-w-6xl 
+                      border-6 border-[#74787b] 
+                      lg:h-auto sm:h-[250px] 
+                      overflow-hidden
+                    `}
                   >
-                    <img
-                      src="/Images/Timeline/previous.webp"
-                      alt="Close"
-                      className="w-[80%] h-auto"
-                    />
-                  </button>
-
-                  {/* Inner Content */}
-                  <div className="absolute top-[6%] left-[3%] w-[74%] flex flex-col lg:flex-row text-white gap-20">
-                    {/* Left Side */}
-                    <div className="md:h-[600px] md:w-[50%] lg:w-[39%] flex flex-col items-center">
+                    {/* Close Button */}
+                    <button
+                      className="absolute lg:top-[22%] lg:right-[10%] sm:top-[28%] sm:right-[12%] z-50"
+                      onClick={() => setShowPopup(false)}
+                    >
                       <img
-                        src={selectedEvent.detailImage}
-                        alt={selectedEvent.title}
-                        className="w-[200px] h-auto xl:h-[50%] xl:w-auto rounded-md shadow-lg mt-1 sm:mt-2 sm:rounded-md md:mt-2 md:rounded-lg lg:mt-3 lg:rounded-lg xl:mt-4 xl:rounded-lg"
+                        src="/Images/Timeline/previous.webp"
+                        alt="Close"
+                        className="w-8 sm:w-[40px] lg:w-[70px] h-auto"
                       />
-                      <p
-                        className="text-gray-300 mb-2"
-                        style={{ fontFamily: "HongMengTi" }}
-                      >
-                        Necessities
-                      </p>
-                      <div className="grid grid-cols-4 gap-3">
-                        {selectedEvent.necessities.map((n, i) => (
-                          <img
-                            key={i}
-                            src={n}
-                            alt="necessity"
-                            className="w-12 h-12 drop-shadow-md"
-                          />
-                        ))}
+                    </button>
+
+                    {/* Left Sidebar */}
+                    <div className="bg-[#383838] rounded-xl p-0 lg:w-1/3 sm:w-[23%] flex-shrink-0 lg:ml-8 sm:ml-4 lg:my-8 sm:my-4">
+                      <div className="flex flex-col items-center">
+                        <img
+                          src={selectedEvent.detailImage}
+                          alt={selectedEvent.title}
+                          className="w-[150px] sm:w-[120px] lg:w-[450px] h-auto rounded-md lg:mb-4 sm:mb-2"
+                        />
+                        <p
+                          className="text-gray-300 mb-2 text-sm lg:text-base sm:text-[8px]"
+                          style={{ fontFamily: 'HongMengTi' }}
+                        >
+                          Necessities
+                        </p>
+                        <div className="grid grid-cols-4 gap-2 lg:gap-4 sm:gap-1">
+                          {selectedEvent.necessities.map((n, i) => (
+                            <img
+                              key={i}
+                              src={n}
+                              alt="necessity"
+                              className="w-10 sm:w-4 lg:w-12 h-10 sm:h-4 lg:h-12 drop-shadow-md"
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Right Side */}
-                  <div className="absolute top-[10%] left-[37%] w-[90%] flex flex-col lg:flex-row text-white gap-20">
-                    <div className="lg:w-[60%] flex flex-col max-h-[550px] pr-2">
+                    {/* Right Content */}
+                    <div className="bg-[#383838] rounded-xl sm:p-4 lg:p-8 flex-grow overflow-y-auto lg:mr-8 sm:mr-4 lg:my-8 sm:my-4">
                       <h2
-                        className="text-3xl mb-3"
-                        style={{ fontFamily: "HongMengTi" }}
+                        className="text-xl sm:text-sm lg:text-3xl mb-3 text-white"
+                        style={{ fontFamily: 'HongMengTi' }}
                       >
                         {selectedEvent.title}
                       </h2>
-                      <div className="flex flex-wrap gap-4 text-sm mb-4">
-                        <span className="bg-yellow-400 text-black px-3 py-1 rounded-full font-semibold">
+
+                      {/* Event Info */}
+                      <div className="flex flex-wrap gap-2 lg:gap-2 sm:gap-1 text-xs sm:text-[6px] lg:text-xs mb-4">
+                        <span className="bg-yellow-400 text-black lg:px-3 sm:px-1 py-1 rounded-full font-semibold">
                           {selectedEvent.date}
                         </span>
-                        <span className="bg-green-400 text-black px-3 py-1 rounded-full font-semibold">
+                        <span className="bg-green-400 text-black lg:px-3 sm:px-1 py-1 rounded-full font-semibold">
                           {selectedEvent.time}
                         </span>
-                        <span className="bg-blue-400 text-black px-3 py-1 rounded-full font-semibold">
+                        <span className="bg-blue-400 text-black lg:px-3 sm:px-1 py-1 rounded-full font-semibold">
                           {selectedEvent.location}
                         </span>
                       </div>
 
                       {/* Scrollable Event Text */}
-                      <div className="overflow-y-auto max-h-[200px] mb-4 pr-2">
+                      <div className="overflow-y-auto max-h-[150px] sm:max-h-[200px] mb-4 pr-2">
                         <p
-                          className="text-sm leading-relaxed text-justify"
-                          style={{ fontFamily: "HongMengTi" }}
+                          className="text-xs lg:text-sm sm:text-[10%] leading-relaxed text-justify text-gray-300"
+                          style={{ fontFamily: 'HongMengTi' }}
                         >
                           {selectedEvent.text}
                         </p>
                       </div>
 
+                      {/* Tags */}
                       <div className="flex flex-wrap gap-2 mb-4">
                         {selectedEvent.tags.map((tag, i) => (
                           <span
                             key={i}
-                            style={{ fontFamily: "HongMengTi" }}
-                            className="bg-[#23252A] text-white lg:px-3 lg:py-1 px-2 py-1 lg:text-sm text-[4px] rounded-full border-3 border-[#797979]"
+                            style={{ fontFamily: 'HongMengTi' }}
+                            className="bg-[#23252A] text-white lg:px-3 sm:px-1 sm:py-1 lg:py-1 rounded-full lg:border-4 sm:border-2 border-[#797979] text-xs lg:text-sm sm:text-[10%]"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
 
-                      <div className="bg-black/40 rounded-lg p-4 flex-1 overflow-y-auto max-h-[200px]">
+                      {/* Comments */}
+                      <div className="bg-black/40 rounded-lg sm:p-2 lg:p-4 flex-1 overflow-y-auto max-h-[150px] lg:max-h-[200px] sm:max-h-[45%]">
                         <p
-                          className="text-yellow-400 mb-2"
-                          style={{ fontFamily: "HongMengTi" }}
+                          className="text-yellow-400 mb-2 text-sm sm:text-[15%] lg:text-base"
+                          style={{ fontFamily: 'HongMengTi' }}
                         >
                           Comments
                         </p>
                         {selectedEvent.comments.map((c, i) => (
                           <div
                             key={i}
-                            className="bg-white/10 p-3 rounded-lg mb-2"
-                            style={{ fontFamily: "HongMengTi" }}
+                            className="bg-white/10 sm:p-2 lg:p-3 rounded-lg mb-2"
+                            style={{ fontFamily: 'HongMengTi' }}
                           >
-                            <p className="text-sm font-semibold">{c.user}</p>
-                            <p className="text-sm opacity-90">{c.text}</p>
+                            <p className="text-xs sm:text-[10%] lg:text-sm font-semibold">{c.user}</p>
+                            <p className="text-xs sm:text-[10%] lg:text-sm opacity-90">{c.text}</p>
                           </div>
                         ))}
                       </div>
