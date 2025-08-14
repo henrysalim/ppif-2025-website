@@ -118,7 +118,11 @@ export default function DetailBox({ selectedBox, activeTab }) {
                             loading="lazy"
                         />
                         <div className="lg:text-lg text-[16px] font-bold text-center text-white">{selectedBox.title}</div>
-                        <div className="lg:text-sm text-[12px] text-slate-500 text-center mt-1 px-2">{selectedBox.description}</div>
+                        <div className="lg:text-sm text-[12px] text-slate-500 text-justify mt-1 px-2">
+                            {selectedBox.description.split("\n").map((line, i) => (
+                                <p key={i} className="mb-1">{line}</p>
+                            ))}
+                        </div>
                     </>
                 )}
                 {/* {activeTab === 'Member' && (
