@@ -29,20 +29,20 @@ export default function Home() {
   const allGroups = [...groupedIcons, ...groupedIcons];
 
   return (
-    <div className="film-carousel-container">
+    <div className="w-full h-screen bg-gradient-to-br from-[#1e1e1e] to-[#2d2d2d] flex items-center justify-center overflow-hidden gap-5 p-5 md:gap-4 md:p-4 sm:gap-3 sm:p-3">
       {/* Left Roll */}
-      <div className="film-roll left-roll">
+      <div className="flex items-center justify-center flex-shrink-0">
         <Image
           src="/Assets/RollKiri.png"
           alt="Film Roll Left"
-          width={60}
-          height={200}
-          className="roll-image"
+          width={100}
+          height={100}
+          className="drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-[1.02] w-full lg:h-[350px] h-[150px]"
         />
       </div>
 
       {/* Film Strip Carousel */}
-      <div className="film-strip-wrapper">
+      <div className="flex-1 max-w-[600px] relative">
         <Swiper
           modules={[Autoplay, FreeMode]}
           slidesPerView={'auto'}
@@ -55,28 +55,28 @@ export default function Home() {
             disableOnInteraction: false,
             reverseDirection: false,
           }}
-          className="film-swiper"
+          className="w-full h-[180px] md:h-[240px] sm:h-[120px]"
         >
           {allGroups.map((group, groupIndex) => (
-            <SwiperSlide key={groupIndex} className="four-frame-slide">
-              <div className="film-strip-container">
+            <SwiperSlide key={groupIndex} className=" h-[280px]">
+              <div className="w-full h-full relative rounded-lg overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.6)]">
                 {/* Film Strip Background */}
                 <Image
                   src="/Assets/film-strip.png"
                   alt="Film Strip 4 Frame"
                   fill
-                  className="film-strip-bg"
+                  className="object-cover z-[1]"
                 />
                 {/* Content over the film strip */}
-                <div className="four-frames-content">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 grid grid-cols-4 grid-rows-1 gap-2 w-[85%] h-[60%] z-[2] md:gap-[6px] md:w-[88%] md:h-[65%] sm:gap-1 sm:w-[90%] sm:h-[70%]">
                   {group.map((icon, iconIndex) => (
-                    <div key={iconIndex} className="frame-slot">
+                    <div key={iconIndex} className="flex items-center justify-center bg-white/90 rounded-lg p-2 backdrop-blur-[2px] transition-all duration-300 hover:bg-white hover:scale-[1.05] md:p-[6px] sm:p-1">
                       <Image 
                         src={icon.src}
                         alt={icon.alt}
-                        width={60}
-                        height={60}
-                        className="app-icon"
+                        width={100}
+                        height={100}
+                        className="rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-transform duration-300 h-20"
                       />
                     </div>
                   ))}
@@ -88,13 +88,13 @@ export default function Home() {
       </div>
 
       {/* Right Roll */}
-      <div className="film-roll right-roll">
+      <div className="flex items-center justify-center flex-shrink-0">
         <Image
           src="/Assets/RollKanan.png"
           alt="Film Roll Right"
-          width={60}
-          height={200}
-          className="roll-image"
+          width={100}
+          height={100}
+          className="drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-transform duration-300 hover:scale-[1.02] w-full lg:h-[350px] h-[150px]"
         />
       </div>
     </div>
