@@ -277,7 +277,7 @@ export default function Archive() {
                             {/* Image Area */}
                             <div className="relative lg:h-[530px] h-[210px] overflow-hidden">
                                 <div className="modal-background w-full h-full">
-                                    <Background textChild="Gallery Images" height="full">
+                                    <Background textChild="Archive Images" height="full">
                                         <div className="relative w-full h-full flex items-center justify-center">
                                             {/* Blur Box */}
                                             <div className="absolute inset-0 z-0 flex items-center justify-center">
