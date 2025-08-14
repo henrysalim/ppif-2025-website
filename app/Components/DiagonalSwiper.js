@@ -34,7 +34,7 @@ export default function DiagonalSwiper() {
         slideRefs.current.forEach((el, idx) => {
             if (idx !== activeSlide && el) {
                 el.style.opacity = '0.5';
-                el.style.transform = 'scale(0.5)';
+                el.style.transform = 'scale(1)';
             }
         });
     }, [activeSlide]);
