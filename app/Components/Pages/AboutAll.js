@@ -56,7 +56,7 @@ export default function AboutAll() {
               Multimedia Nusantara University
             </p>
             <div
-              className="bg-gradient-to-b rounded-xl lg:p-6 p-3 lg:h-[300px] h-[105px] lg:mb-0 mb-2 overflow-y-scroll about-scrollbar shadow-lg border border-gray-700"
+              className="bg-gradient-to-b rounded-xl lg:p-6 p-3 lg:h-[300px] h-[105px] lg:mb-0 mb-2 overflow-y-scroll about-scrollbar shadow-lg border border-gray-700 text-justify"
               style={{
                 background: "linear-gradient(to bottom, #5C5C5C, #3A3A3A)",
               }}
@@ -91,7 +91,7 @@ export default function AboutAll() {
               Program Pengenalan Informatika & Fakultas
             </p>
             <div
-              className="bg-gradient-to-b rounded-2xl lg:p-6 p-3 lg:h-[300px] h-[105px] lg:mb-0 mb-2 overflow-y-scroll about-scrollbar shadow-lg border border-gray-700"
+              className="bg-gradient-to-b rounded-2xl lg:p-6 p-3 lg:h-[300px] h-[105px] lg:mb-0 mb-2 overflow-y-scroll about-scrollbar shadow-lg border border-gray-700 text-justify"
               style={{
                 background: "linear-gradient(to bottom, #5C5C5C, #3A3A3A)",
               }}

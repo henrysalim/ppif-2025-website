@@ -65,112 +65,108 @@ export default function DiagonalSwiper() {
                         className="relative w-[250px] lg:w-[350px] z-20 bg-gradient-to-t from-[#000000] to-[#282828] p-1 border-4 shadow-xl border-black -skew-x-12 h-[500px] md:h-screen origin-bottom-left"
                     >
                         <Swiper
-                            direction="vertical"
-                            slidesPerView={4}
-                            spaceBetween={20}
-                            freeMode={true}
-                            onSlideChange={(swiper) => {
-                                setActiveSlide(swiper.activeIndex);
-                                setSelectedBox(slides[swiper.activeIndex][1]);
-                                playScrollSound();
-                            }}
-                            modules={[FreeMode]}
-                            breakpoints={{
-                                768: {
-                                    slidesPerView: 2,
-                                    spaceBetween: 10,
-                                },
-                                1024: {
-                                    slidesPerView: 3,
-                                    spaceBetween: 20,
-                                },
-                                1440: {
-                                    slidesPerView: 4,
-                                    spaceBetween: 20,
-                                },
-                            }}
-                            className="h-full"
-                        >
-                            {slides.map((slide, idx) => (
-                                <SwiperSlide key={idx}>
+                        direction="vertical"
+                        slidesPerView={4}
+                        spaceBetween={20}
+                        freeMode={true}
+                        onSlideChange={(swiper) => {
+                            setActiveSlide(swiper.activeIndex);
+                            setSelectedBox(slides[swiper.activeIndex][1]);
+                            playScrollSound();
+                        }}
+                        modules={[FreeMode]}
+                        breakpoints={{
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 10,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 20,
+                            },
+                            1440: {
+                                slidesPerView: 4,
+                                spaceBetween: 20,
+                            },
+                        }}
+                        className="h-full"
+                    >
+                        {slides.map((slide, idx) => (
+                            <SwiperSlide key={idx}>
+                                <div
+                                    ref={el => (slideRefs.current[idx] = el)}
+                                    className="flex flex-row -skew-x-12 items-center justify-between transition-all duration-500 lg:gap-0 gap-2"
+                                >
+                                    {/* KIRI */}
                                     <div
-                                        ref={el => (slideRefs.current[idx] = el)}
-                                        className="flex flex-row -skew-x-12 items-center justify-between transition-all duration-500 lg:gap-0 gap-2"
+                                        className={`transition-all bg-[#3e4144] rounded-tl-xl rounded-br-xl duration-300 
+                                            ${(slide[0].id === 11 || slide[0].id === 12) ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+                                            ${selectedBox.id === slide[0].id ? 'ring-8 ring-[#5AE93A] pulse-ring scale-105 animate-pulse' : ''}`}
+                                        style={{ marginTop: '0px' }}
+                                        onClick={() => {
+                                            if (slide[0].id === 11 || slide[0].id === 12) return;
+                                            handleSelectBox(slide[0]);
+                                            playClickSound();
+                                        }}
                                     >
-                                        {/* KIRI */}
-                                        <div
-                                            className={`cursor-pointer transition-all bg-[#3e4144] rounded-tl-xl rounded-br-xl duration-300 ${selectedBox.id === slide[0].id
-                                                ? 'ring-8 ring-[#5AE93A] pulse-ring scale-105 animate-pulse'
-                                                : ''
-                                                }`}
-                                            style={{
-                                                marginTop: '0px',
-                                            }}
-                                            onClick={() => {
-                                                handleSelectBox(slide[0]);
-                                                playClickSound();
-                                            }}
-                                        >
-                                            <img
-                                                src={slide[0].divisionimg}
-                                                alt=""
-                                                className="lg:w-26 lg:h-48 w-18 h-42 rounded-tl-xl rounded-br-xl object-cover shadow-lg"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                        {/* TENGAH (AGAK BAWAH) */}
-                                        <div
-                                            className={`cursor-pointer transition-all bg-[#3e4144] rounded-tl-xl rounded-br-xl duration-300 ${selectedBox.id === slide[1].id
-                                                ? 'ring-8 ring-[#5AE93A] pulse-ring scale-105 animate-pulse'
-                                                : ''
-                                                }`}
-                                            style={{
-                                                marginTop: '60px',
-                                            }}
-                                            onClick={() => {
-                                                handleSelectBox(slide[1]);
-                                                playClickSound();
-                                            }}
-                                        >
-                                            <img
-                                                src={slide[1].divisionimg}
-                                                alt=""
-                                                className="lg:w-28 lg:h-48 w-20 h-42 rounded-tl-xl rounded-br-xl object-cover shadow-lg"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                        {/* KANAN */}
-                                        <div
-                                            className={`cursor-pointer transition-all bg-[#3e4144] rounded-tl-xl rounded-br-xl duration-300 ${selectedBox.id === slide[2].id
-                                                ? 'ring-8 ring-[#5AE93A] pulse-ring scale-105 animate-pulse'
-                                                : ''
-                                                }`}
-                                            style={{
-                                                marginTop: '0px',
-                                            }}
-                                            onClick={() => {
-                                                handleSelectBox(slide[2]);
-                                                playClickSound();
-                                            }}
-                                        >
-                                            <img
-                                                src={slide[2].divisionimg}
-                                                alt=""
-                                                className="lg:w-26 lg:h-48 w-18 h-42 rounded-tl-xl rounded-br-xl object-cover shadow-lg"
-                                                loading="lazy"
-                                            />
-                                        </div>
+                                        <img
+                                            src={slide[0].divisionimg}
+                                            alt=""
+                                            className="lg:w-26 lg:h-48 w-18 h-42 rounded-tl-xl rounded-br-xl object-cover shadow-lg"
+                                            loading="lazy"
+                                        />
                                     </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+
+                                    {/* TENGAH */}
+                                    <div
+                                        className={`transition-all bg-[#3e4144] rounded-tl-xl rounded-br-xl duration-300 
+                                            ${(slide[1].id === 11 || slide[1].id === 12) ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+                                            ${selectedBox.id === slide[1].id ? 'ring-8 ring-[#5AE93A] pulse-ring scale-105 animate-pulse' : ''}`}
+                                        style={{ marginTop: '60px' }}
+                                        onClick={() => {
+                                            if (slide[1].id === 11 || slide[1].id === 12) return;
+                                            handleSelectBox(slide[1]);
+                                            playClickSound();
+                                        }}
+                                    >
+                                        <img
+                                            src={slide[1].divisionimg}
+                                            alt=""
+                                            className="lg:w-28 lg:h-48 w-20 h-42 rounded-tl-xl rounded-br-xl object-cover shadow-lg"
+                                            loading="lazy"
+                                        />
+                                    </div>
+
+                                    {/* KANAN */}
+                                    <div
+                                        className={`transition-all bg-[#3e4144] rounded-tl-xl rounded-br-xl duration-300 
+                                            ${(slide[2].id === 11 || slide[2].id === 12) ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
+                                            ${selectedBox.id === slide[2].id ? 'ring-8 ring-[#5AE93A] pulse-ring scale-105 animate-pulse' : ''}`}
+                                        style={{ marginTop: '0px' }}
+                                        onClick={() => {
+                                            if (slide[2].id === 11 || slide[2].id === 12) return;
+                                            handleSelectBox(slide[2]);
+                                            playClickSound();
+                                        }}
+                                    >
+                                        <img
+                                            src={slide[2].divisionimg}
+                                            alt=""
+                                            className="lg:w-26 lg:h-48 w-18 h-42 rounded-tl-xl rounded-br-xl object-cover shadow-lg"
+                                            loading="lazy"
+                                        />
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                     </div>
                     <div className='relative lg:bottom-12 bottom-6 flex lg:gap-5 gap-2 flex-col'>
                         {TABS.map((tab, i) => (
                             <button
                                 key={tab}
                                 className={`cursor-pointer relative
-                                    ${i === 0 ? "lg:left-10 left-6" : i === 1 ? "lg:left-6.5 left-4" : "lg:left-3 left-1.5"} 
+                                    ${i === 0 ? "lg:left-7 left-4" : i === 1 ? "lg:left-3.5 left-2" : "lg:left-3 left-1.5"} 
                                     bg-gradient-to-t from-[#25272B] to-[#4F4F4F] p-2 -skew-x-12 rounded-r-2xl
                                     ${activeTab === tab ? "ring-4 ring-[#5AE93A] pulse-ring" : ""}
                                 `}
