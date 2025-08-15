@@ -7,96 +7,108 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "../globals.css";
 
-export default function Home() {
-  const icons = [
-    { src: "/Assets/icons/Whatsapp.png", alt: "WhatsApp" },
-    { src: "/Assets/icons/Discord.png", alt: "Discord" },
-    { src: "/Assets/icons/Instagram.png", alt: "Instagram" },
-    { src: "/Assets/icons/Line.png", alt: "Line" },
-    { src: "/Assets/icons/Whatsapp.png", alt: "WhatsApp" },
-    { src: "/Assets/icons/Discord.png", alt: "Discord" },
-    { src: "/Assets/icons/Instagram.png", alt: "Instagram" },
-    { src: "/Assets/icons/Line.png", alt: "Line" }
-  ];
+// Data icon + link
+const ICONS_DATA = [
+  { src: "/Assets/icons/Whatsapp.png", alt: "WhatsApp", link: "https://wa.me/123456" },
+  { src: "/Assets/icons/Discord.png", alt: "Discord", link: "https://discord.com/invite/abc" },
+  { src: "/Assets/icons/Instagram.png", alt: "Instagram", link: "https://instagram.com/username" },
+  { src: "/Assets/icons/Line.png", alt: "Line", link: "https://line.me/ti/p/@lineid" }
+];
 
-  // Group icons into chunks of 4 for 4-frame layout
-  const groupedIcons = [];
-  for (let i = 0; i < icons.length; i += 4) {
-    groupedIcons.push(icons.slice(i, i + 4));
+const SWIPER_CONFIG = {
+  modules: [Autoplay, FreeMode],
+  slidesPerView: 'auto',
+  spaceBetween: 6,
+  loop: true,
+  freeMode: true,
+  speed: 3500,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+    reverseDirection: false,
   }
+};
 
-  // Duplicate for smooth looping
-  const allGroups = [...groupedIcons, ...groupedIcons];
+export default function Contact() {
 
-  return (
-    <div className="film-carousel-container">
-      {/* Left Roll */}
-      <div className="film-roll left-roll">
-        <Image
-          src="/Assets/RollKiri.png"
-          alt="Film Roll Left"
-          width={60}
-          height={200}
-          className="roll-image"
-        />
-      </div>
-
-      {/* Film Strip Carousel */}
-      <div className="film-strip-wrapper">
-        <Swiper
-          modules={[Autoplay, FreeMode]}
-          slidesPerView={'auto'}
-          spaceBetween={10}
-          loop={true}
-          freeMode={true}
-          speed={3000}
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            reverseDirection: false,
-          }}
-          className="film-swiper"
-        >
-          {allGroups.map((group, groupIndex) => (
-            <SwiperSlide key={groupIndex} className="four-frame-slide">
-              <div className="film-strip-container">
-                {/* Film Strip Background */}
-                <Image
-                  src="/Assets/film-strip.png"
-                  alt="Film Strip 4 Frame"
-                  fill
-                  className="film-strip-bg"
-                />
-                {/* Content over the film strip */}
-                <div className="four-frames-content">
-                  {group.map((icon, iconIndex) => (
-                    <div key={iconIndex} className="frame-slot">
-                      <Image 
-                        src={icon.src}
-                        alt={icon.alt}
-                        width={60}
-                        height={60}
-                        className="app-icon"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-
-      {/* Right Roll */}
-      <div className="film-roll right-roll">
-        <Image
-          src="/Assets/RollKanan.png"
-          alt="Film Roll Right"
-          width={60}
-          height={200}
-          className="roll-image"
-        />
-      </div>
+  const extendedIcons = [...ICONS_DATA, ...ICONS_DATA, ...ICONS_DATA];
+  
+  // Render roll kiri/kanan
+  const renderFilmRoll = (side, src, alt) => (
+    <div className={`film-roll ${side}-roll`}>
+      <Image
+        src={src}
+        alt={alt}
+        width={0}
+        height={0}
+        sizes="auto"
+        className="roll-image"
+        priority
+      />
     </div>
   );
+
+  // Render 1 frame
+  const renderSingleFrameSlide = (icon, index) => (
+    <SwiperSlide key={index} className="single-frame-slide">
+      <div className="film-frame-container">
+        <div className="film-frame-bg">
+          <div className="frame-perforations-top">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="perforation"></div>
+            ))}
+          </div>
+          
+          <div className="frame-content-area">
+            <div className="icon-container">
+              <a href={icon.link} target="_blank" rel="noopener noreferrer">
+                <Image 
+                  src={icon.src}
+                  alt={icon.alt}
+                  width={80}
+                  height={80}
+                  className="app-icon"
+                />
+              </a>
+            </div>
+          </div>
+          
+          <div className="frame-perforations-bottom">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="perforation"></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </SwiperSlide>
+  );
+
+  return (
+  <div className="main-content flex flex-col items-center pt-[80px]">
+  <h1 className="text-3xl max-w-[1500px] w-full font-normal mb-[60px] text-center px-[60px] py-5 rounded-[50px] backdrop-blur-[10px] border border-white/10 text-white/40 bg-gradient-to-br from-[#3D3F44] to-[#25272B]">
+    Connect to the Network
+  </h1>
+
+  <div className="flex items-center justify-center">
+    {/* Sisi kiri */}
+    <div className="flex justify-end items-center">
+      {renderFilmRoll("left", "/Assets/RollKiri.png", "Film Roll Left")}
+    </div>
+
+    {/* Strip tengah */}
+    <div className="flex-1 max-w-[800px] relative z-[1]">
+      <Swiper {...SWIPER_CONFIG} className="w-full h-[200px] overflow-visible">
+        {extendedIcons.map(renderSingleFrameSlide)}
+      </Swiper>
+    </div>
+
+    {/* Sisi kanan */}
+    <div className="flex justify-start items-center">
+      {renderFilmRoll("right", "/Assets/RollKanan.png", "Film Roll Right")}
+    </div>
+  </div>
+</div>
+
+);
+
 }
