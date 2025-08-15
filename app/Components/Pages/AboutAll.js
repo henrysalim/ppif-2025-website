@@ -177,7 +177,7 @@ export default function AboutAll() {
                   `Gallery ${activeContent === "informatics" ? "Informatics" : "PPIF"
                   }`}
               </h3>
-              <p className="text-gray-300 lg:text-lg text-[9px] mt-4 lg:w-[500px] w-[230px] truncate">
+              <p className="text-gray-300 lg:text-xs text-[8px] mt-4 lg:w-[500px] w-[230px] truncate">
                 {selectedImage?.description ||
                   "Klik gambar untuk melihat detail tiap dokumentasi acara."}
               </p>
