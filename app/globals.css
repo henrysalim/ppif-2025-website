@@ -168,119 +168,113 @@ body {
     fast-pulse 0.4s cubic-bezier(0.4, 0, 0.2, 1) 4;
 }
 
-/* Film Carousel Styles */
-.film-carousel-container {
+:root{
+  --navbar-height: 122px;
+}
+
+.main-content {
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: top;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  gap: 20px;
-  padding: 20px;
+  padding: calc(var(--navbar-height) + 20px) 20px 20px;
+  color: white;
 }
 
-.film-strip-wrapper {
-  flex: 1;
-  max-width: 600px;
-  position: relative;
-}
-
-.film-swiper {
-  width: 100%;
-  height: 180px;
-}
-
-/* Film Roll Styles - Using PNG Assets */
 .film-roll {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  height: 200px;
+  position: relative;
+  z-index: 2;
+  margin: 0 -5px;
 }
 
 .roll-image {
-  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
-  transition: transform 0.3s ease;
+  height: 250px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.8));
 }
 
-.roll-image:hover {
-  transform: scale(1.02);
+.single-frame-slide {
+  width: 160px !important;
+  height: 200px;
+  flex-shrink: 0;
 }
 
-/* Four Frame Layout with Film Strip Asset */
-.four-frame-slide {
-  width: 600px !important;
-  height: 180px;
-}
-
-.film-strip-container {
+.film-frame-container {
   width: 100%;
   height: 100%;
   position: relative;
-  border-radius: 8px;
-  overflow: hidden;
+}
+
+.film-frame-bg {
+  width: 100%;
+  height: 100%;
+  background: transparent;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-.film-strip-bg {
-  object-fit: cover;
-  z-index: 1;
+.film-frame-bg:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.8);
 }
 
-/* Four Frame Content Layout */
-.four-frames-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr;
-  gap: 8px;
-  width: 85%;
-  height: 60%;
-  z-index: 2;
+.frame-perforations-top,
+.frame-perforations-bottom {
+  height: 20px;
+  background: #222;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10px;
 }
 
-.frame-slot {
+.perforation {
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.frame-content-area {
+  flex: 1;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  padding: 8px;
   position: relative;
+  margin: 2px;
+  border-radius: 4px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.icon-container:hover {
+  transform: scale(1.1);
+}
+
+.app-icon {
+  width: 100px;
+  height: 100px;
   transition: all 0.3s ease;
-  backdrop-filter: blur(2px);
 }
 
-.frame-slot:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: scale(1.05);
-}
-
-.app-icon {
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.frame-slot:hover {
-  background: rgba(240, 240, 240, 0.9);
-  transform: scale(1.02);
-}
-
-.app-icon {
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-/* Remove old perforation styles since we're using PNG asset */
-
-/* Swiper Overrides */
 .swiper-wrapper {
   transition-timing-function: linear !important;
 }
@@ -289,78 +283,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .film-carousel-container {
-    gap: 15px;
-    padding: 15px;
-  }
-  
-  .four-frame-slide {
-    width: 480px !important;
-    height: 140px;
-  }
-  
-  .film-swiper {
-    height: 140px;
-  }
-  
-  .roll-image {
-    width: 45px !important;
-    height: 150px !important;
-  }
-  
-  .app-icon {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .four-frames-content {
-    gap: 6px;
-    width: 88%;
-    height: 65%;
-  }
-  
-  .frame-slot {
-    padding: 6px;
-  }
-}
-
-@media (max-width: 480px) {
-  .film-carousel-container {
-    gap: 10px;
-    padding: 10px;
-  }
-  
-  .four-frame-slide {
-    width: 360px !important;
-    height: 120px;
-  }
-  
-  .film-swiper {
-    height: 120px;
-  }
-  
-  .roll-image {
-    width: 35px !important;
-    height: 120px !important;
-  }
-  
-  .app-icon {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .four-frames-content {
-    gap: 4px;
-    width: 90%;
-    height: 70%;
-  }
-  
-  .frame-slot {
-    padding: 4px;
-  }
-}
 /* @media (max-aspect-ratio: 16/9) {
   .locked-desktop-content {
     width: 100vw;
