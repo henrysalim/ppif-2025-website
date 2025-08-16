@@ -22,7 +22,7 @@ export default function Timeline() {
       ],
       tags: ["Engagement", "UMN"],
       comments: [
-        { user: "Anonymous", text: "Semangat banget buat briefing day!" },
+        { user: "Axl Zhuang", text: "SEMANGAT TEMEN-TEMEN INFORMATIKA!" },
       ],
     },
     {
@@ -47,8 +47,8 @@ export default function Timeline() {
       tags: ["Festival", "Informatics"],
       comments: [
         {
-          user: "Anonymous",
-          text: "Adrenalin gua naik kayak mau fight boss terakhir!",
+          user: "Henry Natanael",
+          text: "SELAMAT BERGABUNG DI INFORMATIKA UMN, STRIDERS!",
         },
       ],
     },
@@ -72,7 +72,7 @@ export default function Timeline() {
         "/Images/Timeline/bekal.webp",
       ],
       tags: ["Celebration", "Finale"],
-      comments: [{ user: "Anonymous", text: "Puncak dari semua keseruan!" }],
+      comments: [{ user: "Wilbert Budi", text: "HARI INI WAKTUNYA SHOW OFF, DOMINATION DAY!" }],
     },
   ];
 
