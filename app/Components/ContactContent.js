@@ -49,9 +49,8 @@ export default function Contact() {
       <Image
         src={src}
         alt={alt}
-        width={100}
-        height={100}
-        // sizes="auto"
+        width={80}
+        height={80}
         className="roll-image"
         priority
       />
@@ -75,8 +74,8 @@ export default function Contact() {
                 <Image
                   src={icon.src}
                   alt={icon.alt}
-                  width={80}
-                  height={80}
+                  width={50}
+                  height={50}
                   className="app-icon"
                 />
               </a>
@@ -95,19 +94,27 @@ export default function Contact() {
 
   return (
     <div className="main-content flex flex-col items-center pt-[80px]">
-      <h1 className="text-3xl font-bold max-w-[1500px] w-full mb-[60px] text-center px-[60px] py-5 rounded-[50px] backdrop-blur-[10px] border border-white/10 text-white/40 bg-gradient-to-br from-[#3D3F44] to-[#25272B]">
-        Connect to the Network
-      </h1>
+    <h1 className="lg:text-3xl sm:text-[10px] lg:mt-0 sm:mt-[-10%] font-bold lg:max-w-[1500px] sm:max-w-[300px] w-full lg:mb-[60px] sm:mb-[30px] text-center px-[60px] lg:py-5 sm:py-2 rounded-[50px] backdrop-blur-[10px] border border-white/10 text-white/40 bg-gradient-to-br from-[#3D3F44] to-[#25272B]"> Connect to the Network </h1>
 
-      <div className="flex items-center">
+      <div className="flex items-center absolute lg:mt-[10%] sm:mt-[-8%]">
         {/* Sisi kiri */}
         {renderFilmRoll("left", "/Assets/RollKiri.png", "Film Roll Left")}
 
         {/* Strip tengah */}
-        <div className="flex-1 max-w-[400px] md:max-w-[600px] lg:max-w-[1000px] relative z-[1]">
+        <div
+          className="flex-1 
+                     max-w-[220px]
+                     md:max-w-[600px] 
+                     lg:max-w-[1000px] 
+                     relative z-[1]"
+        >
           <Swiper
             {...SWIPER_CONFIG}
-            className="w-full h-[140px] md:h-[180px] lg:h-[200px] overflow-visible"
+            className="w-full 
+                       h-[90px]
+                       md:h-[160px] 
+                       lg:h-[200px] 
+                       overflow-visible"
           >
             {extendedIcons.map(renderSingleFrameSlide)}
           </Swiper>
