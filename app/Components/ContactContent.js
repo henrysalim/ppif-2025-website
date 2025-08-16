@@ -74,7 +74,7 @@ export default function Contact() {
                 <Image
                   src={icon.src}
                   alt={icon.alt}
-                  width={50}   // smaller icons on phones
+                  width={50}
                   height={50}
                   className="app-icon"
                 />
