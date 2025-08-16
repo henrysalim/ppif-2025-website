@@ -9,10 +9,21 @@ import "../globals.css";
 
 // Data icon + link
 const ICONS_DATA = [
-  { src: "/Assets/icons/Whatsapp.png", alt: "WhatsApp", link: "https://wa.me/123456" },
-  { src: "/Assets/icons/Discord.png", alt: "Discord", link: "https://discord.com/invite/abc" },
-  { src: "/Assets/icons/Instagram.png", alt: "Instagram", link: "https://instagram.com/username" },
-  { src: "/Assets/icons/Line.png", alt: "Line", link: "https://line.me/ti/p/@lineid" }
+  {
+    src: "/Assets/icons/Discord.png",
+    alt: "Discord",
+    link: "https://discord.gg/vfCShCKEFV",
+  },
+  {
+    src: "/Assets/icons/Instagram.png",
+    alt: "Instagram",
+    link: "https://instagram.com/ppif.umn",
+  },
+  {
+    src: "/Assets/icons/Line.png",
+    alt: "Line",
+    link: "https://line.me/ti/p/@682fnddg",
+  },
 ];
 
 const SWIPER_CONFIG = {
@@ -85,7 +96,7 @@ export default function Contact() {
 
   return (
   <div className="main-content flex flex-col items-center pt-[80px]">
-  <h1 className="text-3xl max-w-[1500px] w-full font-normal mb-[60px] text-center px-[60px] py-5 rounded-[50px] backdrop-blur-[10px] border border-white/10 text-white/40 bg-gradient-to-br from-[#3D3F44] to-[#25272B]">
+  <h1 className="text-3xl font-bold max-w-[1500px] w-full mb-[60px] text-center px-[60px] py-5 rounded-[50px] backdrop-blur-[10px] border border-white/10 text-white/40 bg-gradient-to-br from-[#3D3F44] to-[#25272B]">
     Connect to the Network
   </h1>
 

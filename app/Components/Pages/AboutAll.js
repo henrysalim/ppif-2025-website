@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Background from "../Background";
 import "../../globals.css";
 import { informaticsGallery, ppifGallery } from "../GalleryData";
-import BackButton from "../BackButton";
 import DiagonalSwiper from "../DiagonalSwiper";
 import { initClickSound, playClickSound } from "../SoundPlayer";
 import { motion, AnimatePresence } from "framer-motion";
