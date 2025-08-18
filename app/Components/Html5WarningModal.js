@@ -16,9 +16,9 @@ export default function Html5WarningModal({ open, onClose }) {
         <p>
           Browser yang digunakan belum mendukung fungsi HTML5, silahkan ganti dengan Browser Google Chrome.
         </p>
-        <button className="modal-close" onClick={handleClose}>
+        {/* <button className="modal-close" onClick={handleClose}>
           Close
-        </button>
+        </button> */}
       </div>
       <style jsx>{`
         .modal-backdrop {
