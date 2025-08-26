@@ -113,7 +113,7 @@ export default function Archive() {
                                             style={{backgroundColor: "#1F1F1F"}}>
                                             <img 
                                                 className='object-contain h-full w-full cursor-pointer'
-                                                src={item.src}
+                                                src={`/Images/AssetArchives/${item.src}`}
                                                 alt="Archive Data"
                                                 onClick={() => {
                                                     setSelectedImage(item);
@@ -285,7 +285,7 @@ export default function Archive() {
                                                 </div>
                                                 {/* Actual Image */}
                                                 <img
-                                                    src={selectedImage.src}
+                                                    src={`/Images/AssetArchives/${selectedImage.src}`}
                                                     alt="Archive Data"
                                                     className="relative z-10 lg:w-[500px] w-[240px] h-auto rounded-xl border-[4px] border-[#6B6B6B] object-contain"
                                                 />

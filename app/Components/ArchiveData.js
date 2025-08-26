@@ -1,11 +1,56 @@
 export const BriefingDay = [
-    
+    {src: "brifwebp/BRIEFING DAY (5).webp"},
+    {src: "brifwebp/BRIEFING DAY (14).webp"},
+    {src: "brifwebp/Screenshot (18).webp"},
+    {src: "brifwebp/Screenshot (21).webp"},
+    {src: "brifwebp/Screenshot (26).webp"},
+    {src: "brifwebp/Screenshot (31).webp"},
+    {src: "brifwebp/Screenshot (34).webp"},
+    {src: "brifwebp/Screenshot (56).webp"},
+    {src: "brifwebp/Screenshot (58).webp"},
+    {src: "brifwebp/SON08381.webp"},
+    {src: "brifwebp/SON08390.webp"},
+    {src: "brifwebp/SON08405.webp"},
+    {src: "brifwebp/SON08411.webp"},
+    {src: "brifwebp/SON08413.webp"},
+    {src: "brifwebp/SON08416.webp"},
+    {src: "brifwebp/SON08422.webp"},
 ];
 
 export const DDay = [
-   
+   {src: "ddaywebp/_MG_2529.webp"},
+    {src: "ddaywebp/_MG_2717.webp"},
+    {src: "ddaywebp/_MG_2764.webp"},
+    {src: "ddaywebp/_MG_2964.webp"},
+    {src: "ddaywebp/_MG_3048.webp"},
+    {src: "ddaywebp/_MG_3056.webp"},
+    {src: "ddaywebp/_MG_3059.webp"},
+    {src: "ddaywebp/_MG_3064.webp"},
+    {src: "ddaywebp/DSC_0033.webp"},
+    {src: "ddaywebp/DSC_0059.webp"},
+    {src: "ddaywebp/DSC_0115.webp"},
+    {src: "ddaywebp/DSC_0160.webp"},
+    {src: "ddaywebp/DSC_0251.webp"},
+    {src: "ddaywebp/DSC_0439.webp"},
+    {src: "ddaywebp/DSC_1144.webp"},
+    {src: "ddaywebp/DSC_1181.webp"},
 ];
 
 export const DominationDay = [
-    
+    {src: "domdaywebp/DSC_0344.webp"},
+    {src: "domdaywebp/DSC_0506.webp"},
+    {src: "domdaywebp/DSC_0549.webp"},
+    {src: "domdaywebp/DSC_0656.webp"},
+    {src: "domdaywebp/DSC_0680.webp"},
+    {src: "domdaywebp/DSC_0695.webp"},
+    {src: "domdaywebp/DSC_0893.webp"},
+    {src: "domdaywebp/DSC_0911.webp"},
+    {src: "domdaywebp/DSC_0922.webp"},
+    {src: "domdaywebp/DSC_1135.webp"},
+    {src: "domdaywebp/DSC_1178.webp"},
+    {src: "domdaywebp/DSC_1182.webp"},
+    {src: "domdaywebp/DSC_1198.webp"},
+    {src: "domdaywebp/DSC_1200.webp"},
+    {src: "domdaywebp/DSC_1232.webp"},
+    {src: "domdaywebp/DSC_1311.webp"},
 ];
